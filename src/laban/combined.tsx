@@ -42,7 +42,11 @@ export const C09Measure = withText(
   "linear-gradient(0deg, rgba(8,4,2,0.85) 0%, rgba(8,4,2,0.55) 14%, rgba(8,4,2,0) 30%)",
 );
 export const C10Staff = withText(B.B09Staff, O.O06Alphabet);
-export const C11Montage = withText(B.B10Montage, O.O07Topics);
+export const C11Montage = withText(
+  B.B10Montage,
+  O.O07Topics,
+  "linear-gradient(0deg, rgba(8,4,2,0.85) 0%, rgba(8,4,2,0.55) 16%, rgba(8,4,2,0) 34%)",
+);
 export const C12Information = withText(B.B11Information, O.O08Information);
 
 // "But dance?" as a standalone beat on the brand's ink background

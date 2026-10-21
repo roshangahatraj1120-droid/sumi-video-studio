@@ -1,3 +1,4 @@
+import { TITLE_LEN, TitleCard } from "./laban/TitleCard";
 import * as LC from "./laban/combined";
 import * as LB from "./laban/broll";
 import * as LO from "./laban/overlays";
@@ -100,6 +101,14 @@ export const RemotionRoot: React.FC = () => {
         />
       </Folder>
       <Folder name="Laban-Final">
+        <Composition
+          id="laban-c13-title-card"
+          component={TitleCard}
+          durationInFrames={TITLE_LEN}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
         <Composition
           id="laban-c01-laban-portrait"
           component={LC.C01Portrait}

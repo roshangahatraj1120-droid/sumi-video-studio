@@ -20,6 +20,7 @@ H.264, 1920×1080, 30 fps, CRF 10 (very high bitrate), AAC 320 kbps placeholder 
 | `11-montage-stranger.mp4` | The list: Nazi cultural politics → machines that read motion |
 | *(host)* | "This isn't only the history of dance notation." |
 | `12-movement-becomes-information.mp4` | "…when human movement becomes information." |
+| `13-title-card.mp4` | TITLE CARD: Rudolf Laban — The Man Who Tried to Write Down Movement |
 
 Timing: if your narration is faster or slower, adjust the clip speed in CapCut.
 Sound: set clip volume about −10 dB under your voice, or mute.

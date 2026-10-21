@@ -11,6 +11,18 @@ cinematic AI B-roll). Older secondary references are summarised in `docs/referen
 colours ink `#0D0710`, gold `#E8C27A` (primary accent), rose `#E0457B` (sparing secondary), white `#F4F1EA`.
 Import everything from `src/brand/tokens.ts`; full rules in `docs/brand.md`. Don't introduce other fonts or colours.
 
+## Collect-then-build workflow (default from now on)
+
+The owner sends the **script/storyboard first**, then images in batches (the chat allows 5 per message).
+1. On the script: save it to `docs/episodes/<episode>/script.md`, reply with the shot plan (scene → line → image
+   slot) and anything unclear. Do not build yet.
+2. On each image batch: save the files in arrival order to `public/<episode>/NN.jpg` (upscaled to 2400 px wide,
+   Lanczos + light unsharp), commit and push so nothing is lost. Reply in 2–3 lines only: which slots were
+   filled, what is still missing, and any problem (wrong subject, duplicate, very low resolution). No rendering.
+3. When the owner says **"this is the final image"** (or similar): build the whole sequence in one pass, using
+   the master-reference style, brand, hero words, split screens, torn-paper transitions etc.; check frames; render
+   final clips with text baked in (CRF 10) plus a placement guide; zip and send.
+
 ## The two ways we work
 
 1. **Inserts for the owner's CapCut edit** (most common). The owner edits the host footage in CapCut. We deliver

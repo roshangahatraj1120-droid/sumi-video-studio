@@ -282,10 +282,11 @@ export const P03Studies: React.FC = () => (
 const CONCEPTS = ["direction", "shape", "geometry", "weight", "time"] as const;
 const CONCEPT_AT = [40, 82, 124, 166, 208];
 
-export const ConceptCards: React.FC<{ x: number; from: "left" | "right" }> = ({
-  x,
-  from,
-}) => {
+export const ConceptCards: React.FC<{
+  x: number;
+  from: "left" | "right";
+  solid?: boolean;
+}> = ({ x, from, solid }) => {
   const frame = useCurrentFrame();
   return (
     <>
@@ -301,6 +302,7 @@ export const ConceptCards: React.FC<{ x: number; from: "left" | "right" }> = ({
           titleSize={58}
           serif={false}
           from={from}
+          solid={solid}
           icon={
             <ConceptIcon
               kind={c}
@@ -357,7 +359,11 @@ export const P04Overlay: React.FC<{
   <AbsoluteFill
     style={{ backgroundColor: bg === "green" ? "#00FF00" : "transparent" }}
   >
-    <ConceptCards x={side === "left" ? 100 : 1260} from={side} />
+    <ConceptCards
+      x={side === "left" ? 100 : 1260}
+      from={side}
+      solid={bg === "green"}
+    />
   </AbsoluteFill>
 );
 

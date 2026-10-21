@@ -36,6 +36,8 @@ export const SlideCard: React.FC<{
   serif?: boolean;
   icon?: React.ReactNode;
   from?: "left" | "right";
+  // opaque card, for chroma-green overlays
+  solid?: boolean;
 }> = ({
   start,
   end,
@@ -48,6 +50,7 @@ export const SlideCard: React.FC<{
   serif = true,
   icon,
   from = "left",
+  solid = false,
 }) => {
   const frame = useCurrentFrame();
   if (frame < start || (end !== undefined && frame >= end)) return null;
@@ -74,8 +77,8 @@ export const SlideCard: React.FC<{
           alignItems: "center",
           gap: 22,
           padding: "20px 28px",
-          background: "rgba(13,7,16,0.66)",
-          backdropFilter: "blur(8px)",
+          background: solid ? COLOR.ink : "rgba(13,7,16,0.66)",
+          backdropFilter: solid ? undefined : "blur(8px)",
           border: `1px solid ${COLOR.gold}55`,
           borderLeft: `5px solid ${COLOR.gold}`,
           borderRadius: 6,

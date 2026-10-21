@@ -178,23 +178,21 @@ export const O05Measure: React.FC<OverlayProps> = ({ bg }) => (
       text="Where it moved"
       start={18}
       end={MEASURE_SPLIT - 4}
-      y={880}
+      y={950}
     />
     <Label
       bg={bg}
       text="How high · how low"
       start={MEASURE_SPLIT + 14}
       end={MEASURE_SPLIT + 74}
-      x={240}
-      y={200}
+      y={950}
     />
     <Label
       bg={bg}
       text="How long"
       start={MEASURE_SPLIT + 76}
       end={LEN.measure}
-      x={240}
-      y={870}
+      y={950}
     />
   </OverlayCanvas>
 );

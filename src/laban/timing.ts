@@ -21,6 +21,8 @@ export const LEN = {
 export const WRITING_SPLIT = 80;
 export const WRITTEN_CUTS = [0, 60, 120];
 export const VERB_CUTS = [0, 27, 54, 81];
+// clip 08: hand drawing (12) → finished notation sheet (15)
+export const SYMBOLS_SPLIT = 84;
 export const MEASURE_SPLIT = 135;
 export const TEASER_CUTS = [0, 22, 44];
 export const MONTAGE_SHOT = 36;

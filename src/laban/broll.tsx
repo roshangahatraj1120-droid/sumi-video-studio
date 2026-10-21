@@ -17,6 +17,7 @@ import { NotationStaff } from "./NotationStaff";
 import {
   LEN,
   MEASURE_SPLIT,
+  SYMBOLS_SPLIT,
   WRITING_SPLIT,
   MONTAGE_CUTS,
   MONTAGE_SHOT,
@@ -247,244 +248,150 @@ export const B06Gone: React.FC = () => {
 
 // 07 — "So Laban developed a system of geometric symbols…"
 const RISING = [
-  { x: 1180, y: 640, shape: "tri" },
-  { x: 1320, y: 560, shape: "rect" },
-  { x: 1460, y: 680, shape: "stripe" },
-  { x: 1240, y: 760, shape: "dot" },
-  { x: 1560, y: 520, shape: "tri" },
-  { x: 1400, y: 820, shape: "rect" },
-  { x: 1100, y: 520, shape: "dot" },
+  { x: 430, y: 640, shape: "tri" },
+  { x: 730, y: 560, shape: "rect" },
+  { x: 1000, y: 700, shape: "stripe" },
+  { x: 1290, y: 760, shape: "dot" },
+  { x: 1580, y: 540, shape: "tri" },
+  { x: 860, y: 860, shape: "rect" },
+  { x: 1440, y: 880, shape: "dot" },
 ];
 export const B07Symbols: React.FC = () => {
   const frame = useCurrentFrame();
+  const lf = frame - SYMBOLS_SPLIT;
   return (
     <Finish>
-      <Still
-        src={img("12")}
-        from={{ s: 1.05 }}
-        to={{ s: 1.15, x: -6, y: -6 }}
-        grade={GRADES.sepiaGold}
-      />
-      <AbsoluteFill
-        style={{
-          background:
-            "radial-gradient(ellipse at 70% 55%, rgba(0,0,0,0.35), rgba(0,0,0,0.75) 75%)",
-          opacity: interpolate(frame, [20, 80], [0, 1], clamp),
-        }}
-      />
-      <svg width={1920} height={1080} style={{ position: "absolute" }}>
-        <defs>
-          <pattern
-            id="riseStripe"
-            width={7}
-            height={7}
-            patternUnits="userSpaceOnUse"
-            patternTransform="rotate(45)"
-          >
-            <rect width={2.5} height={7} fill={COLOR.gold} />
-          </pattern>
-        </defs>
-        {RISING.map((s, i) => {
-          const t0 = 30 + i * 12;
-          const p = interpolate(frame, [t0, t0 + 70], [0, 1], {
-            ...clamp,
-            easing: Easing.out(Easing.cubic),
-          });
-          if (p <= 0) return null;
-          const y = s.y - p * 170;
-          const o = interpolate(p, [0, 0.15, 0.85, 1], [0, 1, 1, 0.85]);
-          const w = 70;
-          const h = 110;
-          return (
-            <g
-              key={i}
-              opacity={o}
-              transform={`translate(${s.x} ${y}) rotate(${(1 - p) * 12})`}
-              style={{
-                filter:
-                  "drop-shadow(0 0 1.5px rgba(40,20,6,1)) drop-shadow(0 0 14px rgba(232,194,122,0.95))",
-              }}
+      <Sequence durationInFrames={SYMBOLS_SPLIT}>
+        <Still
+          src={img("12")}
+          from={{ s: 1.04 }}
+          to={{ s: 1.22, x: -6, y: 2 }}
+          grade={GRADES.sepiaGold}
+          whipOut={1}
+        />
+      </Sequence>
+      <Sequence from={SYMBOLS_SPLIT}>
+        <Still
+          src={img("15")}
+          from={{ s: 1.12 }}
+          to={{ s: 1.04 }}
+          grade={GRADES.sepiaGold}
+          whipIn={1}
+        />
+        <AbsoluteFill
+          style={{
+            background:
+              "radial-gradient(ellipse at 55% 50%, rgba(0,0,0,0.3), rgba(0,0,0,0.7) 75%)",
+            opacity: interpolate(lf, [6, 40], [0, 1], clamp),
+          }}
+        />
+        <svg width={1920} height={1080} style={{ position: "absolute" }}>
+          <defs>
+            <pattern
+              id="riseStripe"
+              width={7}
+              height={7}
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
             >
-              {s.shape === "tri" ? (
-                <path
-                  d={`M ${-w / 2} ${h / 2} L ${w / 2} 0 L ${-w / 2} ${-h / 2} Z`}
-                  fill="none"
-                  stroke={COLOR.gold}
-                  strokeWidth={4.5}
-                />
-              ) : (
-                <rect
-                  x={-w / 2}
-                  y={-h / 2}
-                  width={w}
-                  height={h}
-                  fill={
-                    s.shape === "rect"
-                      ? COLOR.gold
-                      : s.shape === "stripe"
-                        ? "url(#riseStripe)"
-                        : "none"
-                  }
-                  stroke={COLOR.gold}
-                  strokeWidth={4.5}
-                />
-              )}
-              {s.shape === "dot" ? <circle r={8} fill={COLOR.gold} /> : null}
-            </g>
-          );
-        })}
-      </svg>
-      <Sfx name="riser" at={20} volume={0.25} />
+              <rect width={2.5} height={7} fill={COLOR.gold} />
+            </pattern>
+          </defs>
+          {RISING.map((sym, i) => {
+            const t0 = 10 + i * 7;
+            const p = interpolate(lf, [t0, t0 + 50], [0, 1], {
+              ...clamp,
+              easing: Easing.out(Easing.cubic),
+            });
+            if (p <= 0) return null;
+            const y = sym.y - p * 170;
+            const o = interpolate(p, [0, 0.15, 0.85, 1], [0, 1, 1, 0.85]);
+            const w = 70;
+            const h = 110;
+            return (
+              <g
+                key={i}
+                opacity={o}
+                transform={`translate(${sym.x} ${y}) rotate(${(1 - p) * 12})`}
+                style={{
+                  filter:
+                    "drop-shadow(0 0 1.5px rgba(40,20,6,1)) drop-shadow(0 0 14px rgba(232,194,122,0.95))",
+                }}
+              >
+                {sym.shape === "tri" ? (
+                  <path
+                    d={`M ${-w / 2} ${h / 2} L ${w / 2} 0 L ${-w / 2} ${-h / 2} Z`}
+                    fill="none"
+                    stroke={COLOR.gold}
+                    strokeWidth={4.5}
+                  />
+                ) : (
+                  <rect
+                    x={-w / 2}
+                    y={-h / 2}
+                    width={w}
+                    height={h}
+                    fill={
+                      sym.shape === "rect"
+                        ? COLOR.gold
+                        : sym.shape === "stripe"
+                          ? "url(#riseStripe)"
+                          : "none"
+                    }
+                    stroke={COLOR.gold}
+                    strokeWidth={4.5}
+                  />
+                )}
+                {sym.shape === "dot" ? (
+                  <circle r={8} fill={COLOR.gold} />
+                ) : null}
+              </g>
+            );
+          })}
+        </svg>
+      </Sequence>
+      {[12, 30, 44, 62].map((f) => (
+        <Sfx key={f} name="tick" at={f} volume={0.25} />
+      ))}
+      <Sfx name="whoosh" at={SYMBOLS_SPLIT - 5} volume={0.6} />
+      <Sfx name="riser" at={SYMBOLS_SPLIT} volume={0.25} />
       {RISING.map((_, i) => (
-        <Sfx key={i} name="tick" at={30 + i * 12} volume={0.3} />
+        <Sfx key={i} name="tick" at={SYMBOLS_SPLIT + 10 + i * 7} volume={0.3} />
       ))}
     </Finish>
   );
 };
 
 // 08 — "…what the body did, where it moved, how high or low, and how long"
-export const B08Measure: React.FC = () => {
-  const frame = useCurrentFrame();
-  const rays = interpolate(frame, [15, 60], [0, 1], {
-    ...clamp,
-    easing: Easing.out(Easing.cubic),
-  });
-  const lf = frame - MEASURE_SPLIT;
-  const hi = interpolate(lf, [12, 36], [0, 1], {
-    ...clamp,
-    easing: Easing.inOut(Easing.cubic),
-  });
-  const lo = interpolate(lf, [26, 50], [0, 1], {
-    ...clamp,
-    easing: Easing.inOut(Easing.cubic),
-  });
-  const marker = interpolate(lf, [52, 66, 80, 94], [300, 820, 300, 560], clamp);
-  const dur = interpolate(lf, [76, 128], [0, 1], {
-    ...clamp,
-    easing: Easing.inOut(Easing.cubic),
-  });
-  const gold = {
-    stroke: COLOR.gold,
-    filter: "drop-shadow(0 0 8px rgba(232,194,122,0.9))",
-  };
-  return (
-    <Finish>
-      <Sequence durationInFrames={MEASURE_SPLIT}>
-        <Still
-          src={img("13")}
-          pos="50% 15%"
-          from={{ s: 1.02 }}
-          to={{ s: 1.08 }}
-          grade={GRADES.sepiaGold}
-          whipOut={1}
-        />
-        <svg width={1920} height={1080} style={{ position: "absolute" }}>
-          <circle
-            cx={960}
-            cy={560}
-            r={300 * rays}
-            fill="none"
-            strokeWidth={2}
-            style={gold}
-            opacity={0.8}
-          />
-          {Array.from({ length: 8 }).map((_, i) => {
-            const a = (i / 8) * Math.PI * 2;
-            return (
-              <line
-                key={i}
-                x1={960}
-                y1={560}
-                x2={960 + Math.cos(a) * 420 * rays}
-                y2={560 + Math.sin(a) * 420 * rays}
-                strokeWidth={2}
-                strokeDasharray="10 10"
-                style={gold}
-                opacity={0.85}
-              />
-            );
-          })}
-        </svg>
-      </Sequence>
-      <Sequence from={MEASURE_SPLIT}>
-        <Still
-          src={img("14")}
-          from={{ s: 1.08 }}
-          to={{ s: 1.14 }}
-          grade={GRADES.sepiaGold}
-          whipIn={1}
-        />
-        <svg width={1920} height={1080} style={{ position: "absolute" }}>
-          <line
-            x1={240}
-            x2={240 + 1440 * hi}
-            y1={300}
-            y2={300}
-            strokeWidth={2.5}
-            style={gold}
-          />
-          <line
-            x1={240}
-            x2={240 + 1440 * lo}
-            y1={820}
-            y2={820}
-            strokeWidth={2.5}
-            style={gold}
-          />
-          {lf >= 52 ? (
-            <g>
-              <line
-                x1={1700}
-                x2={1700}
-                y1={300}
-                y2={820}
-                strokeWidth={2}
-                strokeDasharray="6 8"
-                style={gold}
-                opacity={0.7}
-              />
-              <circle
-                cx={1700}
-                cy={marker}
-                r={12}
-                fill={COLOR.rose}
-                style={{ filter: "drop-shadow(0 0 10px rgba(224,69,123,1))" }}
-              />
-            </g>
-          ) : null}
-          <rect
-            x={240}
-            y={968}
-            width={1440 * dur}
-            height={10}
-            rx={5}
-            fill={COLOR.gold}
-            style={{ filter: "drop-shadow(0 0 8px rgba(232,194,122,0.9))" }}
-          />
-          {dur > 0
-            ? Array.from({ length: Math.floor(dur * 9) + 1 }).map((_, i) => (
-                <line
-                  key={i}
-                  x1={240 + i * 180}
-                  x2={240 + i * 180}
-                  y1={950}
-                  y2={996}
-                  strokeWidth={2}
-                  style={gold}
-                />
-              ))
-            : null}
-        </svg>
-      </Sequence>
-      {Array.from({ length: 8 }).map((_, i) => (
-        <Sfx key={i} name="tick" at={15 + i * 5} volume={0.25} />
-      ))}
-      <Sfx name="whoosh" at={MEASURE_SPLIT - 5} volume={0.6} />
-      <Sfx name="whoosh" at={MEASURE_SPLIT + 12} volume={0.3} />
-      <Sfx name="riser" at={MEASURE_SPLIT + 70} volume={0.2} />
-    </Finish>
-  );
-};
+export const B08Measure: React.FC = () => (
+  <Finish>
+    <Sequence durationInFrames={MEASURE_SPLIT}>
+      {/* "where it moved": drift toward the direction circle at the reaching hand */}
+      <Still
+        src={img("13")}
+        from={{ s: 1.03, x: 2 }}
+        to={{ s: 1.16, x: -6, y: 6 }}
+        grade={GRADES.sepiaGold}
+        whipOut={1}
+      />
+    </Sequence>
+    <Sequence from={MEASURE_SPLIT}>
+      {/* "how high / how low / how long": settle over the height box, then the floor timeline */}
+      <Still
+        src={img("14")}
+        from={{ s: 1.14, x: -4, y: 4 }}
+        to={{ s: 1.04, y: -2 }}
+        grade={GRADES.sepiaGold}
+        whipIn={1}
+      />
+    </Sequence>
+    {Array.from({ length: 4 }).map((_, i) => (
+      <Sfx key={i} name="tick" at={18 + i * 5} volume={0.22} />
+    ))}
+    <Sfx name="whoosh" at={MEASURE_SPLIT - 5} volume={0.6} />
+    <Sfx name="riser" at={MEASURE_SPLIT + 70} volume={0.2} />
+  </Finish>
+);
 
 // 09 — "An alphabet – not for speech – but for the body." (original motion graphic)
 export const B09Staff: React.FC = () => (

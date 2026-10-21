@@ -36,7 +36,11 @@ export const C04Written = withText(
 export const C06Verbs = withText(B.B05Verbs, O.O04Verbs);
 export const C07Gone = withText(B.B06Gone);
 export const C08Symbols = withText(B.B07Symbols);
-export const C09Measure = withText(B.B08Measure, O.O05Measure);
+export const C09Measure = withText(
+  B.B08Measure,
+  O.O05Measure,
+  "linear-gradient(0deg, rgba(8,4,2,0.85) 0%, rgba(8,4,2,0.55) 14%, rgba(8,4,2,0) 30%)",
+);
 export const C10Staff = withText(B.B09Staff, O.O06Alphabet);
 export const C11Montage = withText(B.B10Montage, O.O07Topics);
 export const C12Information = withText(B.B11Information, O.O08Information);

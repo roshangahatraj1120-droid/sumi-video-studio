@@ -14,6 +14,7 @@ import { GRADES, Still } from "../cine/Still";
 import { Dust } from "../egypt/env";
 import { FilmLook } from "../scenes/FilmLook";
 import { NotationStaff } from "./NotationStaff";
+import { TornReveal } from "../brand/fx";
 import {
   LEN,
   MEASURE_SPLIT,
@@ -27,7 +28,7 @@ import {
   WRITTEN_CUTS,
 } from "./timing";
 
-const img = (n: string) => `laban/${n}.jpg`;
+export const img = (n: string) => `laban/${n}.jpg`;
 const clamp = {
   extrapolateLeft: "clamp" as const,
   extrapolateRight: "clamp" as const,
@@ -41,7 +42,7 @@ type SfxName =
   | "tick"
   | "glitch"
   | "drone";
-const Sfx: React.FC<{ name: SfxName; at: number; volume?: number }> = ({
+export const Sfx: React.FC<{ name: SfxName; at: number; volume?: number }> = ({
   name,
   at,
   volume = 0.5,
@@ -52,7 +53,7 @@ const Sfx: React.FC<{ name: SfxName; at: number; volume?: number }> = ({
 );
 
 // Common finish for every B-roll clip
-const Finish: React.FC<{ children: React.ReactNode; dust?: number }> = ({
+export const Finish: React.FC<{ children: React.ReactNode; dust?: number }> = ({
   children,
   dust = 0.45,
 }) => (
@@ -261,22 +262,20 @@ export const B07Symbols: React.FC = () => {
   const lf = frame - SYMBOLS_SPLIT;
   return (
     <Finish>
-      <Sequence durationInFrames={SYMBOLS_SPLIT}>
+      <Sequence>
         <Still
           src={img("12")}
           from={{ s: 1.04 }}
           to={{ s: 1.22, x: -6, y: 2 }}
           grade={GRADES.sepiaGold}
-          whipOut={1}
         />
       </Sequence>
-      <Sequence from={SYMBOLS_SPLIT}>
+      <TornReveal at={SYMBOLS_SPLIT - 10} seed="sym">
         <Still
           src={img("15")}
           from={{ s: 1.12 }}
           to={{ s: 1.04 }}
           grade={GRADES.sepiaGold}
-          whipIn={1}
         />
         <AbsoluteFill
           style={{
@@ -349,7 +348,7 @@ export const B07Symbols: React.FC = () => {
             );
           })}
         </svg>
-      </Sequence>
+      </TornReveal>
       {[12, 30, 44, 62].map((f) => (
         <Sfx key={f} name="tick" at={f} volume={0.25} />
       ))}
@@ -365,26 +364,24 @@ export const B07Symbols: React.FC = () => {
 // 08 — "…what the body did, where it moved, how high or low, and how long"
 export const B08Measure: React.FC = () => (
   <Finish>
-    <Sequence durationInFrames={MEASURE_SPLIT}>
+    <Sequence>
       {/* "where it moved": drift toward the direction circle at the reaching hand */}
       <Still
         src={img("13")}
         from={{ s: 1.03, x: 2 }}
         to={{ s: 1.16, x: -6, y: 6 }}
         grade={GRADES.sepiaGold}
-        whipOut={1}
       />
     </Sequence>
-    <Sequence from={MEASURE_SPLIT}>
+    <TornReveal at={MEASURE_SPLIT - 10} dir={-1} seed="meas">
       {/* "how high / how low / how long": settle over the height box, then the floor timeline */}
       <Still
         src={img("14")}
         from={{ s: 1.14, x: -4, y: 4 }}
         to={{ s: 1.04, y: -2 }}
         grade={GRADES.sepiaGold}
-        whipIn={1}
       />
-    </Sequence>
+    </TornReveal>
     {Array.from({ length: 4 }).map((_, i) => (
       <Sfx key={i} name="tick" at={18 + i * 5} volume={0.22} />
     ))}

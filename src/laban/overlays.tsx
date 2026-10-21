@@ -150,7 +150,7 @@ export const O04Verbs: React.FC<OverlayProps> = ({ bg }) => {
               top: 800 + drop,
               ...TYPE.heavy,
               textTransform: "uppercase",
-              fontSize: 120,
+              fontSize: 150,
               lineHeight: 1,
               color: COLOR.gold,
               scale: String(1.25 - 0.25 * p),
@@ -178,21 +178,24 @@ export const O05Measure: React.FC<OverlayProps> = ({ bg }) => (
       text="Where it moved"
       start={18}
       end={MEASURE_SPLIT - 4}
-      y={950}
+      y={930}
+      size={72}
     />
     <Label
       bg={bg}
       text="How high · how low"
       start={MEASURE_SPLIT + 14}
       end={MEASURE_SPLIT + 74}
-      y={950}
+      y={930}
+      size={72}
     />
     <Label
       bg={bg}
       text="How long"
       start={MEASURE_SPLIT + 76}
       end={LEN.measure}
-      y={950}
+      y={930}
+      size={72}
     />
   </OverlayCanvas>
 );
@@ -253,3 +256,49 @@ export const O08Information: React.FC<OverlayProps> = ({ bg }) => (
     />
   </OverlayCanvas>
 );
+
+// Positioned label / caption on a transparent canvas, for baking into final clips
+export const LabelAt: React.FC<{
+  text: string;
+  start: number;
+  size?: number;
+  y?: number;
+  x?: number;
+}> = ({ text, start, size = 54, y = 880, x = 120 }) => (
+  <Label bg="alpha" text={text} start={start} size={size} y={y} x={x} />
+);
+
+export const CaptionAt: React.FC<{
+  text: string;
+  start: number;
+  size?: number;
+  y: number;
+  x?: number;
+}> = ({ text, start, size = 44, y, x }) => {
+  const frame = useCurrentFrame();
+  if (frame < start) return null;
+  const t = interpolate(frame, [start, start + 14], [0, 1], {
+    ...clamp,
+    easing: Easing.out(Easing.cubic),
+  });
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: x ?? 0,
+        width: x === undefined ? "100%" : undefined,
+        textAlign: x === undefined ? "center" : "left",
+        top: y,
+        ...TYPE.body,
+        fontSize: size,
+        letterSpacing: "0.04em",
+        color: COLOR.white,
+        opacity: t,
+        translate: `0px ${(1 - t) * 18}px`,
+        textShadow: "0 2px 14px rgba(0,0,0,0.9)",
+      }}
+    >
+      {text}
+    </div>
+  );
+};

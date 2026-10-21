@@ -85,6 +85,11 @@ Every ~45–60 s something must change: new location, new visual treatment, a mo
 ## Building blocks already in this repo
 - `src/cine/Still.tsx` — **use this for all new B-roll**: any image size (cover fit + `pos`), camera move `from`/`to`
   ({s, x, y, r}), whip in/out, `glitchIn`, beat `kicks`, `GRADES` (sepiaGold, bwRose, cool, natural), `rose` tint.
+- `src/brand/fx.tsx` — `TornReveal` (paper-cut transition), `SplitPanels` + `PanelLabel` (split screens that
+  build 1→2→3 panels), `HeroWord` (big highlight word, optional evaporate/glitch), `ScrambleWord` (data lock-in),
+  `TopicTitle` (numbered montage title). Use a hero word on the 1–2 strongest words of each beat.
+- Default delivery: **final clips with text baked in** (`laban-c*` pattern in `src/laban/combined.tsx`), CRF 10,
+  so the owner drops them straight onto the CapCut timeline. Green-screen overlays only on request.
 - `src/brand/text.tsx` — branded overlays: `Label`, `KeyLine`, `WordPair`, `OverlayCanvas` (`bg: green | alpha`).
 - `scripts/make-sfx.sh` — synthesised placeholder SFX in `public/sfx/`.
 - `scripts/render-laban.sh` — pattern for rendering a B-roll + green/alpha overlay delivery set.

@@ -7,8 +7,9 @@ description: House editing style for the channel's 9–10 minute documentary vid
 
 The master reference is a cinematic documentary episode (host on camera in a warm, moody set, intercut with
 cinematic AI B-roll). Older secondary references are summarised in `docs/reference-styles.md`.
-Brand colours and fonts live in `docs/brand.md` — **always use those; if it still says PENDING, ask the owner
-before inventing new ones.**
+**Brand: "Velvet Stage"** — Playfair Display italic (key lines/titles) + Montserrat (labels, body),
+colours ink `#0D0710`, gold `#E8C27A` (primary accent), rose `#E0457B` (sparing secondary), white `#F4F1EA`.
+Import everything from `src/brand/tokens.ts`; full rules in `docs/brand.md`. Don't introduce other fonts or colours.
 
 ## The two ways we work
 

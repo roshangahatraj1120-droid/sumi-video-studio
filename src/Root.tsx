@@ -1,3 +1,7 @@
+import * as LB from "./laban/broll";
+import * as LO from "./laban/overlays";
+import { LEN } from "./laban/timing";
+import { overlaySchema } from "./brand/text";
 import { Composition, Folder, Still } from "remotion";
 import { WallTexture } from "./egypt/WallTexture";
 import { CINE_DURATION, CineVideo } from "./cine/CineVideo";
@@ -89,6 +93,178 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban-Broll">
+        <Composition
+          id="laban-b01-portrait"
+          component={LB.B01Portrait}
+          durationInFrames={LEN.portrait}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b02-writing"
+          component={LB.B02Writing}
+          durationInFrames={LEN.writing}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b03-teaser"
+          component={LB.B03Teaser}
+          durationInFrames={LEN.teaser}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b04-written"
+          component={LB.B04Written}
+          durationInFrames={LEN.written}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b05-verbs"
+          component={LB.B05Verbs}
+          durationInFrames={LEN.verbs}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b06-gone"
+          component={LB.B06Gone}
+          durationInFrames={LEN.gone}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b07-symbols"
+          component={LB.B07Symbols}
+          durationInFrames={LEN.symbols}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b08-measure"
+          component={LB.B08Measure}
+          durationInFrames={LEN.measure}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b09-staff"
+          component={LB.B09Staff}
+          durationInFrames={LEN.staff}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b10-montage"
+          component={LB.B10Montage}
+          durationInFrames={LEN.montage}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-b11-information"
+          component={LB.B11Information}
+          durationInFrames={LEN.information}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban-Overlays">
+        <Composition
+          id="laban-o01-laban"
+          component={LO.O01Laban}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.portrait}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-o02-written"
+          component={LO.O02Written}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.written}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-o03-question"
+          component={LO.O03Question}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.question}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-o04-verbs"
+          component={LO.O04Verbs}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.verbs}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-o05-measure"
+          component={LO.O05Measure}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.measure}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-o06-alphabet"
+          component={LO.O06Alphabet}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.staff}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-o07-topics"
+          component={LO.O07Topics}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.montage}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-o08-information"
+          component={LO.O08Information}
+          schema={overlaySchema}
+          defaultProps={{ bg: "green" as const }}
+          durationInFrames={LEN.information}
           fps={30}
           width={1920}
           height={1080}

@@ -83,6 +83,13 @@ Every ~45–60 s something must change: new location, new visual treatment, a mo
   Keep SFX 6–10 dB under the voice. When the pack arrives, put it in `public/sfx/` and swap.
 
 ## Building blocks already in this repo
+- `src/cine/Still.tsx` — **use this for all new B-roll**: any image size (cover fit + `pos`), camera move `from`/`to`
+  ({s, x, y, r}), whip in/out, `glitchIn`, beat `kicks`, `GRADES` (sepiaGold, bwRose, cool, natural), `rose` tint.
+- `src/brand/text.tsx` — branded overlays: `Label`, `KeyLine`, `WordPair`, `OverlayCanvas` (`bg: green | alpha`).
+- `scripts/make-sfx.sh` — synthesised placeholder SFX in `public/sfx/`.
+- `scripts/render-laban.sh` — pattern for rendering a B-roll + green/alpha overlay delivery set.
+- Episode example: `src/laban/` + `docs/episodes/laban-intro.md` (placement guide format to reuse).
+- Overlays and their B-roll share lengths from one `timing.ts` so they stack at the same start point in CapCut.
 - `src/cine/Shot.tsx` — animated still (crop/push/pan, whip in/out with blur + RGB split, beat punch-ins).
 - `src/cine/texts.tsx` — Track3D, BigWord (thin/heavy), Scatter, Tag, Marker, TitleReveal, Caption.
 - `src/cine/overlays.tsx` — LightLeak, Flash, Dip, TornStrip, Grade, ConnectRow.

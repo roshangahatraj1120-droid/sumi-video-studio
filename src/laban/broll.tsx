@@ -25,7 +25,7 @@ import {
   WRITTEN_CUTS,
 } from "./timing";
 
-const img = (n: string) => `laban/${n}.png`;
+const img = (n: string) => `laban/${n}.jpg`;
 const clamp = {
   extrapolateLeft: "clamp" as const,
   extrapolateRight: "clamp" as const,

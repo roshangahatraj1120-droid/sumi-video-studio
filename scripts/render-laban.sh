@@ -47,3 +47,13 @@ if [[ "$what" == all || "$what" == text ]]; then
   done
 fi
 ls -la "$OUT"/*
+
+# Final: B-roll with text baked in, highest-quality H.264 for direct use in CapCut
+if [[ "$what" == final ]]; then
+  mkdir -p "$OUT/final"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban-c'); do
+    name="${id#laban-c}"
+    npx remotion render "$id" "$OUT/final/${name}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$OUT/final"
+fi

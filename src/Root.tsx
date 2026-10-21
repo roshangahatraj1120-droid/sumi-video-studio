@@ -1,3 +1,4 @@
+import * as LC from "./laban/combined";
 import * as LB from "./laban/broll";
 import * as LO from "./laban/overlays";
 import { LEN } from "./laban/timing";
@@ -93,6 +94,104 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban-Final">
+        <Composition
+          id="laban-c01-laban-portrait"
+          component={LC.C01Portrait}
+          durationInFrames={LEN.portrait}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c02-laban-writing"
+          component={LC.C02Writing}
+          durationInFrames={LEN.writing}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c03-teaser-flash"
+          component={LC.C03Teaser}
+          durationInFrames={LEN.teaser}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c04-music-words-architecture"
+          component={LC.C04Written}
+          durationInFrames={LEN.written}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c05-but-dance"
+          component={LC.C05Question}
+          durationInFrames={LEN.question}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c06-jumps-turns-reaches-falls"
+          component={LC.C06Verbs}
+          durationInFrames={LEN.verbs}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c07-movement-is-gone"
+          component={LC.C07Gone}
+          durationInFrames={LEN.gone}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c08-geometric-symbols"
+          component={LC.C08Symbols}
+          durationInFrames={LEN.symbols}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c09-where-high-low-long"
+          component={LC.C09Measure}
+          durationInFrames={LEN.measure}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c10-notation-staff"
+          component={LC.C10Staff}
+          durationInFrames={LEN.staff}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c11-montage-stranger"
+          component={LC.C11Montage}
+          durationInFrames={LEN.montage}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban-c12-movement-becomes-information"
+          component={LC.C12Information}
+          durationInFrames={LEN.information}
           fps={30}
           width={1920}
           height={1080}

@@ -121,6 +121,8 @@ export const O03Question: React.FC<OverlayProps> = ({ bg }) => {
 export const O04Verbs: React.FC<OverlayProps> = ({ bg }) => {
   const frame = useCurrentFrame();
   const verbs = ["Jumps", "Turns", "Reaches", "Falls"];
+  // place each verb in the empty part of its shot
+  const right = [false, true, false, true];
   return (
     <OverlayCanvas bg={bg}>
       {verbs.map((v, i) => {
@@ -143,7 +145,8 @@ export const O04Verbs: React.FC<OverlayProps> = ({ bg }) => {
             key={v}
             style={{
               position: "absolute",
-              left: 120,
+              left: right[i] ? undefined : 120,
+              right: right[i] ? 120 : undefined,
               top: 800 + drop,
               ...TYPE.heavy,
               textTransform: "uppercase",
@@ -151,12 +154,12 @@ export const O04Verbs: React.FC<OverlayProps> = ({ bg }) => {
               lineHeight: 1,
               color: COLOR.gold,
               scale: String(1.25 - 0.25 * p),
-              transformOrigin: "left center",
+              transformOrigin: right[i] ? "right center" : "left center",
               opacity: p * interpolate(frame, [end - 4, end], [1, 0], clamp),
               textShadow:
                 bg === "green"
                   ? `0 0 6px ${COLOR.gold}cc, 0 3px 0 rgba(0,0,0,0.55)`
-                  : `0 0 24px ${COLOR.gold}88`,
+                  : `0 0 24px ${COLOR.gold}88, 0 4px 18px rgba(0,0,0,0.9), 0 0 50px rgba(0,0,0,0.6)`,
             }}
           >
             {v}

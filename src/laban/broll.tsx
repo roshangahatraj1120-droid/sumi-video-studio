@@ -170,8 +170,8 @@ export const B05Verbs: React.FC = () => {
     // jumps: camera rises with the leap
     {
       n: "07",
-      from: { s: 1.12, y: 4 },
-      to: { s: 1.22, y: -6 },
+      from: { s: 1.04, y: -1 },
+      to: { s: 1.12, y: 6 },
       ease: Easing.out(Easing.cubic),
     },
     // turns: rotate through the pivot

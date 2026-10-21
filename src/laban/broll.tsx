@@ -17,6 +17,7 @@ import { NotationStaff } from "./NotationStaff";
 import {
   LEN,
   MEASURE_SPLIT,
+  WRITING_SPLIT,
   MONTAGE_CUTS,
   MONTAGE_SHOT,
   MONTAGE_TOPICS,
@@ -67,8 +68,8 @@ export const B01Portrait: React.FC = () => (
   <Finish>
     <Still
       src={img("01")}
-      from={{ s: 1.05 }}
-      to={{ s: 1.18, x: 5, y: 8 }}
+      from={{ s: 1.05, x: 2, y: 2 }}
+      to={{ s: 1.3, x: 7, y: 14 }}
       grade={GRADES.sepiaGold}
     />
     <Sfx name="drone" at={0} volume={0.25} />
@@ -78,15 +79,28 @@ export const B01Portrait: React.FC = () => (
 // 02 — "…a written language for human movement."
 export const B02Writing: React.FC = () => (
   <Finish>
-    <Still
-      src={img("02")}
-      from={{ s: 1.05 }}
-      to={{ s: 1.25, x: 10, y: -11 }}
-      grade={GRADES.sepiaGold}
-    />
-    {[30, 44, 52, 70, 81, 96].map((f) => (
+    <Sequence durationInFrames={WRITING_SPLIT}>
+      <Still
+        src={img("02")}
+        from={{ s: 1.05 }}
+        to={{ s: 1.28, x: 14, y: -14 }}
+        grade={GRADES.sepiaGold}
+        whipOut={1}
+      />
+    </Sequence>
+    <Sequence from={WRITING_SPLIT}>
+      <Still
+        src={img("03")}
+        from={{ s: 1.16, x: 6 }}
+        to={{ s: 1.22, x: -6 }}
+        grade={GRADES.sepiaGold}
+        whipIn={1}
+      />
+    </Sequence>
+    {[20, 34, 42, 58].map((f) => (
       <Sfx key={f} name="tick" at={f} volume={0.25} />
     ))}
+    <Sfx name="whoosh" at={WRITING_SPLIT - 5} volume={0.6} />
   </Finish>
 );
 

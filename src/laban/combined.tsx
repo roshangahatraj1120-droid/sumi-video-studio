@@ -9,10 +9,16 @@ import * as O from "./overlays";
 
 // B-roll with its text baked in, for dropping straight onto the CapCut timeline.
 // Overlays render on a transparent canvas, so they keep their full soft glow.
-const withText = (Broll: React.FC, Text?: React.FC<OverlayProps>): React.FC => {
+const withText = (
+  Broll: React.FC,
+  Text?: React.FC<OverlayProps>,
+  // optional soft shading behind the text, for light images
+  scrim?: string,
+): React.FC => {
   const C: React.FC = () => (
     <AbsoluteFill>
       <Broll />
+      {scrim ? <AbsoluteFill style={{ background: scrim }} /> : null}
       {Text ? <Text bg="alpha" /> : null}
     </AbsoluteFill>
   );
@@ -22,7 +28,11 @@ const withText = (Broll: React.FC, Text?: React.FC<OverlayProps>): React.FC => {
 export const C01Portrait = withText(B.B01Portrait, O.O01Laban);
 export const C02Writing = withText(B.B02Writing);
 export const C03Teaser = withText(B.B03Teaser);
-export const C04Written = withText(B.B04Written, O.O02Written);
+export const C04Written = withText(
+  B.B04Written,
+  O.O02Written,
+  "radial-gradient(ellipse 62% 30% at 50% 50%, rgba(10,5,2,0.62), rgba(10,5,2,0) 100%)",
+);
 export const C06Verbs = withText(B.B05Verbs, O.O04Verbs);
 export const C07Gone = withText(B.B06Gone);
 export const C08Symbols = withText(B.B07Symbols);

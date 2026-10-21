@@ -17,6 +17,8 @@ export const LEN = {
   information: 240,
 };
 
+// clip 02: Laban writing → movement studio on "human movement"
+export const WRITING_SPLIT = 80;
 export const WRITTEN_CUTS = [0, 60, 120];
 export const VERB_CUTS = [0, 27, 54, 81];
 export const MEASURE_SPLIT = 135;

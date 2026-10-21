@@ -1,3 +1,4 @@
+import * as L2 from "./laban2/clips";
 import { TITLE_LEN, TitleCard } from "./laban/TitleCard";
 import * as LC from "./laban/combined";
 import * as LB from "./laban/broll";
@@ -95,6 +96,92 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban2-Final">
+        <Composition
+          id="laban2-c01-born-1879"
+          component={L2.P01Born}
+          durationInFrames={L2.LEN2.p01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c02-bratislava-map"
+          component={L2.P02Bratislava}
+          durationInFrames={L2.LEN2.p02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c03-art-architecture-paris"
+          component={L2.P03Studies}
+          durationInFrames={L2.LEN2.p03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c04-direction-shape-geometry-weight-time"
+          component={L2.P04Space}
+          durationInFrames={L2.LEN2.p04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c05-structures-to-notation"
+          component={L2.P05Structures}
+          durationInFrames={L2.LEN2.p05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c06-broke-away-from-ballet"
+          component={L2.P06BrokeAway}
+          durationInFrames={L2.LEN2.p06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c07-ballet-modern-everyday"
+          component={L2.P07AnyMovement}
+          durationInFrames={L2.LEN2.p07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c08-published-1928"
+          component={L2.P08Published}
+          durationInFrames={L2.LEN2.p08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-c09-labanotation-map"
+          component={L2.P09Labanotation}
+          durationInFrames={L2.LEN2.p09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2-o04-concepts-overlay"
+          component={L2.P04Overlay}
+          defaultProps={{
+            bg: "green" as "green" | "alpha",
+            side: "right" as "left" | "right",
+          }}
+          durationInFrames={L2.LEN2.p04}
           fps={30}
           width={1920}
           height={1080}

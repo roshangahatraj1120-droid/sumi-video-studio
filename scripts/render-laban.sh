@@ -46,7 +46,7 @@ if [[ "$what" == all || "$what" == text ]]; then
       --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png --muted --log=error
   done
 fi
-ls -la "$OUT"/*
+[[ "$what" == all || "$what" == broll || "$what" == text ]] && ls -la "$OUT"/*
 
 # Final: B-roll with text baked in, highest-quality H.264 for direct use in CapCut
 if [[ "$what" == final ]]; then
@@ -56,4 +56,21 @@ if [[ "$what" == final ]]; then
     npx remotion render "$id" "$OUT/final/${name}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
   done
   ls -la "$OUT/final"
+fi
+
+# Part 2 finals, plus the five-concepts diagram as an overlay for the host shots
+if [[ "$what" == part2 ]]; then
+  P2=out/laban2/final
+  mkdir -p "$P2/overlays"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban2-c'); do
+    npx remotion render "$id" "$P2/${id#laban2-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  for side in left right; do
+    npx remotion render laban2-o04-concepts-overlay "$P2/overlays/04-concepts-${side}_GREEN.mp4" \
+      --props="{\"bg\":\"green\",\"side\":\"$side\"}" --crf=10 --muted --log=error
+    npx remotion render laban2-o04-concepts-overlay "$P2/overlays/04-concepts-${side}_ALPHA.mov" \
+      --props="{\"bg\":\"alpha\",\"side\":\"$side\"}" --codec=prores --prores-profile=4444 \
+      --pixel-format=yuva444p10le --image-format=png --muted --log=error
+  done
+  ls -la "$P2" "$P2/overlays"
 fi

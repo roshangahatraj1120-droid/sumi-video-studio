@@ -176,3 +176,13 @@ if [[ "$what" == part2b ]]; then
   done
   ls -la "$P2B"
 fi
+
+# Part 8b finals: "a project using movement to study decision-making style" (after Part 8 clip 06)
+if [[ "$what" == part8b ]]; then
+  P8B=out/laban8b/final
+  mkdir -p "$P8B"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban8b-c'); do
+    npx remotion render "$id" "$P8B/${id#laban8b-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P8B"
+fi

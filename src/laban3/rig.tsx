@@ -97,9 +97,11 @@ export const Rig: React.FC<{
   };
   const now = screen(frame);
   const prev = screen(frame - 1);
-  const ds = Math.abs(now.s - prev.s) * 900;
-  const bx = Math.min(48, Math.abs(now.tx - prev.tx) * 0.4 + ds + now.p * 40);
-  const by = Math.min(48, Math.abs(now.ty - prev.ty) * 0.4 + ds);
+  // only real speed smears: a dead zone keeps slow pushes and drifts sharp
+  const dead = (v: number) => Math.max(0, v - 3);
+  const ds = dead(Math.abs(now.s - prev.s) * 900);
+  const bx = Math.min(48, dead(Math.abs(now.tx - prev.tx) * 0.4) + ds + now.p * 40);
+  const by = Math.min(48, dead(Math.abs(now.ty - prev.ty) * 0.4) + ds);
   const blur = bx > 0.4 || by > 0.4;
 
   return (

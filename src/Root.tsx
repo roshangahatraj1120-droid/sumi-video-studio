@@ -1,3 +1,4 @@
+import * as L6 from "./laban6/clips";
 import * as L5 from "./laban5/clips";
 import * as L4 from "./laban4/clips";
 import * as L3 from "./laban3/clips";
@@ -99,6 +100,88 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban6-Final">
+        <Composition
+          id="laban6-c01-britain-unexpected-turn"
+          component={L6.F01Britain}
+          durationInFrames={L6.LEN6.f01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c02-wartime-enormous-pressure"
+          component={L6.F02Pressure}
+          durationInFrames={L6.LEN6.f02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c03-laban-lawrence-industrial-rhythm"
+          component={L6.F03Approach}
+          durationInFrames={L6.LEN6.f03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c04-workers-not-dancers"
+          component={L6.F04Workers}
+          durationInFrames={L6.LEN6.f04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c05-not-simply-move-faster"
+          component={L6.F05Faster}
+          durationInFrames={L6.LEN6.f05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c06-rhythm-effort-fatigue"
+          component={L6.F06Effort}
+          durationInFrames={L6.LEN6.f06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c07-quote-swing-and-lilt"
+          component={L6.F07Quote}
+          durationInFrames={L6.LEN6.f07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c08-think-about-that-transformation"
+          component={L6.F08Transformation}
+          durationInFrames={L6.LEN6.f08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c09-observed-classified-optimised"
+          component={L6.F09Optimised}
+          durationInFrames={L6.LEN6.f09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban6-c10-split-arm-motion-paths"
+          component={L6.F10ArmPaths}
+          durationInFrames={L6.LEN6.f10}
           fps={30}
           width={1920}
           height={1080}

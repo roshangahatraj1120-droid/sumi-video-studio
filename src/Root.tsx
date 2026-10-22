@@ -1,3 +1,4 @@
+import * as L9B from "./laban9b/clips";
 import * as L10 from "./laban10/clips";
 import * as L9 from "./laban9/clips";
 import * as L8 from "./laban8/clips";
@@ -202,6 +203,32 @@ export const RemotionRoot: React.FC = () => {
           id="laban10-c12-the-people-who-used-it"
           component={L10.J12People}
           durationInFrames={L10.LEN10.j12}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban9b-Final">
+        <Composition
+          id="laban9b-c01-huge-archive-ethnographic-film"
+          component={L9B.K01Archive}
+          durationInFrames={L9B.LEN9B.k01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9b-c02-cross-cultural-coding-system"
+          component={L9B.K02Coding}
+          durationInFrames={L9B.LEN9B.k02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9b-c03-same-family-of-ideas"
+          component={L9B.K03SameFamily}
+          durationInFrames={L9B.LEN9B.k03}
           fps={30}
           width={1920}
           height={1080}

@@ -156,3 +156,13 @@ if [[ "$what" == part10 ]]; then
   done
   ls -la "$P10"
 fi
+
+# Part 9b finals: Choreometrics, continued (between Part 9 and Part 10)
+if [[ "$what" == part9b ]]; then
+  P9B=out/laban9b/final
+  mkdir -p "$P9B"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban9b-c'); do
+    npx remotion render "$id" "$P9B/${id#laban9b-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P9B"
+fi

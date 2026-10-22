@@ -1,3 +1,4 @@
+import * as L1B from "./laban1b/clips";
 import * as L8B from "./laban8b/clips";
 import * as L2B from "./laban2b/clips";
 import * as L9B from "./laban9b/clips";
@@ -825,6 +826,32 @@ export const RemotionRoot: React.FC = () => {
           id="laban2b-c05-ballet-modern-everyday"
           component={L2B.B05ThreeKinds}
           durationInFrames={L2B.LEN2B.b05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban1b-Final">
+        <Composition
+          id="laban1b-c01-much-stranger"
+          component={L1B.Y01Stranger}
+          durationInFrames={L1B.LEN1B.y01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban1b-c02-far-beyond-the-studio"
+          component={L1B.Y02Beyond}
+          durationInFrames={L1B.LEN1B.y02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban1b-c03-they-would-become-connected"
+          component={L1B.Y03Connected}
+          durationInFrames={L1B.LEN1B.y03}
           fps={30}
           width={1920}
           height={1080}

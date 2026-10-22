@@ -57,8 +57,10 @@ export const Rig: React.FC<{
   whipOut?: -1 | 1;
   // false for a layer stacked over another rig (a cut-out on its own depth)
   opaque?: boolean;
+  // scales the automatic motion blur (1 = default)
+  blurScale?: number;
   children: React.ReactNode;
-}> = ({ keys, whipIn, whipOut, opaque = true, children }) => {
+}> = ({ keys, whipIn, whipOut, opaque = true, blurScale = 1, children }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const id = `rig${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
@@ -100,9 +102,12 @@ export const Rig: React.FC<{
   // only real speed smears: a dead zone keeps slow pushes and drifts sharp
   const dead = (v: number) => Math.max(0, v - 3);
   const ds = dead(Math.abs(now.s - prev.s) * 900);
-  const bx = Math.min(48, dead(Math.abs(now.tx - prev.tx) * 0.4) + ds + now.p * 40);
+  const bx = Math.min(
+    48,
+    dead(Math.abs(now.tx - prev.tx) * 0.4) + ds + now.p * 40,
+  );
   const by = Math.min(48, dead(Math.abs(now.ty - prev.ty) * 0.4) + ds);
-  const blur = bx > 0.4 || by > 0.4;
+  const blur = bx * blurScale > 0.4 || by * blurScale > 0.4;
 
   return (
     <AbsoluteFill
@@ -113,7 +118,9 @@ export const Rig: React.FC<{
     >
       <svg width={0} height={0} style={{ position: "absolute" }}>
         <filter id={id} x="-5%" y="-5%" width="110%" height="110%">
-          <feGaussianBlur stdDeviation={`${bx.toFixed(2)} ${by.toFixed(2)}`} />
+          <feGaussianBlur
+            stdDeviation={`${(bx * blurScale).toFixed(2)} ${(by * blurScale).toFixed(2)}`}
+          />
         </filter>
       </svg>
       <div

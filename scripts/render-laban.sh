@@ -186,3 +186,13 @@ if [[ "$what" == part8b ]]; then
   done
   ls -la "$P8B"
 fi
+
+# Part 1b finals: "where the story becomes much stranger…" (just before Part 1's numbered montage)
+if [[ "$what" == part1b ]]; then
+  P1B=out/laban1b/final
+  mkdir -p "$P1B"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban1b-c'); do
+    npx remotion render "$id" "$P1B/${id#laban1b-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P1B"
+fi

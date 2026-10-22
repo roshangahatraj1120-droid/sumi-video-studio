@@ -7,23 +7,14 @@ import {
   useCurrentFrame,
 } from "remotion";
 import { COLOR, TYPE } from "../brand/tokens";
-import { HeroWord, SplitPanels, TornReveal } from "../brand/fx";
+import { HeroWord, PanelLabel, SplitPanels, TornReveal } from "../brand/fx";
 import { GRADES, Still } from "../cine/Still";
 import { Finish, Sfx } from "../laban/broll";
-import { CaptionAt } from "../laban/overlays";
-import { SlideCard } from "../laban2/fx2";
+import { CaptionAt, LabelAt } from "../laban/overlays";
 import { Plate, Rig } from "../laban3/rig";
-import {
-  Crowd,
-  GERMANY_AT,
-  GermanyMap,
-  TearPhoto,
-  Timeline,
-  YearCounter,
-} from "./fx4";
 
-// Laban — Part 4: politics. 30 fps. No Nazi insignia anywhere: the story is told through
-// dates, places, institutions and bodies.
+// Laban — Part 4: politics. 30 fps. Photos only, with still movement, split screens and cuts;
+// no drawn graphics and no Nazi insignia.
 export const LEN4 = {
   d01: 120,
   d02: 240,
@@ -37,12 +28,15 @@ export const LEN4 = {
 };
 
 const img = (n: string) => `laban/${n}.jpg`;
+const PORTRAIT = "laban2/r1.jpg";
 const clamp = {
   extrapolateLeft: "clamp" as const,
   extrapolateRight: "clamp" as const,
 };
 const SHADE =
   "linear-gradient(0deg, rgba(8,4,2,0.88) 0%, rgba(8,4,2,0.5) 20%, rgba(8,4,2,0) 40%)";
+const TOP_SHADE =
+  "linear-gradient(180deg, rgba(8,4,2,0.8) 0%, rgba(8,4,2,0.4) 22%, rgba(8,4,2,0) 42%)";
 const COLD = "grayscale(1) contrast(1.25) brightness(0.8)";
 
 // 01 — "Then politics entered the story." Warm study drains to cold, the word glitches in.
@@ -92,137 +86,166 @@ export const D01Politics: React.FC = () => {
 };
 
 // 02 — "When the Nazis came to power in Germany in 1933, Laban stayed."
-export const D02Stayed: React.FC = () => {
-  const frame = useCurrentFrame();
-  return (
-    <Finish dust={0.3}>
-      <Rig
-        keys={[
-          { f: 0, s: 1.0, x: 960, y: 540 },
-          { f: 20, s: 1.02, x: 960, y: 540, e: "drift" },
-          { f: 70, s: 1.75, x: GERMANY_AT[0], y: GERMANY_AT[1], e: "ramp" },
-          { f: 160, s: 1.85, x: GERMANY_AT[0], y: GERMANY_AT[1], e: "drift" },
-        ]}
-        whipIn={1}
-      >
-        <GermanyMap drawAt={40} />
-      </Rig>
-      <div style={{ position: "absolute", left: 110, top: 80 }}>
-        <div
-          style={{
-            ...TYPE.label,
-            fontSize: 30,
-            letterSpacing: "0.3em",
-            color: COLOR.white,
-            opacity: interpolate(frame, [8, 18], [0, 1], clamp),
-          }}
-        >
-          The Nazis come to power
-        </div>
-        <YearCounter from={1928} to={1933} start={10} end={54} size={200} />
-      </div>
-      <TornReveal at={150} seed="stayed">
-        <Still
-          src={img("02")}
-          from={{ s: 1.08, x: 2 }}
-          to={{ s: 1.16 }}
-          grade={GRADES.bwRose}
-          rose
-        />
-        <AbsoluteFill style={{ background: SHADE }} />
-        <HeroWord
-          text="Laban stayed."
-          look="serif"
-          size={170}
-          y={780}
-          start={10}
-        />
-      </TornReveal>
-      <Sfx name="whoosh" at={0} volume={0.45} />
-      <Sfx name="riser" at={18} volume={0.25} />
-      {[14, 22, 30, 40, 54].map((f) => (
-        <Sfx key={f} name="tick" at={f} volume={0.3} />
-      ))}
-      <Sfx name="hit" at={56} volume={0.4} />
-      <Sfx name="whoosh" at={146} volume={0.55} />
-      <Sfx name="boom" at={162} volume={0.45} />
-    </Finish>
-  );
-};
+// Slow drift along the monumental façade, then a torn cut to Laban still at his desk.
+export const D02Stayed: React.FC = () => (
+  <Finish dust={0.3}>
+    <Rig
+      keys={[
+        { f: 0, s: 1.75, x: 1500, y: 260 },
+        { f: 150, s: 1.62, x: 1150, y: 280, e: "drift" },
+      ]}
+      whipIn={1}
+    >
+      <Plate src={img("16")} filter={COLD} />
+    </Rig>
+    <AbsoluteFill style={{ background: SHADE }} />
+    <LabelAt text="Germany" start={12} y={720} size={56} />
+    <HeroWord
+      text="1933"
+      look="thin"
+      size={230}
+      x={110}
+      y={760}
+      align="left"
+      start={18}
+      end={152}
+    />
+    <TornReveal at={146} seed="stayed">
+      <Still
+        src={img("02")}
+        from={{ s: 1.08, x: 2 }}
+        to={{ s: 1.16 }}
+        grade={GRADES.bwRose}
+        rose
+      />
+      <AbsoluteFill style={{ background: SHADE }} />
+      <HeroWord
+        text="Laban stayed."
+        look="serif"
+        size={170}
+        y={780}
+        start={10}
+      />
+    </TornReveal>
+    <Sfx name="whoosh" at={0} volume={0.45} />
+    <Sfx name="drone" at={4} volume={0.25} />
+    <Sfx name="boom" at={20} volume={0.45} />
+    <Sfx name="whoosh" at={142} volume={0.55} />
+    <Sfx name="hit" at={158} volume={0.4} />
+  </Finish>
+);
 
 // 03 — "He was not simply an outsider… He continued working inside Germany's cultural institutions"
+// Portrait with the word struck out beside him, then a split: the man | the institution.
 export const D03Inside: React.FC = () => {
   const frame = useCurrentFrame();
-  const strike = interpolate(frame, [62, 76], [0, 1], {
+  const strike = interpolate(frame, [52, 66], [0, 1], {
     ...clamp,
     easing: Easing.out(Easing.cubic),
   });
-  const outsiderOut = interpolate(frame, [96, 104], [1, 0], clamp);
-  const outsiderIn = interpolate(frame, [14, 26], [0, 1], {
+  const inT = interpolate(frame, [12, 24], [0, 1], {
     ...clamp,
     easing: Easing.out(Easing.cubic),
   });
   return (
     <Finish dust={0.3}>
-      <Rig
-        keys={[
-          { f: 0, s: 1.7, x: 640, y: 330 },
-          { f: 240, s: 1.55, x: 1180, y: 300, e: "drift" },
+      <SplitPanels
+        panels={[
+          {
+            start: 0,
+            node: (
+              <AbsoluteFill>
+                <Still
+                  src={PORTRAIT}
+                  from={{ s: 1.04 }}
+                  to={{ s: 1.14, x: 2 }}
+                  grade={GRADES.bwRose}
+                />
+                <AbsoluteFill
+                  style={{
+                    background:
+                      "linear-gradient(90deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.6) 60%)",
+                  }}
+                />
+              </AbsoluteFill>
+            ),
+            label: (
+              <Sequence from={90} layout="none">
+                <PanelLabel thin="working" heavy="inside" />
+              </Sequence>
+            ),
+          },
+          {
+            start: 96,
+            node: (
+              <Still
+                src={img("16")}
+                from={{ s: 1.7, y: 22 }}
+                to={{ s: 1.6, x: -6, y: 20 }}
+                grade={COLD}
+              />
+            ),
+            label: (
+              <PanelLabel thin="cultural" heavy="institutions" heavySize={92} />
+            ),
+          },
         ]}
-      >
-        <Plate src={img("16")} filter={COLD} />
-      </Rig>
-      <AbsoluteFill style={{ backgroundColor: "rgba(0,0,0,0.5)" }} />
-      <CaptionAt text="not simply an" start={8} y={330} size={46} />
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          width: 1920,
-          top: 390,
-          textAlign: "center",
-          opacity: outsiderIn * outsiderOut,
-          translate: `0px ${(1 - outsiderIn) * 30}px`,
-        }}
-      >
-        <span
+      />
+      {/* before the split: the word he was not, struck out beside him */}
+      {frame < 96 ? (
+        <div
           style={{
-            position: "relative",
-            ...TYPE.heavy,
-            fontSize: 210,
-            lineHeight: 1,
-            textTransform: "uppercase",
-            color: COLOR.white,
-            textShadow: "0 6px 26px rgba(0,0,0,0.85)",
+            position: "absolute",
+            left: 900,
+            top: 380,
+            opacity: inT * interpolate(frame, [84, 94], [1, 0], clamp),
+            translate: `0px ${(1 - inT) * 30}px`,
           }}
         >
-          Outsider
+          <div
+            style={{
+              ...TYPE.thin,
+              fontSize: 46,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: COLOR.white,
+            }}
+          >
+            not simply an
+          </div>
           <span
             style={{
-              position: "absolute",
-              left: -20,
-              top: "52%",
-              height: 16,
-              width: `calc(${strike * 100}% + 40px)`,
-              background: COLOR.rose,
-              boxShadow: `0 0 20px ${COLOR.rose}`,
-              rotate: "-3deg",
+              position: "relative",
+              ...TYPE.heavy,
+              fontSize: 180,
+              lineHeight: 1,
+              textTransform: "uppercase",
+              color: COLOR.white,
+              textShadow: "0 6px 26px rgba(0,0,0,0.85)",
             }}
-          />
-        </span>
-      </div>
-      <HeroWord text="Inside" look="heavy" size={260} y={380} start={104} />
-      <CaptionAt
-        text="Germany's cultural institutions"
-        start={122}
-        y={680}
-        size={50}
-      />
+          >
+            Outsider
+            <span
+              style={{
+                position: "absolute",
+                left: -16,
+                top: "50%",
+                height: 14,
+                width: `calc(${strike * 100}% + 32px)`,
+                background: COLOR.rose,
+                boxShadow: `0 0 18px ${COLOR.rose}`,
+                rotate: "-3deg",
+              }}
+            />
+          </span>
+        </div>
+      ) : null}
       <Sfx name="drone" at={0} volume={0.25} />
-      <Sfx name="hit" at={16} volume={0.3} />
-      <Sfx name="whoosh" at={60} volume={0.45} />
-      <Sfx name="glitch" at={66} volume={0.3} />
-      <Sfx name="boom" at={104} volume={0.5} />
+      <Sfx name="hit" at={14} volume={0.3} />
+      <Sfx name="whoosh" at={50} volume={0.4} />
+      <Sfx name="glitch" at={56} volume={0.3} />
+      <Sfx name="whoosh" at={92} volume={0.55} />
+      <Sfx name="hit" at={100} volume={0.4} />
     </Finish>
   );
 };
@@ -252,17 +275,10 @@ export const D04Tanzbuhne: React.FC = () => {
         />
       </Rig>
       <AbsoluteFill style={{ background: SHADE }} />
-      <SlideCard
-        start={14}
-        end={100}
-        kicker="1934 · appointed to lead"
-        title="Deutsche Tanzbühne"
-        x={100}
-        y={740}
-        width={760}
-        titleSize={66}
-      />
-      {/* title plate: the name, then its English translation */}
+      <Sequence durationInFrames={100} layout="none">
+        <LabelAt text="1934 · appointed to lead" start={14} y={900} size={54} />
+      </Sequence>
+      {/* the frame darkens into a title plate: the name, then its English translation */}
       <AbsoluteFill
         style={{ backgroundColor: `rgba(10,5,12,${0.72 * plate})` }}
       />
@@ -326,7 +342,7 @@ export const D05Debate: React.FC = () => {
             start: 0,
             node: (
               <Still
-                src="laban2/r1.jpg"
+                src={PORTRAIT}
                 from={{ s: 1.2, x: 14 }}
                 to={{ s: 1.3, x: 15 }}
                 grade="grayscale(0.4) sepia(0.35) contrast(1.05) brightness(1.05)"
@@ -338,7 +354,7 @@ export const D05Debate: React.FC = () => {
             node: (
               <AbsoluteFill style={{ scale: "-1 1" }}>
                 <Still
-                  src="laban2/r1.jpg"
+                  src={PORTRAIT}
                   from={{ s: 1.2, x: 14 }}
                   to={{ s: 1.3, x: 15 }}
                   grade="grayscale(1) contrast(1.35) brightness(0.6)"
@@ -376,247 +392,296 @@ export const D05Debate: React.FC = () => {
 };
 
 // 06 — "…the larger fact is clear: for several years, Laban's work operated inside – and benefited
-// from – a cultural system being reshaped by the Nazi state." Data timeline.
+// from – a cultural system being reshaped by the Nazi state." Three-way split, one beat each.
 export const D06Fact: React.FC = () => (
   <Finish dust={0.25}>
-    <AbsoluteFill style={{ backgroundColor: COLOR.ink }} />
-    <Rig
-      keys={[
-        { f: 0, s: 1.15, x: 900, y: 380 },
-        { f: 300, s: 1.25, x: 1060, y: 360, e: "drift" },
+    <SplitPanels
+      panels={[
+        {
+          start: 0,
+          node: (
+            <Still
+              src={img("05")}
+              from={{ s: 1.1 }}
+              to={{ s: 1.22, y: 3 }}
+              grade={GRADES.bwRose}
+            />
+          ),
+          label: <PanelLabel thin="operated" heavy="inside" />,
+        },
+        {
+          start: 80,
+          node: (
+            <Still
+              src={img("18")}
+              from={{ s: 1.18, x: 2 }}
+              to={{ s: 1.1 }}
+              grade={GRADES.bwRose}
+            />
+          ),
+          label: <PanelLabel thin="and" heavy="benefited" heavySize={92} />,
+        },
+        {
+          start: 160,
+          node: (
+            <Still
+              src={img("16")}
+              from={{ s: 1.08 }}
+              to={{ s: 1.18, y: -3 }}
+              grade={GRADES.bwRose}
+              rose
+            />
+          ),
+          label: <PanelLabel thin="a cultural" heavy="system" />,
+        },
       ]}
-    >
-      <Plate src={img("16")} filter={COLD} style={{ opacity: 0.22 }} />
-    </Rig>
-    <AbsoluteFill
-      style={{
-        background:
-          "radial-gradient(ellipse at 50% 55%, rgba(13,7,16,0.4), rgba(13,7,16,0.92) 75%)",
-      }}
     />
-    <CaptionAt text="the larger fact is clear" start={6} y={110} size={44} />
-    <HeroWord
-      text="Operated inside"
-      look="heavy"
-      size={120}
-      y={170}
-      start={96}
-      end={168}
-    />
-    <HeroWord
-      text="and benefited from"
-      look="heavy"
-      size={120}
-      y={170}
-      start={170}
-    />
-    <Timeline
-      y={560}
-      drawAt={16}
-      marks={[
-        { year: 1933, at: 40, label: "Nazis take power", rose: true },
-        { year: 1934, at: 60, label: "Deutsche Tanzbühne", drop: 110 },
-      ]}
-      bar={{
-        from: 1933,
-        to: 1938,
-        at: 80,
-        dur: 80,
-        label: "Laban's work · several years",
-      }}
-    />
-    <CaptionAt
-      text="a cultural system being reshaped by the Nazi state"
-      start={214}
-      y={985}
-      size={44}
-    />
+    <AbsoluteFill style={{ background: TOP_SHADE }} />
+    <Sequence durationInFrames={196} layout="none">
+      <CaptionAt
+        text="for several years, the larger fact is clear"
+        start={8}
+        y={70}
+        size={42}
+      />
+    </Sequence>
+    <Sequence from={200} layout="none">
+      <CaptionAt
+        text="being reshaped by the Nazi state"
+        start={0}
+        y={70}
+        size={46}
+      />
+    </Sequence>
     <Sfx name="drone" at={0} volume={0.25} />
-    {[18, 22, 26, 30, 34].map((f) => (
-      <Sfx key={f} name="tick" at={f} volume={0.25} />
-    ))}
-    <Sfx name="hit" at={40} volume={0.35} />
-    <Sfx name="hit" at={60} volume={0.3} />
-    <Sfx name="riser" at={80} volume={0.25} />
-    <Sfx name="boom" at={98} volume={0.45} />
-    <Sfx name="boom" at={172} volume={0.45} />
+    <Sfx name="hit" at={8} volume={0.35} />
+    <Sfx name="whoosh" at={76} volume={0.55} />
+    <Sfx name="hit" at={86} volume={0.35} />
+    <Sfx name="whoosh" at={156} volume={0.55} />
+    <Sfx name="boom" at={166} volume={0.45} />
   </Finish>
 );
 
 // 07 — "That is an uncomfortable part of his legacy, but it should not be removed from the story."
-// The page starts to tear away… and is put back.
-export const D07NotRemoved: React.FC = () => (
-  <Finish dust={0.4}>
-    <AbsoluteFill style={{ backgroundColor: "#0b070c" }} />
-    <AbsoluteFill
-      style={{
-        background:
-          "radial-gradient(ellipse at 50% 45%, rgba(232,194,122,0.1), rgba(0,0,0,0) 65%)",
-      }}
-    />
-    <TearPhoto src="laban2/r1.jpg" tearAt={40} backAt={112} />
-    <HeroWord
-      text="Uncomfortable"
-      look="heavy"
-      size={130}
-      color={COLOR.white}
-      y={880}
-      start={22}
-      end={108}
-      glitch
-    />
-    <Sequence from={140} layout="none">
-      <CaptionAt text="but it should not be" start={0} y={860} size={44} />
-    </Sequence>
-    <HeroWord text="removed" look="serif" size={130} y={910} start={146} />
-    <Sfx name="drone" at={0} volume={0.25} />
-    <Sfx name="glitch" at={24} volume={0.3} />
-    <Sfx name="whoosh" at={40} volume={0.55} />
-    <Sfx name="whoosh" at={112} volume={0.45} />
-    <Sfx name="hit" at={142} volume={0.4} />
-  </Finish>
-);
-
-// 08 — "Laban had already developed what he called movement choirs – large groups of people moving
-// together. To him, collective movement could still preserve individual expression."
-export const D08Choirs: React.FC = () => {
+// Tight on his face; the picture nearly fades away, then snaps back.
+export const D07NotRemoved: React.FC = () => {
   const frame = useCurrentFrame();
-  const solo = interpolate(frame, [200, 230], [0, 1], clamp);
+  const fade = interpolate(
+    frame,
+    [92, 118, 122, 126],
+    [0, 0.85, 0.85, 0],
+    clamp,
+  );
+  const flash = interpolate(frame, [122, 124, 136], [0, 0.5, 0], clamp);
   return (
-    <Finish dust={0.3}>
+    <Finish dust={0.4}>
       <Rig
         keys={[
-          { f: 0, s: 1.04, x: 960, y: 540 },
-          { f: 130, s: 1.14, x: 960, y: 520, e: "drift" },
+          { f: 0, s: 1.5, x: 1000, y: 330 },
+          { f: 210, s: 1.75, x: 1010, y: 320, e: "drift" },
         ]}
       >
-        <Plate
-          src={img("03")}
-          filter="grayscale(0.3) sepia(0.3) contrast(1.06)"
-        />
+        <Plate src={img("02")} filter={COLD} />
       </Rig>
-      <AbsoluteFill style={{ background: SHADE }} />
-      <CaptionAt text="what he called" start={10} y={790} size={44} />
-      <HeroWord
-        text="movement choirs"
-        look="serif"
-        size={150}
-        y={840}
-        start={16}
-        end={122}
+      <AbsoluteFill style={{ backgroundColor: `rgba(0,0,0,${fade})` }} />
+      <AbsoluteFill
+        style={{
+          backgroundColor: `rgba(255,240,220,${flash})`,
+          mixBlendMode: "screen",
+        }}
       />
-      <TornReveal at={116} seed="choir">
-        <AbsoluteFill style={{ backgroundColor: COLOR.ink }} />
-        <Crowd t={0} solo={solo} />
-        <Sequence from={10} durationInFrames={70} layout="none">
-          <CaptionAt
-            text="large groups of people moving together"
-            start={0}
-            y={90}
-            size={46}
-          />
-        </Sequence>
-      </TornReveal>
-      <Sequence from={200} layout="none">
+      <AbsoluteFill style={{ background: SHADE }} />
+      <Sequence durationInFrames={100} layout="none">
         <CaptionAt
-          text="collective movement could still preserve"
-          start={0}
-          y={90}
-          size={40}
+          text="an uncomfortable part of his legacy"
+          start={14}
+          y={780}
+          size={44}
         />
       </Sequence>
       <HeroWord
-        text="individual expression"
-        look="serif"
-        size={120}
-        y={140}
-        start={210}
-        color={COLOR.gold}
+        text="Uncomfortable"
+        look="heavy"
+        size={140}
+        color={COLOR.white}
+        y={835}
+        start={22}
+        end={100}
+        glitch
       />
-      <Sfx name="drone" at={0} volume={0.25} />
-      <Sfx name="hit" at={18} volume={0.3} />
-      <Sfx name="whoosh" at={112} volume={0.55} />
-      <Sfx name="riser" at={190} volume={0.25} />
-      <Sfx name="hit" at={212} volume={0.35} />
+      <Sequence from={130} layout="none">
+        <CaptionAt text="but it should not be" start={0} y={780} size={44} />
+      </Sequence>
+      <HeroWord text="removed" look="serif" size={150} y={830} start={136} />
+      <Sfx name="drone" at={0} volume={0.3} />
+      <Sfx name="glitch" at={24} volume={0.3} />
+      <Sfx name="riser" at={90} volume={0.3} />
+      <Sfx name="boom" at={122} volume={0.5} />
     </Finish>
   );
 };
 
+// 08 — "Laban had already developed what he called movement choirs… To him, collective movement
+// could still preserve individual expression." Group → split: the group | the one.
+export const D08Choirs: React.FC = () => (
+  <Finish dust={0.3}>
+    <Rig
+      keys={[
+        { f: 0, s: 1.04, x: 960, y: 540 },
+        { f: 130, s: 1.16, x: 960, y: 520, e: "drift" },
+      ]}
+    >
+      <Plate
+        src={img("03")}
+        filter="grayscale(0.25) sepia(0.3) contrast(1.06)"
+      />
+    </Rig>
+    <AbsoluteFill style={{ background: SHADE }} />
+    <CaptionAt text="what he called" start={10} y={790} size={44} />
+    <HeroWord
+      text="movement choirs"
+      look="serif"
+      size={150}
+      y={840}
+      start={16}
+    />
+    <TornReveal at={124} seed="choir">
+      <SplitPanels
+        panels={[
+          {
+            start: 0,
+            node: (
+              <Still
+                src={img("03")}
+                from={{ s: 1.25, x: -4 }}
+                to={{ s: 1.15, x: 0 }}
+                grade={GRADES.sepiaGold}
+              />
+            ),
+            label: <PanelLabel thin="collective" heavy="movement" />,
+          },
+          {
+            start: 86,
+            node: (
+              <Still
+                src={img("07")}
+                from={{ s: 1.1, x: 18 }}
+                to={{ s: 1.2, x: 20 }}
+                grade={GRADES.sepiaGold}
+              />
+            ),
+            label: (
+              <PanelLabel thin="individual" heavy="expression" heavySize={92} />
+            ),
+          },
+        ]}
+      />
+    </TornReveal>
+    <Sfx name="drone" at={0} volume={0.25} />
+    <Sfx name="hit" at={18} volume={0.3} />
+    <Sfx name="whoosh" at={120} volume={0.55} />
+    <Sfx name="hit" at={130} volume={0.3} />
+    <Sfx name="whoosh" at={206} volume={0.55} />
+    <Sfx name="hit" at={216} volume={0.35} />
+  </Finish>
+);
+
 // 09 — "To a fascist regime obsessed with mass spectacle, disciplined bodies and national identity,
 // large-scale movement had very different political possibilities."
+// Close on the front row, a speed-ramped pull back reveals the mass; ends on choir | mass.
 const WORDS = [
-  { at: 70, text: "Mass spectacle" },
-  { at: 128, text: "Disciplined bodies" },
-  { at: 186, text: "National identity" },
+  { at: 66, text: "Mass spectacle" },
+  { at: 124, text: "Disciplined bodies" },
+  { at: 182, text: "National identity" },
 ];
-export const D09Mass: React.FC = () => {
-  const frame = useCurrentFrame();
-  const t = interpolate(frame, [12, 50], [0, 1], {
-    ...clamp,
-    easing: Easing.inOut(Easing.cubic),
-  });
-  const shake =
-    frame >= 12 && frame < 50 ? Math.sin(frame * 2.3) * 6 * (1 - t) : 0;
-  return (
-    <Finish dust={0.2}>
-      <AbsoluteFill
-        style={{ backgroundColor: "#07050a", translate: `${shake}px 0px` }}
-      >
-        <AbsoluteFill
-          style={{ scale: String(1 + 0.12 * t), transformOrigin: "50% 80%" }}
-        >
-          <Crowd t={t} solo={1} />
-        </AbsoluteFill>
-      </AbsoluteFill>
-      <CaptionAt
-        text="to a fascist regime obsessed with"
-        start={56}
-        y={90}
-        size={42}
+export const D09Mass: React.FC = () => (
+  <Finish dust={0.2}>
+    <Rig
+      keys={[
+        { f: 0, s: 2.1, x: 880, y: 760 },
+        { f: 22, s: 2.05, x: 880, y: 760, e: "drift" },
+        { f: 56, s: 1.08, x: 960, y: 520, e: "ramp" },
+        { f: 240, s: 1.0, x: 960, y: 540, e: "drift" },
+      ]}
+    >
+      <Plate src={img("16")} filter={COLD} />
+    </Rig>
+    <AbsoluteFill
+      style={{
+        background:
+          "radial-gradient(ellipse 70% 50% at 50% 110%, rgba(224,69,123,0.25), rgba(0,0,0,0) 70%)",
+        mixBlendMode: "screen",
+      }}
+    />
+    <AbsoluteFill style={{ background: TOP_SHADE }} />
+    <CaptionAt
+      text="to a fascist regime obsessed with"
+      start={56}
+      y={60}
+      size={42}
+    />
+    {WORDS.map((w, i) => (
+      <HeroWord
+        key={w.text}
+        text={w.text}
+        look="heavy"
+        size={140}
+        color={i === 1 ? COLOR.rose : COLOR.white}
+        y={120}
+        start={w.at}
+        end={WORDS[i + 1]?.at ?? 236}
+        glitch={i === 0}
       />
-      {WORDS.map((w, i) => (
-        <HeroWord
-          key={w.text}
-          text={w.text}
-          look="heavy"
-          size={140}
-          color={i === 1 ? COLOR.rose : COLOR.white}
-          y={150}
-          start={w.at}
-          end={WORDS[i + 1]?.at ?? 236}
-          glitch={i === 0}
-        />
-      ))}
-      <TornReveal at={236} seed="mass" dir={-1}>
-        <Still
-          src={img("16")}
-          from={{ s: 1.04 }}
-          to={{ s: 1.14, y: 2 }}
-          grade={GRADES.bwRose}
-          rose
-        />
-        <AbsoluteFill style={{ background: SHADE }} />
-        <Sequence from={10} layout="none">
-          <CaptionAt text="very different" start={0} y={780} size={46} />
-        </Sequence>
-        <HeroWord
-          text="Political possibilities"
-          look="heavy"
-          size={96}
-          y={835}
-          start={16}
-        />
-      </TornReveal>
-      <Sfx name="glitch" at={12} volume={0.35} />
-      <Sfx name="riser" at={14} volume={0.3} />
-      {Array.from({ length: 10 }).map((_, i) => (
-        <Sfx key={i} name="hit" at={50 + i * 22} volume={0.18} />
-      ))}
-      {WORDS.map((w) => (
-        <Sfx key={w.at} name="boom" at={w.at} volume={0.4} />
-      ))}
-      <Sfx name="whoosh" at={232} volume={0.55} />
-      <Sfx name="boom" at={252} volume={0.5} />
-    </Finish>
-  );
-};
+    ))}
+    <TornReveal at={236} seed="mass" dir={-1}>
+      <SplitPanels
+        panels={[
+          {
+            start: 0,
+            node: (
+              <Still
+                src={img("03")}
+                from={{ s: 1.15 }}
+                to={{ s: 1.22 }}
+                grade={GRADES.sepiaGold}
+              />
+            ),
+            label: <PanelLabel thin="movement" heavy="choir" />,
+          },
+          {
+            start: 8,
+            node: (
+              <Still
+                src={img("16")}
+                from={{ s: 1.15 }}
+                to={{ s: 1.25 }}
+                grade={GRADES.bwRose}
+                rose
+              />
+            ),
+            label: (
+              <PanelLabel
+                thin="political"
+                heavy="possibilities"
+                heavySize={84}
+              />
+            ),
+          },
+        ]}
+      />
+      <AbsoluteFill style={{ background: TOP_SHADE }} />
+      <Sequence from={14} layout="none">
+        <CaptionAt text="very different" start={0} y={70} size={46} />
+      </Sequence>
+    </TornReveal>
+    <Sfx name="drone" at={0} volume={0.3} />
+    <Sfx name="riser" at={18} volume={0.3} />
+    <Sfx name="whoosh" at={26} volume={0.55} />
+    {WORDS.map((w) => (
+      <Sfx key={w.at} name="boom" at={w.at} volume={0.4} />
+    ))}
+    <Sfx name="glitch" at={66} volume={0.25} />
+    <Sfx name="whoosh" at={232} volume={0.55} />
+    <Sfx name="hit" at={248} volume={0.4} />
+  </Finish>
+);

@@ -65,6 +65,13 @@ Every ~45–60 s something must change: new location, new visual treatment, a mo
 
 **B-roll treatment**
 - Realistic AI stills animated with push-ins/pans/parallax; image-to-video clips for the big moments.
+- **Photos only: never invent our own illustrations.** The owner finds self-made motion graphics (stick
+  figures, drawn crowds, vector maps, timelines, torn-photo props, glass cards) childish. Every B-roll
+  shot is one of the owner's photos with subtle still movement: a slow push-in, pull-out or lateral drift,
+  an occasional gentle tilt, keyed to the line. Allowed on top: the keyword text, grade, grain/dust, and the
+  usual transitions (whip, torn-paper cut, glitch, split screen of photos). If a line has no fitting
+  photo, reuse the closest one with a different crop and say which ones are missing, rather than
+  drawing something.
 - Colour = emotion: past/secrets → B&W with one red accent; tradition/history → warm sepia gold;
   danger/climax → deep red; joy/celebration → warm saturated. Host stays warm amber throughout.
 - Always: grain, slight vignette, occasional dust/embers, light halation.

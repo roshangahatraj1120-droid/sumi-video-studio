@@ -65,6 +65,13 @@ Every ~45–60 s something must change: new location, new visual treatment, a mo
 
 **B-roll treatment**
 - Realistic AI stills animated with push-ins/pans/parallax; image-to-video clips for the big moments.
+- **Real human movement comes from the invideo connector** (project "Rudolf Laban documentary · Velvet
+  Stage", https://invideo.io/@roshan-271628/rudolf-laban-documentary-velvet-stage; register as
+  `velvet-editor`). Upload the owner's photo with add_media, then generate image-to-video with a short,
+  physical motion prompt (Seedance 2.5 / Wan 3.0 / MiniMax H3; ~5 s). Always `dry_run` first and tell the
+  owner the credit price before spending. Download the result into public/, then cut it in with Remotion
+  (speed ramps, whips, masking, brand text) like any other shot. Use it where movement *is* the point
+  (dancers moving, workers repeating a motion); keep stills with still-movement everywhere else.
 - **Photos only: never invent our own illustrations.** The owner finds self-made motion graphics (stick
   figures, drawn crowds, vector maps, timelines, torn-photo props, glass cards) childish. Every B-roll
   shot is one of the owner's photos with subtle still movement: a slow push-in, pull-out or lateral drift,

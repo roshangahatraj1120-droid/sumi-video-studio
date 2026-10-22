@@ -124,3 +124,13 @@ if [[ "$what" == part7 ]]; then
   done
   ls -la "$P7"
 fi
+
+# Part 8 finals: Movement Pattern Analysis to the Pentagon
+if [[ "$what" == part8 ]]; then
+  P8=out/laban8/final
+  mkdir -p "$P8"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban8-c'); do
+    npx remotion render "$id" "$P8/${id#laban8-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P8"
+fi

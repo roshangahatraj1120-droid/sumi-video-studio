@@ -30,4 +30,4 @@ Now think about where we have traveled. From preserving choreography, to assessi
 decision-making, to military analysis. All from the belief that the way a human body moves contains
 information.
 
-Status: script received, waiting for the zip of images.
+Status: built from 5 of the 6 supplied images (dossier replaced by a typographic redacted page). See GUIDE.md.

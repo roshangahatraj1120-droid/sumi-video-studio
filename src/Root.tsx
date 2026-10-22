@@ -1,3 +1,4 @@
+import * as L8 from "./laban8/clips";
 import * as L7 from "./laban7/clips";
 import * as L6 from "./laban6/clips";
 import * as L5 from "./laban5/clips";
@@ -101,6 +102,72 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban8-Final">
+        <Composition
+          id="laban8-c01-farther-from-dance"
+          component={L8.H01Farther}
+          durationInFrames={L8.LEN8.h01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8-c02-warren-lamb-mpa"
+          component={L8.H02Lamb}
+          durationInFrames={L8.LEN8.h02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8-c03-observe-pattern-decision"
+          component={L8.H03Claim}
+          durationInFrames={L8.LEN8.h03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8-c04-tens-of-thousands"
+          component={L8.H04Thousands}
+          durationInFrames={L8.LEN8.h04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8-c05-laemmli-companies"
+          component={L8.H05Firms}
+          durationInFrames={L8.LEN8.h05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8-c06-pentagon-net-assessment"
+          component={L8.H06Pentagon}
+          durationInFrames={L8.LEN8.h06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8-c07-redacted-names"
+          component={L8.H07Redacted}
+          durationInFrames={L8.LEN8.h07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8-c08-journey-information"
+          component={L8.H08Journey}
+          durationInFrames={L8.LEN8.h08}
           fps={30}
           width={1920}
           height={1080}

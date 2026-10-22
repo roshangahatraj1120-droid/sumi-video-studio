@@ -55,8 +55,10 @@ export const Rig: React.FC<{
   keys: Key[];
   whipIn?: -1 | 1;
   whipOut?: -1 | 1;
+  // false for a layer stacked over another rig (a cut-out on its own depth)
+  opaque?: boolean;
   children: React.ReactNode;
-}> = ({ keys, whipIn, whipOut, children }) => {
+}> = ({ keys, whipIn, whipOut, opaque = true, children }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const id = `rig${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
@@ -101,7 +103,12 @@ export const Rig: React.FC<{
   const blur = bx > 0.4 || by > 0.4;
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>
+    <AbsoluteFill
+      style={{
+        backgroundColor: opaque ? "#000" : undefined,
+        overflow: "hidden",
+      }}
+    >
       <svg width={0} height={0} style={{ position: "absolute" }}>
         <filter id={id} x="-5%" y="-5%" width="110%" height="110%">
           <feGaussianBlur stdDeviation={`${bx.toFixed(2)} ${by.toFixed(2)}`} />

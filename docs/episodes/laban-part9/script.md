@@ -19,4 +19,4 @@ dance could reveal about social organization and human culture.
 B-ROLL: Original world map animation; film-reel graphics; archival shelves; public-domain/open-access
 portraits only if rights are verified. Also images of Alan Lomax, Bartenieff, Forrestine Paulay.
 
-Status: script received, waiting for the zip of images.
+Status: built from the 7 supplied images with depth parallax, film strip, map threads and range-of-motion arcs. See GUIDE.md.

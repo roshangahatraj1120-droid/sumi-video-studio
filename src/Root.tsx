@@ -1,3 +1,4 @@
+import * as L9 from "./laban9/clips";
 import * as L8 from "./laban8/clips";
 import * as L7 from "./laban7/clips";
 import * as L6 from "./laban6/clips";
@@ -102,6 +103,80 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban9-Final">
+        <Composition
+          id="laban9-c01-toward-rehabilitation"
+          component={L9.I01Turn}
+          durationInFrames={L9.LEN9.i01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c02-irmgard-bartenieff"
+          component={L9.I02Bartenieff}
+          durationInFrames={L9.LEN9.i02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c03-polio-range-of-motion"
+          component={L9.I03Polio}
+          durationInFrames={L9.LEN9.i03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c04-laban-bartenieff-approach"
+          component={L9.I04Approach}
+          durationInFrames={L9.LEN9.i04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c05-trauma-therapy"
+          component={L9.I05Trauma}
+          durationInFrames={L9.LEN9.i05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c06-lomax-paulay"
+          component={L9.I06Collaborators}
+          durationInFrames={L9.LEN9.i06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c07-choreometrics-title"
+          component={L9.I07Choreometrics}
+          durationInFrames={L9.LEN9.i07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c08-map-across-cultures"
+          component={L9.I08Map}
+          durationInFrames={L9.LEN9.i08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban9-c09-film-strip-human-culture"
+          component={L9.I09Culture}
+          durationInFrames={L9.LEN9.i09}
           fps={30}
           width={1920}
           height={1080}

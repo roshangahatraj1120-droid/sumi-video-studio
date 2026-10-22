@@ -134,3 +134,13 @@ if [[ "$what" == part8 ]]; then
   done
   ls -la "$P8"
 fi
+
+# Part 9 finals: rehabilitation, therapy and Choreometrics
+if [[ "$what" == part9 ]]; then
+  P9=out/laban9/final
+  mkdir -p "$P9"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban9-c'); do
+    npx remotion render "$id" "$P9/${id#laban9-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P9"
+fi

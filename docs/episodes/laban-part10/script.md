@@ -24,5 +24,4 @@ to have the same problem.
 
 It was not the language itself that decided what it would become. It was the people who used it.
 
-Status: script only (no images). Plan: invideo-generated scenes + premium motion design; awaiting
-credit approval.
+Status: built from earlier chapters' photos (invideo out of credits) + dissolve and alphabet motion design. See GUIDE.md.

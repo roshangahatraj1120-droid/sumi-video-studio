@@ -1,3 +1,4 @@
+import * as L10 from "./laban10/clips";
 import * as L9 from "./laban9/clips";
 import * as L8 from "./laban8/clips";
 import * as L7 from "./laban7/clips";
@@ -103,6 +104,104 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban10-Final">
+        <Composition
+          id="laban10-c01-so-fascinating"
+          component={L10.J01Fascinating}
+          durationInFrames={L10.LEN10.j01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c02-movement-disappears"
+          component={L10.J02Disappears}
+          durationInFrames={L10.LEN10.j02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c03-legible-recorded"
+          component={L10.J03Legible}
+          durationInFrames={L10.LEN10.j03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c04-information-travelled"
+          component={L10.J04Information}
+          durationInFrames={L10.LEN10.j04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c05-montage-archives-to-military"
+          component={L10.J05Montage}
+          durationInFrames={L10.LEN10.j05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c06-robotics-human-motion"
+          component={L10.J06Today}
+          durationInFrames={L10.LEN10.j06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c07-the-question"
+          component={L10.J07Question}
+          durationInFrames={L10.LEN10.j07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c08-complicated-legacy"
+          component={L10.J08Legacy}
+          durationInFrames={L10.LEN10.j08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c09-creativity-to-power"
+          component={L10.J09Uses}
+          durationInFrames={L10.LEN10.j09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c10-SILENT-same-alphabet"
+          component={L10.J10Alphabet}
+          durationInFrames={L10.LEN10.j10}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c11-SILENT-same-problem"
+          component={L10.J11SameProblem}
+          durationInFrames={L10.LEN10.j11}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban10-c12-the-people-who-used-it"
+          component={L10.J12People}
+          durationInFrames={L10.LEN10.j12}
           fps={30}
           width={1920}
           height={1080}

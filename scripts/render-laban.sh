@@ -144,3 +144,15 @@ if [[ "$what" == part9 ]]; then
   done
   ls -la "$P9"
 fi
+
+# Part 10 finals: the legacy. Clips with SILENT in the name are rendered without an audio track.
+if [[ "$what" == part10 ]]; then
+  P10=out/laban10/final
+  mkdir -p "$P10"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban10-c'); do
+    extra=""
+    [[ "$id" == *SILENT* ]] && extra="--muted"
+    npx remotion render "$id" "$P10/${id#laban10-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k $extra --log=error
+  done
+  ls -la "$P10"
+fi

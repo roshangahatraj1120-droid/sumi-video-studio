@@ -96,6 +96,33 @@ Every ~45–60 s something must change: new location, new visual treatment, a mo
 - Radial zoom-blur punch into B-roll; smear/whip pan; glitch/RGB flash; torn-paper split for duality
   ("two lives", "then vs now"); light-leak flash for warm/joyful moments; hard cut to black for weight.
 
+## Documentary-recreation style (reference 3, from 2026-10-22)
+
+Use this for story beats where something *happened between people*: a meeting, a decision, a rejection,
+a quote from a source. It sits alongside the still-movement style above, not instead of it.
+
+- **Moving recreations, not stills.** The scene is a short AI video made from the owner's photo with the
+  invideo connector: people gesture, turn their heads, lean in. The camera changes angle between speakers
+  (wide two-shot, then a medium on the speaker, then a reverse on the listener). Hold each about 3–5 s.
+- **Subject glow.** The person who matters gets a warm glowing outline (brand gold, not orange), built from
+  a rotoscoped cut-out: first a quick bright stroke traced round the figure, then a soft pulsing halo.
+  The background can be slightly desaturated so the subject pops.
+- **Speech bubbles for quoted words.** A white rounded comic bubble with a tail toward the speaker's head
+  pops in (scale overshoot), then the line types on letter by letter in Montserrat heavy uppercase, ink
+  colour. Only for words a source actually records someone saying; never invent dialogue.
+- **Source pages.** Show the real source (book page, article, archive record) as a sheet tilted in 3D,
+  with a slow drift and rotation across it and a small **SOURCE:** header naming it. A highlighter sweeps
+  line by line over the key sentence: gold on light paper, rose on dark pages. This is the channel's
+  credibility device; use the owner's screenshots of real sources, never fabricate a document.
+- **Inset clipping.** During a recreation, a small torn-edge clipping of the same source sits lower-left
+  with its key line highlighted, so the viewer sees the evidence beside the scene.
+- **Keyword title** at top-left over a colour-punched still: one or two words, heavy uppercase, gold with a
+  dark outline and soft glow (the reference used orange-to-yellow; we keep brand gold).
+- **Transitions:** fast zoom-blur whips with a directional smear and a slight brightness flash between
+  every shot in these sequences.
+- **Host sections:** warm practical-lamp A-roll; optional handle tag sliding in bottom-right.
+- **Colour:** teal/cool backgrounds, warm amber on the subject; contrast punched up.
+
 ## Mid-video subscribe card (the only CTA for now)
 - Placed right after the first emotional peak (~45–55 % into the video).
 - Hard cut from the peak to a dark background; a clean card shows the channel's real

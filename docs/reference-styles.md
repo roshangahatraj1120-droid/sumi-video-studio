@@ -172,3 +172,13 @@ The narration in these videos could not be transcribed here; observations come f
 | Glitch | 2–3 copies with `mixBlendMode: screen`, red/cyan offsets, random horizontal `clipPath` slices on a few frames |
 | Brush-stroke bar | PNG/SVG brush shape scaled in with `scaleX`, `mixBlendMode: multiply` |
 | Subject in front of title | Cutout PNG of subject layered above the title layer |
+
+
+## Reference 3 — documentary recreation (WhatsApp clip, 28.6 s, 2026-10-22)
+Eli Cohen spy story. Shots in order: colour-punched still with "JOB LOSS" keyword and a traced yellow
+outline round the subject (0–3 s) → zoom-blur whip into a white book page, "source: …" header, yellow
+highlighter sweeping three lines (3–7 s) → host A-roll by a lamp, handle tag bottom-right (7–14 s) →
+AI-video café recreation: wide two-shot, then medium on the speaker with a glowing yellow outline, a white
+speech bubble typing "If You Want You Can Join Ministry of Defence", torn source clipping lower-left
+(14–18 s) → whip to the reverse angle, listener glowing, bubble "OK I AM READY" (18–22 s) → black book
+pages in 3D drift with blue highlighter and "SOURCE:" headers, two pages joined by a blur whip (22–29 s).

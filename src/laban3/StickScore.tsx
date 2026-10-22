@@ -17,7 +17,7 @@ import { Glyph, GlyphDefs, Level, Shape } from "./symbols";
 // Then the dancer leaves, and a gold figure is rebuilt from the score alone.
 export const STICK_LEN = 450;
 
-const FLOOR = 880;
+export const FLOOR = 880;
 const CX = 1420; // staff centre line
 const COL = 60;
 const BOTTOM = 950;
@@ -31,7 +31,7 @@ const clamp = {
 // ---------- figure ----------
 type Limb = [number, number]; // upper, lower: degrees from straight down, + = forward (right)
 type Leg = [number, number, number]; // thigh, shin, foot tilt below horizontal
-type Pose = {
+export type Pose = {
   hx: number;
   t: number;
   armF: Limb;
@@ -41,7 +41,7 @@ type Pose = {
   lift?: number;
 };
 
-const STAND: Pose = {
+export const STAND: Pose = {
   hx: 600,
   t: 0,
   armF: [6, 4],
@@ -49,7 +49,7 @@ const STAND: Pose = {
   legF: [2, 0, 10],
   legB: [-2, 0, 10],
 };
-const PLIE: Pose = {
+export const PLIE: Pose = {
   hx: 600,
   t: 12,
   armF: [88, 90],
@@ -57,7 +57,7 @@ const PLIE: Pose = {
   legF: [55, -25, 10],
   legB: [45, -30, 10],
 };
-const LUNGE: Pose = {
+export const LUNGE: Pose = {
   hx: 720,
   t: 28,
   armF: [122, 128],
@@ -65,7 +65,7 @@ const LUNGE: Pose = {
   legF: [70, 5, 10],
   legB: [-55, -60, 40],
 };
-const RISE: Pose = {
+export const RISE: Pose = {
   hx: 770,
   t: -6,
   armF: [172, 178],
@@ -82,7 +82,7 @@ const MOVES: { a: number; b: number; to: Pose; ramp: boolean }[] = [
 ];
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-const mix = (p: Pose, q: Pose, t: number): Pose => ({
+export const mix = (p: Pose, q: Pose, t: number): Pose => ({
   hx: lerp(p.hx, q.hx, t),
   t: lerp(p.t, q.t, t),
   armF: [lerp(p.armF[0], q.armF[0], t), lerp(p.armF[1], q.armF[1], t)],
@@ -128,12 +128,14 @@ const LEG_H = (l: Leg) =>
   150 * Math.cos(rad(l[1])) +
   Math.max(14, 45 * Math.sin(rad(l[2])));
 
-const Figure: React.FC<{
+export const Figure: React.FC<{
   pose: Pose;
   color: string;
   opacity?: number;
   breathe?: number;
-}> = ({ pose, color, opacity = 1, breathe = 0 }) => {
+  // per-figure glow; off for crowds, where hundreds of filters get slow
+  glow?: boolean;
+}> = ({ pose, color, opacity = 1, breathe = 0, glow = true }) => {
   const hip: [number, number] = [
     pose.hx,
     FLOOR - Math.max(LEG_H(pose.legF), LEG_H(pose.legB)) - breathe,
@@ -203,7 +205,10 @@ const Figure: React.FC<{
     </g>
   );
   return (
-    <g opacity={opacity} style={{ filter: `drop-shadow(0 0 8px ${color}55)` }}>
+    <g
+      opacity={opacity}
+      style={glow ? { filter: `drop-shadow(0 0 8px ${color}55)` } : undefined}
+    >
       {bone(arm(pose.armB) as [number, number][], true, "ab")}
       {bone(leg(pose.legB) as [number, number][], true, "lb")}
       {bone([hip, neck], false, "torso")}

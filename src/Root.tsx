@@ -1,3 +1,4 @@
+import * as L4 from "./laban4/clips";
 import * as L3 from "./laban3/clips";
 import * as L2 from "./laban2/clips";
 import { TITLE_LEN, TitleCard } from "./laban/TitleCard";
@@ -97,6 +98,80 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban4-Final">
+        <Composition
+          id="laban4-c01-politics"
+          component={L4.D01Politics}
+          durationInFrames={L4.LEN4.d01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c02-1933-germany-laban-stayed"
+          component={L4.D02Stayed}
+          durationInFrames={L4.LEN4.d02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c03-not-outsider-inside"
+          component={L4.D03Inside}
+          durationInFrames={L4.LEN4.d03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c04-1934-deutsche-tanzbuhne"
+          component={L4.D04Tanzbuhne}
+          durationInFrames={L4.LEN4.d04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c05-historians-debate"
+          component={L4.D05Debate}
+          durationInFrames={L4.LEN4.d05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c06-timeline-operated-inside"
+          component={L4.D06Fact}
+          durationInFrames={L4.LEN4.d06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c07-should-not-be-removed"
+          component={L4.D07NotRemoved}
+          durationInFrames={L4.LEN4.d07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c08-movement-choirs"
+          component={L4.D08Choirs}
+          durationInFrames={L4.LEN4.d08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban4-c09-mass-spectacle"
+          component={L4.D09Mass}
+          durationInFrames={L4.LEN4.d09}
           fps={30}
           width={1920}
           height={1080}

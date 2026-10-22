@@ -84,3 +84,13 @@ if [[ "$what" == part3 ]]; then
   done
   ls -la "$P3"
 fi
+
+# Part 4 finals: politics
+if [[ "$what" == part4 ]]; then
+  P4=out/laban4/final
+  mkdir -p "$P4"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban4-c'); do
+    npx remotion render "$id" "$P4/${id#laban4-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P4"
+fi

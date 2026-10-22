@@ -1,3 +1,4 @@
+import * as L5 from "./laban5/clips";
 import * as L4 from "./laban4/clips";
 import * as L3 from "./laban3/clips";
 import * as L2 from "./laban2/clips";
@@ -98,6 +99,96 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban5-Final">
+        <Composition
+          id="laban5-c01-1936-berlin-olympics"
+          component={L5.E01Olympics}
+          durationInFrames={L5.LEN5.e01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c02-vom-tauwind-title"
+          component={L5.E02Title}
+          durationInFrames={L5.LEN5.e02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c03-thousand-dancers"
+          component={L5.E03Thousand}
+          durationInFrames={L5.LEN5.e03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c04-the-rehearsal"
+          component={L5.E04Rehearsal}
+          durationInFrames={L5.LEN5.e04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c05-rejected-cancelled-collapsed"
+          component={L5.E05Collapse}
+          durationInFrames={L5.LEN5.e05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c06-black-1936-performance-cancelled"
+          component={L5.E06Black}
+          durationInFrames={L5.LEN5.e06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c07-left-germany"
+          component={L5.E07LeftGermany}
+          durationInFrames={L5.LEN5.e07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c08-paris-england-split"
+          component={L5.E08ParisEngland}
+          durationInFrames={L5.LEN5.e08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c09-jooss-dartington"
+          component={L5.E09Help}
+          durationInFrames={L5.LEN5.e09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c10-german-career-over"
+          component={L5.E10Over}
+          durationInFrames={L5.LEN5.e10}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban5-c11-second-life"
+          component={L5.E11SecondLife}
+          durationInFrames={L5.LEN5.e11}
           fps={30}
           width={1920}
           height={1080}

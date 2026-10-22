@@ -94,3 +94,13 @@ if [[ "$what" == part4 ]]; then
   done
   ls -la "$P4"
 fi
+
+# Part 5 finals: 1936 and exile
+if [[ "$what" == part5 ]]; then
+  P5=out/laban5/final
+  mkdir -p "$P5"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban5-c'); do
+    npx remotion render "$id" "$P5/${id#laban5-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P5"
+fi

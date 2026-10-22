@@ -196,3 +196,11 @@ if [[ "$what" == part1b ]]; then
   done
   ls -la "$P1B"
 fi
+
+# Part 1c final: "Think about the problem." (host line between Part 1 clips 03 and 04)
+if [[ "$what" == part1c ]]; then
+  P1C=out/laban1c/final
+  mkdir -p "$P1C"
+  npx remotion render laban1c-c01-think-about-the-problem "$P1C/01-think-about-the-problem.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  ls -la "$P1C"
+fi

@@ -101,7 +101,8 @@ export const Rig: React.FC<{
   const prev = screen(frame - 1);
   // only real speed smears: a dead zone keeps slow pushes and drifts sharp
   const dead = (v: number) => Math.max(0, v - 3);
-  const ds = dead(Math.abs(now.s - prev.s) * 900);
+  // relative zoom speed, so a slow pull at high zoom stays as sharp as one at 1×
+  const ds = dead((Math.abs(now.s - prev.s) / Math.max(1, now.s)) * 900);
   const bx = Math.min(
     48,
     dead(Math.abs(now.tx - prev.tx) * 0.4) + ds + now.p * 40,

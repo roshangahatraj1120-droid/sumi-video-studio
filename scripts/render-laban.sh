@@ -114,3 +114,13 @@ if [[ "$what" == part6 ]]; then
   done
   ls -la "$P6"
 fi
+
+# Part 7 finals: New York and the first copyright
+if [[ "$what" == part7 ]]; then
+  P7=out/laban7/final
+  mkdir -p "$P7"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban7-c'); do
+    npx remotion render "$id" "$P7/${id#laban7-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P7"
+fi

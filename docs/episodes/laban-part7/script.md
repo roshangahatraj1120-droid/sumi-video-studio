@@ -29,4 +29,4 @@ reconstructed and claimed as intellectual property.
 GRAPHIC: Original notation page with a large custom stamp: COPYRIGHT REGISTERED - 1952.
 Do not reproduce a Kiss Me, Kate score.
 
-Status: script received, waiting for images (photos only; brighter palette for this section).
+Status: built from the 7 supplied images (photos only, brighter palette). See GUIDE.md.

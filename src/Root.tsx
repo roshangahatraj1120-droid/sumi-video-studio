@@ -1,3 +1,4 @@
+import * as L7 from "./laban7/clips";
 import * as L6 from "./laban6/clips";
 import * as L5 from "./laban5/clips";
 import * as L4 from "./laban4/clips";
@@ -100,6 +101,88 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban7-Final">
+        <Composition
+          id="laban7-c01-across-the-atlantic"
+          component={L7.G01Atlantic}
+          durationInFrames={L7.LEN7.g01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c02-1940-dance-notation-bureau"
+          component={L7.G02Bureau}
+          durationInFrames={L7.LEN7.g02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c03-preservation-not-disappear"
+          component={L7.G03Preservation}
+          durationInFrames={L7.LEN7.g03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c04-balanchine-humphrey-holm"
+          component={L7.G04Choreographers}
+          durationInFrames={L7.LEN7.g04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c05-1952-broadway"
+          component={L7.G05Broadway}
+          durationInFrames={L7.LEN7.g05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c06-kiss-me-kate-submitted"
+          component={L7.G06Submitted}
+          durationInFrames={L7.LEN7.g06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c07-the-first-copyright-claim"
+          component={L7.G07First}
+          durationInFrames={L7.LEN7.g07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c08-registered-as-dramatic-work"
+          component={L7.G08Dramatic}
+          durationInFrames={L7.LEN7.g08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c09-remember-to-legally-tangible"
+          component={L7.G09Tangible}
+          durationInFrames={L7.LEN7.g09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban7-c10-stamp-copyright-registered-1952"
+          component={L7.G10Stamp}
+          durationInFrames={L7.LEN7.g10}
           fps={30}
           width={1920}
           height={1080}

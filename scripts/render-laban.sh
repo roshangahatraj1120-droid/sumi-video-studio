@@ -74,3 +74,13 @@ if [[ "$what" == part2 ]]; then
   done
   ls -la "$P2" "$P2/overlays"
 fi
+
+# Part 3 finals: how the notation works
+if [[ "$what" == part3 ]]; then
+  P3=out/laban3/final
+  mkdir -p "$P3"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban3-c'); do
+    npx remotion render "$id" "$P3/${id#laban3-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P3"
+fi

@@ -8,6 +8,7 @@ import {
 } from "remotion";
 import { COLOR } from "../brand/tokens";
 import { FilmLook } from "../scenes/FilmLook";
+import { Level, outline, Shape } from "../laban3/symbols";
 
 // Original motion graphic: direction symbols building up a vertical Laban-style staff.
 // Conventions used: read bottom → top; centre line splits left/right; columns from the centre are
@@ -23,8 +24,6 @@ const clamp = {
   extrapolateRight: "clamp" as const,
 };
 
-type Shape = "place" | "right" | "left" | "diagR" | "diagL";
-type Level = "low" | "mid" | "high";
 type Sym = { col: number; y: number; len: number; shape: Shape; level: Level };
 
 // col: signed column index from centre (±1 support, ±2 leg gesture, ±3 body, ±4 arm)
@@ -49,26 +48,6 @@ const SYMBOLS: Sym[] = [
 ];
 const ROSE_INDEX = 6;
 const colX = (c: number) => CX + Math.sign(c) * (Math.abs(c) - 0.5) * COL;
-
-const outline = (s: Shape, x: number, y: number, w: number, h: number) => {
-  // (x, y) = bottom-left corner; symbols grow upward
-  const l = x,
-    r = x + w,
-    b = y,
-    t = y - h;
-  switch (s) {
-    case "place":
-      return `M ${l} ${b} L ${r} ${b} L ${r} ${t} L ${l} ${t} Z`;
-    case "right":
-      return `M ${l} ${b} L ${r} ${(b + t) / 2} L ${l} ${t} Z`;
-    case "left":
-      return `M ${r} ${b} L ${l} ${(b + t) / 2} L ${r} ${t} Z`;
-    case "diagR":
-      return `M ${l} ${b} L ${r} ${b} L ${r} ${t} L ${l} ${t + w * 0.8} Z`;
-    case "diagL":
-      return `M ${l} ${b} L ${r} ${b} L ${r} ${t + w * 0.8} L ${l} ${t} Z`;
-  }
-};
 
 export const NotationStaff: React.FC = () => {
   const frame = useCurrentFrame();

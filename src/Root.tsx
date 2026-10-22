@@ -1,3 +1,4 @@
+import * as L3 from "./laban3/clips";
 import * as L2 from "./laban2/clips";
 import { TITLE_LEN, TitleCard } from "./laban/TitleCard";
 import * as LC from "./laban/combined";
@@ -96,6 +97,72 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban3-Final">
+        <Composition
+          id="laban3-c01-vertical-staff-bottom-up"
+          component={L3.Q01Staff}
+          durationInFrames={L3.LEN3.q01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban3-c02-where-it-sits-body-part"
+          component={L3.Q02BodyPart}
+          durationInFrames={L3.LEN3.q02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban3-c03-shape-direction"
+          component={L3.Q03Direction}
+          durationInFrames={L3.LEN3.q03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban3-c04-shading-level"
+          component={L3.Q04Level}
+          durationInFrames={L3.LEN3.q04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban3-c05-length-duration"
+          component={L3.Q05Duration}
+          durationInFrames={L3.LEN3.q05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban3-c06-three-rules-split"
+          component={L3.Q06Rules}
+          durationInFrames={L3.LEN3.q06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban3-c07-read-and-reconstruct"
+          component={L3.Q07Reconstruct}
+          durationInFrames={L3.LEN3.q07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban3-c08-graphic-stick-figure-score"
+          component={L3.Q08StickScore}
+          durationInFrames={L3.LEN3.q08}
           fps={30}
           width={1920}
           height={1080}

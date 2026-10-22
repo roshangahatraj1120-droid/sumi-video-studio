@@ -166,3 +166,13 @@ if [[ "$what" == part9b ]]; then
   done
   ls -la "$P9B"
 fi
+
+# Part 2b finals: modern dance vs ballet, one system for all movement (replaces Part 2 clips 06–07)
+if [[ "$what" == part2b ]]; then
+  P2B=out/laban2b/final
+  mkdir -p "$P2B"
+  for id in $(npx remotion compositions --quiet 2>/dev/null | tr ' ' '\n' | grep '^laban2b-c'); do
+    npx remotion render "$id" "$P2B/${id#laban2b-c}.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  done
+  ls -la "$P2B"
+fi

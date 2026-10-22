@@ -1,3 +1,4 @@
+import * as L2B from "./laban2b/clips";
 import * as L9B from "./laban9b/clips";
 import * as L10 from "./laban10/clips";
 import * as L9 from "./laban9/clips";
@@ -763,6 +764,48 @@ export const RemotionRoot: React.FC = () => {
           id="laban3-c08-graphic-stick-figure-score"
           component={L3.Q08StickScore}
           durationInFrames={L3.LEN3.q08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban2b-Final">
+        <Composition
+          id="laban2b-c01-european-modern-dance"
+          component={L2B.B01ModernDance}
+          durationInFrames={L2B.LEN2B.b01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2b-c02-broke-away-from-ballet"
+          component={L2B.B02BrokeAway}
+          durationInFrames={L2B.LEN2B.b02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2b-c03-bigger-than-choreography"
+          component={L2B.B03Bigger}
+          durationInFrames={L2B.LEN2B.b03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2b-c04-a-system-for-movement"
+          component={L2B.B04System}
+          durationInFrames={L2B.LEN2B.b04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban2b-c05-ballet-modern-everyday"
+          component={L2B.B05ThreeKinds}
+          durationInFrames={L2B.LEN2B.b05}
           fps={30}
           width={1920}
           height={1080}

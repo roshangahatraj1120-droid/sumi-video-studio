@@ -279,7 +279,7 @@ export const E05Collapse: React.FC = () => {
   );
 };
 
-// 06 — BLACK SCREEN. TEXT: 1936 – PERFORMANCE CANCELLED. Hold for two seconds.
+// 06 — BLACK SCREEN. TEXT: 1933 – PERFORMANCE CANCELLED. Hold for two seconds.
 export const E06Black: React.FC = () => {
   const frame = useCurrentFrame();
   const t = interpolate(frame, [0, 8], [0, 1], {
@@ -304,7 +304,7 @@ export const E06Black: React.FC = () => {
             color: COLOR.white,
           }}
         >
-          1936
+          1933
         </div>
         <div
           style={{

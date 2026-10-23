@@ -19,7 +19,7 @@ import { LightSweep } from "../laban9/fx9";
 // Laban — Part 8c: a faster pair for Part 8's "…characteristic patterns connected to how that person
 // approached decisions" and "The Warren Lamb Trust says MPA has been used with tens of thousands of
 // people, particularly in management and organizational settings." Replaces Part 8 clips 03–04. 30 fps.
-export const LEN8C = { c01: 210, c02: 240 };
+export const LEN8C = { c01: 210, c02: 240, c03: 240 };
 
 const clamp = {
   extrapolateLeft: "clamp" as const,
@@ -396,6 +396,227 @@ export const C02TensOfThousands: React.FC = () => {
       <Sfx name="hit" at={WALL + 2} volume={0.3} />
       <Sfx name="whoosh" at={WALL + 28} volume={0.35} />
       <Sfx name="hit" at={WALL + 32} volume={0.25} />
+    </Finish>
+  );
+};
+
+// 03 — "Historian Whitney Laemmli's research traces Laban-derived movement analysis through corporate
+// hiring and management consulting." One gold thread runs through three photos joined by whip pans:
+// Laban's book → the hiring interview (assessor's notepad, then the candidate) → the consultants'
+// table. Ends on the same photo and framing as Part 8 clip 05, which then tilts down the binders.
+const CLINICAL = "saturate(0.72) contrast(1.06) brightness(1.02)";
+const T3 = [0, 110, 165, 240];
+type Pt = [number, number];
+const curve = (pts: Pt[]) =>
+  pts
+    .map((p, i) => {
+      if (i === 0) return `M ${p[0]} ${p[1]}`;
+      const q = pts[i - 1];
+      const mx = (q[0] + p[0]) / 2;
+      return `C ${mx} ${q[1]}, ${mx} ${p[1]}, ${p[0]} ${p[1]}`;
+    })
+    .join(" ");
+
+const Thread: React.FC<{ pts: Pt[]; from: number; to: number }> = ({
+  pts,
+  from,
+  to,
+}) => {
+  const frame = useCurrentFrame();
+  const t = interpolate(frame, [from, to], [0, 1], {
+    ...clamp,
+    easing: Easing.inOut(Easing.cubic),
+  });
+  if (t <= 0) return null;
+  return (
+    <path
+      d={curve(pts)}
+      fill="none"
+      stroke={COLOR.gold}
+      strokeWidth={3}
+      strokeLinecap="round"
+      pathLength={1}
+      strokeDasharray="1 2"
+      strokeDashoffset={1 - t}
+      style={{ filter: `drop-shadow(0 0 7px ${COLOR.gold})` }}
+    />
+  );
+};
+
+const Pin: React.FC<{ p: Pt; at: number; n?: string }> = ({ p, at, n }) => {
+  const frame = useCurrentFrame();
+  const t = frame - at;
+  if (t < 0) return null;
+  const ring = 10 + 40 * (1 - Math.exp(-t / 6));
+  const fade = Math.exp(-t / 10);
+  return (
+    <g>
+      <circle
+        cx={p[0]}
+        cy={p[1]}
+        r={ring}
+        fill="none"
+        stroke={COLOR.gold}
+        strokeWidth={2}
+        opacity={fade}
+      />
+      <circle
+        cx={p[0]}
+        cy={p[1]}
+        r={12}
+        fill={COLOR.gold}
+        style={{ filter: `drop-shadow(0 0 8px ${COLOR.gold})` }}
+      />
+      {n ? (
+        <text
+          x={p[0] + 20}
+          y={p[1] - 18}
+          fill={COLOR.gold}
+          opacity={Math.min(1, t / 6)}
+          style={{ ...TYPE.label, fontSize: 28, letterSpacing: "0.2em" }}
+        >
+          {n}
+        </text>
+      ) : null}
+    </g>
+  );
+};
+
+const Svg: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <svg
+    width={1920}
+    height={1080}
+    style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}
+  >
+    {children}
+  </svg>
+);
+
+const BOOK: Pt = [780, 760];
+const PAD: Pt = [448, 687];
+const CAND: Pt = [1500, 600];
+const PEN: Pt = [1130, 665];
+
+export const C03Traces: React.FC = () => {
+  const frame = useCurrentFrame();
+  const tag = interpolate(frame, [6, 20], [0, 1], clamp);
+  return (
+    <Finish dust={0.15}>
+      <Sequence durationInFrames={T3[1] - T3[0]}>
+        <Rig
+          keys={[
+            { f: 0, s: 1.5, x: 780, y: 700 },
+            { f: 110, s: 1.26, x: 900, y: 620, e: "drift" },
+          ]}
+          whipOut={1}
+        >
+          <Plate src="laban8/h01.jpg" filter={CLINICAL} />
+          <Svg>
+            <Thread pts={[BOOK, [1960, 520]]} from={78} to={110} />
+            <Pin p={BOOK} at={16} n="01" />
+          </Svg>
+        </Rig>
+        <AbsoluteFill style={{ background: SHADE }} />
+        <CaptionAt text="traces" start={20} y={790} size={44} />
+        <HeroWord
+          text="Laban-derived movement analysis"
+          look="serif"
+          size={100}
+          y={840}
+          start={26}
+        />
+      </Sequence>
+      <Sequence from={T3[1]} durationInFrames={T3[2] - T3[1]}>
+        <Rig
+          keys={[
+            { f: 0, s: 1.3, x: 860, y: 600 },
+            { f: 55, s: 1.4, x: 1080, y: 600, e: "drift" },
+          ]}
+          whipIn={1}
+          whipOut={1}
+        >
+          <Plate src="laban8/h02.jpg" filter={CLINICAL} />
+          <Svg>
+            <Thread pts={[[-40, 520], PAD, CAND]} from={0} to={30} />
+            <Thread pts={[CAND, [1960, 520]]} from={40} to={55} />
+            <Pin p={PAD} at={11} />
+            <Pin p={CAND} at={29} n="02" />
+          </Svg>
+        </Rig>
+        <AbsoluteFill style={{ background: SHADE }} />
+        <CaptionAt text="through" start={2} y={790} size={44} />
+        <HeroWord
+          text="corporate hiring"
+          look="heavy"
+          size={130}
+          y={840}
+          start={6}
+        />
+      </Sequence>
+      <Sequence from={T3[2]}>
+        <Rig
+          keys={[
+            { f: 0, s: 1.32, x: 880, y: 580 },
+            { f: 75, s: 1.1, x: 945, y: 525, e: "smooth" },
+          ]}
+          whipIn={1}
+        >
+          <Plate src="laban8/h04.jpg" filter={CLINICAL} />
+          <Svg>
+            <Thread pts={[[-40, 560], PEN]} from={0} to={26} />
+            <Pin p={PEN} at={25} n="03" />
+          </Svg>
+        </Rig>
+        <AbsoluteFill style={{ background: SHADE }} />
+        <CaptionAt text="and" start={2} y={790} size={44} />
+        <HeroWord
+          text="management consulting"
+          look="heavy"
+          size={104}
+          y={840}
+          start={6}
+        />
+      </Sequence>
+      {/* attribution, held across all three shots */}
+      <AbsoluteFill
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(6,6,8,0.8) 0%, rgba(6,6,8,0.35) 16%, rgba(6,6,8,0) 28%)",
+          opacity: tag,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: 120,
+          top: 96,
+          opacity: tag,
+          display: "flex",
+          alignItems: "center",
+          gap: 18,
+        }}
+      >
+        <div style={{ width: 46 * tag, height: 2, background: COLOR.gold }} />
+        <span
+          style={{
+            ...TYPE.label,
+            fontSize: 24,
+            letterSpacing: "0.26em",
+            color: COLOR.white,
+            textShadow: "0 2px 10px rgba(0,0,0,0.9)",
+          }}
+        >
+          THE RESEARCH OF HISTORIAN WHITNEY LAEMMLI
+        </span>
+      </div>
+      <Sfx name="drone" at={0} volume={0.2} />
+      <Sfx name="tick" at={16} volume={0.35} />
+      <Sfx name="whoosh" at={T3[1] - 6} volume={0.45} />
+      <Sfx name="tick" at={T3[1] + 11} volume={0.3} />
+      <Sfx name="tick" at={T3[1] + 29} volume={0.35} />
+      <Sfx name="whoosh" at={T3[2] - 6} volume={0.45} />
+      <Sfx name="tick" at={T3[2] + 25} volume={0.35} />
+      <Sfx name="hit" at={T3[2] + 6} volume={0.25} />
     </Finish>
   );
 };

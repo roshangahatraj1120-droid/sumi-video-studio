@@ -225,5 +225,6 @@ if [[ "$what" == part8c ]]; then
   mkdir -p "$P8C"
   npx remotion render laban8c-c01-characteristic-patterns "$P8C/01-characteristic-patterns.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
   npx remotion render laban8c-c02-tens-of-thousands "$P8C/02-tens-of-thousands.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  npx remotion render laban8c-c03-research-traces "$P8C/03-research-traces.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
   ls -la "$P8C"
 fi

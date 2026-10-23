@@ -342,6 +342,14 @@ export const RemotionRoot: React.FC = () => {
           width={1920}
           height={1080}
         />
+        <Composition
+          id="laban8c-c03-research-traces"
+          component={L8C.C03Traces}
+          durationInFrames={L8C.LEN8C.c03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
       </Folder>
       <Folder name="Laban8b-Final">
         <Composition

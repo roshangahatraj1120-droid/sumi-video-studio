@@ -219,3 +219,11 @@ if [[ "$what" == part7b ]]; then
   npx remotion render laban7b-c01-philosophical-meaning "$P7B/01-philosophical-meaning.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
   ls -la "$P7B"
 fi
+
+if [[ "$what" == part8c ]]; then
+  P8C=out/laban8c/final
+  mkdir -p "$P8C"
+  npx remotion render laban8c-c01-characteristic-patterns "$P8C/01-characteristic-patterns.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  npx remotion render laban8c-c02-tens-of-thousands "$P8C/02-tens-of-thousands.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  ls -la "$P8C"
+fi

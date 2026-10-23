@@ -1,3 +1,4 @@
+import * as L8C from "./laban8c/clips";
 import * as L7B from "./laban7b/clips";
 import * as L10B from "./laban10b/clips";
 import * as L1C from "./laban1c/clips";
@@ -319,6 +320,24 @@ export const RemotionRoot: React.FC = () => {
           id="laban9-c09-film-strip-human-culture"
           component={L9.I09Culture}
           durationInFrames={L9.LEN9.i09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban8c-Final">
+        <Composition
+          id="laban8c-c01-characteristic-patterns"
+          component={L8C.C01Patterns}
+          durationInFrames={L8C.LEN8C.c01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="laban8c-c02-tens-of-thousands"
+          component={L8C.C02TensOfThousands}
+          durationInFrames={L8C.LEN8C.c02}
           fps={30}
           width={1920}
           height={1080}

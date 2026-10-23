@@ -1,3 +1,4 @@
+import * as L8D from "./laban8d/clips";
 import * as L8C from "./laban8c/clips";
 import * as L7B from "./laban7b/clips";
 import * as L10B from "./laban10b/clips";
@@ -320,6 +321,16 @@ export const RemotionRoot: React.FC = () => {
           id="laban9-c09-film-strip-human-culture"
           component={L9.I09Culture}
           durationInFrames={L9.LEN9.i09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban8d-Final">
+        <Composition
+          id="laban8d-c01-net-assessment"
+          component={L8D.N01NetAssessment}
+          durationInFrames={L8D.LEN8D.n01}
           fps={30}
           width={1920}
           height={1080}

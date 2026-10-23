@@ -228,3 +228,10 @@ if [[ "$what" == part8c ]]; then
   npx remotion render laban8c-c03-research-traces "$P8C/03-research-traces.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
   ls -la "$P8C"
 fi
+
+if [[ "$what" == part8d ]]; then
+  P8D=out/laban8d/final
+  mkdir -p "$P8D"
+  npx remotion render laban8d-c01-net-assessment "$P8D/01-net-assessment.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  ls -la "$P8D"
+fi

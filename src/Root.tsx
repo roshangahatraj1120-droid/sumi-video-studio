@@ -1,3 +1,4 @@
+import * as SOC from "./social/FollowCard";
 import * as L8D from "./laban8d/clips";
 import * as L8C from "./laban8c/clips";
 import * as L7B from "./laban7b/clips";
@@ -321,6 +322,26 @@ export const RemotionRoot: React.FC = () => {
           id="laban9-c09-film-strip-human-culture"
           component={L9.I09Culture}
           durationInFrames={L9.LEN9.i09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Social-Follow">
+        <Composition
+          id="social-follow-instagram"
+          component={SOC.FollowInstagram}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+          durationInFrames={SOC.FOLLOW_LEN}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="social-follow-facebook"
+          component={SOC.FollowFacebook}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+          durationInFrames={SOC.FOLLOW_LEN}
           fps={30}
           width={1920}
           height={1080}

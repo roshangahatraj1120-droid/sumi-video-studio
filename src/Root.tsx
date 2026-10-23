@@ -1,3 +1,4 @@
+import * as L7B from "./laban7b/clips";
 import * as L10B from "./laban10b/clips";
 import * as L1C from "./laban1c/clips";
 import * as L1B from "./laban1b/clips";
@@ -402,6 +403,16 @@ export const RemotionRoot: React.FC = () => {
           id="laban8-c08-journey-information"
           component={L8.H08Journey}
           durationInFrames={L8.LEN8.h08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban7b-Final">
+        <Composition
+          id="laban7b-c01-philosophical-meaning"
+          component={L7B.V01Meaning}
+          durationInFrames={L7B.LEN7B.v01}
           fps={30}
           width={1920}
           height={1080}

@@ -204,3 +204,11 @@ if [[ "$what" == part1c ]]; then
   npx remotion render laban1c-c01-think-about-the-problem "$P1C/01-think-about-the-problem.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
   ls -la "$P1C"
 fi
+
+# Part 10b final: "A system designed partly to preserve something beautiful also demonstrated…"
+if [[ "$what" == part10b ]]; then
+  P10B=out/laban10b/final
+  mkdir -p "$P10B"
+  npx remotion render laban10b-c01-preserve-something-beautiful "$P10B/01-preserve-something-beautiful.mp4" --crf=10 --x264-preset=slow --audio-bitrate=320k --log=error
+  ls -la "$P10B"
+fi

@@ -1,3 +1,4 @@
+import * as L10B from "./laban10b/clips";
 import * as L1C from "./laban1c/clips";
 import * as L1B from "./laban1b/clips";
 import * as L8B from "./laban8b/clips";
@@ -109,6 +110,16 @@ export const RemotionRoot: React.FC = () => {
           id="S6Goddesses"
           component={S6Goddesses}
           durationInFrames={165}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="Laban10b-Final">
+        <Composition
+          id="laban10b-c01-preserve-something-beautiful"
+          component={L10B.W01Preserve}
+          durationInFrames={L10B.LEN10B.w01}
           fps={30}
           width={1920}
           height={1080}

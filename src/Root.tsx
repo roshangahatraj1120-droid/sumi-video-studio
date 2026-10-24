@@ -1,3 +1,5 @@
+import * as HO from "./hiphop/open";
+import * as H1 from "./hiphop/ch1";
 import * as SOC from "./social/FollowCard";
 import * as L8D from "./laban8d/clips";
 import * as L8C from "./laban8c/clips";
@@ -322,6 +324,98 @@ export const RemotionRoot: React.FC = () => {
           id="laban9-c09-film-strip-human-culture"
           component={L9.I09Culture}
           durationInFrames={L9.LEN9.i09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Open">
+        <Composition
+          id="hiphop-o01-august-11-1973"
+          component={HO.H01Date}
+          durationInFrames={HO.LENHO.h01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-o02-one-party-one-night"
+          component={HO.H02OneNight}
+          durationInFrames={HO.LENHO.h02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-o03-the-day-before"
+          component={HO.H03DayBefore}
+          durationInFrames={HO.LENHO.h03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-o04-title-card"
+          component={HO.H04Title}
+          durationInFrames={HO.LENHO.h04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch1">
+        <Composition
+          id="hiphop-c1-01-before-the-birthday"
+          component={H1.C01Before}
+          durationInFrames={H1.LENH1.c01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1-02-economic-pressure"
+          component={H1.C02Pressure}
+          durationInFrames={H1.LENH1.c02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1-03-the-story-wrong"
+          component={H1.C03Wrong}
+          durationInFrames={H1.LENH1.c03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1-04-full-of-families"
+          component={H1.C04Full}
+          durationInFrames={H1.LENH1.c04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1-05-already-creating"
+          component={H1.C05Already}
+          durationInFrames={H1.LENH1.c05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1-06-crossing-paths"
+          component={H1.C06Crossing}
+          durationInFrames={H1.LENH1.c06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1-07-already-loud"
+          component={H1.C07Loud}
+          durationInFrames={H1.LENH1.c07}
           fps={30}
           width={1920}
           height={1080}

@@ -123,6 +123,30 @@ a quote from a source. It sits alongside the still-movement style above, not ins
 - **Host sections:** warm practical-lamp A-roll; optional handle tag sliding in bottom-right.
 - **Colour:** teal/cool backgrounds, warm amber on the subject; contrast punched up.
 
+## Investigative and archive styles (references 4–6, from 2026-10-24)
+
+Three more looks to vary episodes, so the 50 don't feel like one template. Pick the one that suits the
+story beat; full breakdown in `docs/reference-styles.md` (batch 4).
+
+- **Kinetic newspaper (ref 4), for hooks, cold opens and "the myth vs the truth" beats.** B&W print
+  textures, red as the only accent; a thin word over a huge heavy word with the texture inside the
+  letters; censor bars sliding over a line; diagonal slash wipes carrying a two-line label; a torn band
+  across the middle; red RGB-glitch letters; a scratched-through title, then the date. Fast: 0.5–1 s per beat.
+- **Overhead evidence table (ref 5), for "who was involved" and connection beats.** One continuous
+  top-down camera over a dark tabletop, drifting and rotating between objects. White tape lines box each
+  object and lead to the next one; handwritten notes and label tapes with names; lines join everything,
+  then a pull-back reveals the whole network. Props are photographed objects (AI or the owner's), never
+  drawn icons.
+- **Archive prints on a table (ref 6), for history and people.** A 2.5D photo push-in with dust and
+  scratches, pulling out to reveal it's a print on a wooden table; prints fall into place at angles; a 3D
+  extruded name title; page-flip transitions; a newspaper or flyer as the climax; an ink-blot transition
+  to black.
+- **Adapting the look to the topic.** Swap the props and textures, keep the grammar. For hip-hop: party
+  flyers and photocopies instead of newspapers, a spray-paint burst instead of the ink blot, records,
+  cables, sneakers and a mic on the evidence table.
+- **Rules stay the same:** photos and real textures only, no childish icons; no AI faces given a real
+  person's name; no fake official documents; names appear as typography on tape or label cards.
+
 ## Mid-video subscribe card (the only CTA for now)
 - Placed right after the first emotional peak (~45–55 % into the video).
 - Hard cut from the peak to a dark background; a clean card shows the channel's real

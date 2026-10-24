@@ -182,3 +182,67 @@ AI-video café recreation: wide two-shot, then medium on the speaker with a glow
 speech bubble typing "If You Want You Can Join Ministry of Defence", torn source clipping lower-left
 (14–18 s) → whip to the reverse angle, listener glowing, bubble "OK I AM READY" (18–22 s) → black book
 pages in 3D drift with blue highlighter and "SOURCE:" headers, two pages joined by a blur whip (22–29 s).
+
+---
+
+# Batch 4 — investigative and archive references (2026-10-24)
+
+Three clips from the owner. Techniques only: none of their footage, type or assets is reused.
+
+## Reference 4 — "Newspaper / mystery crime" kinetic opener (21.5 s, 30 fps)
+- **Palette:** black-and-white newspaper textures, with **red as the only colour**, saved for the
+  biggest word or the date.
+- **Pace:** a new beat every 0.5–1 s. Hard cuts, plus a light sweep across the paper.
+- **Kinetic type:** a thin uppercase word above a huge heavy word (MYSTERY / CRIME). The letters are
+  filled with a white-to-grey gradient or with the newspaper texture itself, and wipe in through a mask.
+  Words run off the edges of the frame (cropped type) for scale.
+- **Censor bars:** black bars slide across a face or a line of print and stop.
+- **Diagonal slash wipe:** a black brush or tear stroke cuts diagonally across the frame, carrying a
+  small two-line label (thin label above, heavy word below).
+- **Torn band:** a horizontal strip of torn paper opens across the middle of the frame with the label
+  inside, while the background turns red and glitches.
+- **Red glitch/halftone letters:** giant red letters with RGB split and halftone break-up, also used as
+  a transition.
+- **End card:** a distressed red condensed title, a tiny tracked subtitle above, a scratch line drawn
+  through it, then the date takes its place.
+
+## Reference 5 — "Connection" overhead evidence-table title sequence (50 s, 24 fps)
+- **One continuous overhead (top-down) camera** over a dark teal tabletop, drifting slowly and
+  **rotating 10–30°** between beats. No cuts, only a moving camera.
+- **White tape lines** on the table draw room plans and boxes round objects, like a crime-scene floor
+  plan. The lines extend and turn corners to lead the eye to the next object.
+- **Real objects as story props:** shoes, documents, an ID badge, a phone, money, a newspaper, pills, a
+  toy car with its headlights on. Each sits in its own taped box.
+- **Handwritten annotations** in white chalk/marker write on beside objects (a question, an amount, a
+  name), plus **label tapes** with printed names stuck at angles.
+- **Connection map:** arrows and lines join the boxes, then the camera **pulls back to reveal the whole
+  network** at once. That's the payoff.
+- **Title:** a red neon-glitch logo on black.
+- **Feel:** cinematic and premium. Low-key light from above with a soft vignette; objects cast real
+  shadows.
+
+## Reference 6 — archive-photo documentary opener (19.5 s, 30 fps)
+- **2.5D archival photo:** the person is cut out from a B&W photo, and the background is a page of
+  printed text plus a circular diagram. Slow push-in with parallax, dust, scratches and flicker.
+- **The photo becomes a print on a table:** the frame pulls out of the image to reveal it's a print
+  lying on a warm wooden table. The camera then glides across the table (3D dolly).
+- **3D title:** a condensed extruded title slides in with motion blur and casts a shadow on the table.
+- **Scattered prints:** several photos fall into place at angles, overlapping.
+- **Page-flip transitions:** a white sheet flips over (3D rotation) and lands showing the next image or
+  newspaper. A newspaper headline is the climax.
+- **Ink-blot transition:** black ink blooms organically over the frame and swallows it to black.
+
+## Remotion recipes for this batch
+| Technique | How we build it |
+|---|---|
+| Masked kinetic type | `background-clip:text` with a photo or newspaper texture as the fill, plus a `clip-path` wipe; thin word over heavy word |
+| Censor bar | an absolutely placed black rect whose width eases from 0 to its full length, with a slight overshoot |
+| Diagonal slash wipe | a rotated rect with a torn SVG edge (feTurbulence + feDisplacementMap), crossing in 8–10 frames with the label inside |
+| Torn band | the existing `TornReveal` as a horizontal strip, with red RGB-split on the background |
+| Overhead table camera | `Rig` plus rotation keys: the world rotates about the look-at point (add `r` to keys) |
+| Tape lines | SVG polylines with `strokeDasharray` drawing on, slight jitter, white at 85% |
+| Handwriting write-on | a marker-style font, revealed along a stroke mask, or traced SVG paths drawn on |
+| Label tape | a rect with a paper texture and torn ends, rotated ±4°, typewriter text |
+| Print on table | a photo with a white border and drop shadow inside a 3D-transformed container over a wood or felt plate |
+| Page flip | `rotateY` 0→180° with `backface-visibility`, a shadow sweep, the next image on the back |
+| Ink / spray blot | feTurbulence noise thresholded through an animated `feComponentTransfer` into an organic mask that grows to cover |

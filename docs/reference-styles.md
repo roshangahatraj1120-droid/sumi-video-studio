@@ -246,3 +246,26 @@ Three clips from the owner. Techniques only: none of their footage, type or asse
 | Print on table | a photo with a white border and drop shadow inside a 3D-transformed container over a wood or felt plate |
 | Page flip | `rotateY` 0→180° with `backface-visibility`, a shadow sweep, the next image on the back |
 | Ink / spray blot | feTurbulence noise thresholded through an animated `feComponentTransfer` into an organic mask that grows to cover |
+
+## Reference 7 — high-contrast "intelligence archive" smash-cut montage (13 s, 30 fps)
+- **Pace:** about 40 shots in 13 s, so **0.2–0.4 s per shot**, cut hard on the beat. Black flash-frames and
+  white light-flare frames sit between some cuts as punctuation.
+- **Grade:** pure black and white, **crushed blacks and blown whites**, heavy grain, slight softness,
+  flicker. Every source (archive photos, city shots, documents, objects) is forced into the same look,
+  so it reads as one piece.
+- **Surveillance HUD overlays** (thin, small, never covering the subject): corner brackets, crosshairs,
+  thin target circles locking onto faces in a crowd photo, a running timecode `00:00:08:04`, `[REC]`, a
+  tiny monospaced label (`PERSONAL IDENTITY`), location/road codes in a box at the bottom-right, a
+  horizontal scan bar.
+- **Movement inside stills:** quick push-ins, slight rotations, zooms on a face in a group photo with a
+  reticle, and a document close-up with a stamp sliding past.
+- **Light:** lens flares and blown-out bursts used as cuts; a light streak wipe.
+- **Our rules:** no real agency logos or seals, no real officials' faces, no fake "classified" papers.
+  We keep the grammar (pace, grade, HUD tags) and use our own photos and neutral labels.
+
+| Technique | How we build it |
+|---|---|
+| Smash-cut montage | an array of shots, 6–12 frames each, each with a tiny Rig push and ±1.5° rotation, cut on a beat grid |
+| Crushed B&W grade | `grayscale(1) contrast(1.8) brightness(1.05)` plus the Finish grain at a high setting, and random 1-frame exposure flicker |
+| Flash frames | single black or white frames between chosen shots; a radial white burst for flare cuts |
+| HUD layer | SVG corner brackets, a reticle circle easing onto a point, a monospaced timecode driven by the frame, `[REC]` blinking at 1 Hz, a small label box |

@@ -141,6 +141,10 @@ story beat; full breakdown in `docs/reference-styles.md` (batch 4).
   scratches, pulling out to reveal it's a print on a wooden table; prints fall into place at angles; a 3D
   extruded name title; page-flip transitions; a newspaper or flyer as the climax; an ink-blot transition
   to black.
+- **Archive smash-cut montage (ref 7), for montages, recaps and "everything changed" beats.** 0.2–0.4 s per
+  shot cut on the beat, crushed high-contrast B&W across every source, black/white flash frames and flares
+  as punctuation, and a thin HUD layer: corner brackets, a reticle locking onto someone in a crowd, a
+  running timecode, `[REC]`, small location tags. Never real agency logos or officials' faces.
 - **Adapting the look to the topic.** Swap the props and textures, keep the grammar. For hip-hop: party
   flyers and photocopies instead of newspapers, a spray-paint burst instead of the ink blot, records,
   cables, sneakers and a mic on the evidence table.

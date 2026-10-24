@@ -1,3 +1,4 @@
+import * as H2 from "./hiphop/ch2";
 import * as HO from "./hiphop/open";
 import * as H1 from "./hiphop/ch1";
 import * as SOC from "./social/FollowCard";
@@ -416,6 +417,73 @@ export const RemotionRoot: React.FC = () => {
           id="hiphop-c1-07-already-loud"
           component={H1.C07Loud}
           durationInFrames={H1.LENH1.c07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch2">
+        <Composition
+          id="hiphop-c2-01-surrounded-by-records"
+          component={H2.D01Records}
+          durationInFrames={H2.LENH2.d01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-02-funk-soul-disco"
+          component={H2.D02Genres}
+          durationInFrames={H2.LENH2.d02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-03-percussion"
+          component={H2.D03Percussion}
+          durationInFrames={H2.LENH2.d03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-04-rhythm"
+          component={H2.D04Rhythm}
+          durationInFrames={H2.LENH2.d04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-05-space-overlay"
+          component={H2.D05Space}
+          durationInFrames={H2.LENH2.d05}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+        <Composition
+          id="hiphop-c2-06-verse-chorus-break"
+          component={H2.D06Timeline}
+          durationInFrames={H2.LENH2.d06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-07-djs-noticed"
+          component={H2.D07Noticed}
+          durationInFrames={H2.LENH2.d07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-08-clive-campbell"
+          component={H2.D08Herc}
+          durationInFrames={H2.LENH2.d08}
           fps={30}
           width={1920}
           height={1080}

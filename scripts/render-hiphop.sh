@@ -24,3 +24,19 @@ if [[ "$what" == ch1 ]]; then
   render hiphop-c1-07-already-loud "$O/07-already-loud.mp4"
   ls -la "$O"
 fi
+
+if [[ "$what" == ch2 ]]; then
+  O=out/hiphop/ch2 && mkdir -p "$O"
+  render hiphop-c2-01-surrounded-by-records "$O/01-surrounded-by-records.mp4"
+  render hiphop-c2-02-funk-soul-disco "$O/02-funk-soul-disco.mp4"
+  render hiphop-c2-03-percussion "$O/03-percussion.mp4"
+  render hiphop-c2-04-rhythm "$O/04-rhythm.mp4"
+  npx remotion render hiphop-c2-05-space-overlay "$O/05-space-overlay_ALPHA.mov" --props='{"bg":"alpha"}' \
+    --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png --muted --log=error
+  npx remotion render hiphop-c2-05-space-overlay "$O/05-space-overlay_GREEN.mp4" --props='{"bg":"green"}' \
+    --crf=10 --muted --log=error
+  render hiphop-c2-06-verse-chorus-break "$O/06-verse-chorus-break.mp4"
+  render hiphop-c2-07-djs-noticed "$O/07-djs-noticed.mp4"
+  render hiphop-c2-08-clive-campbell "$O/08-clive-campbell.mp4"
+  ls -la "$O"
+fi

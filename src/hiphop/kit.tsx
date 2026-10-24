@@ -746,3 +746,42 @@ export const Pair: React.FC<{
     </div>
   );
 };
+
+// A black slab label that slides in, white heavy type with a red edge (kinetic newspaper style)
+export const Slab: React.FC<{
+  text: string;
+  at: number;
+  x?: number;
+  y?: number;
+  size?: number;
+}> = ({ text, at, x = 120, y = 780, size = 110 }) => {
+  const frame = useCurrentFrame();
+  if (frame < at) return null;
+  const p = ease(frame, at, at + 9);
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: x,
+        top: y,
+        clipPath: `inset(0 ${(1 - p) * 100}% 0 0)`,
+        display: "flex",
+        alignItems: "stretch",
+      }}
+    >
+      <div style={{ width: 12, background: RED }} />
+      <div
+        style={{
+          background: "#070707",
+          padding: "6px 26px 2px",
+          ...ANTON,
+          fontSize: size,
+          color: "#fff",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {text}
+      </div>
+    </div>
+  );
+};

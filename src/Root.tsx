@@ -1,3 +1,4 @@
+import * as H7 from "./hiphop/ch7";
 import * as H6 from "./hiphop/ch6";
 import * as H5 from "./hiphop/ch5";
 import * as H4 from "./hiphop/ch4";
@@ -364,6 +365,121 @@ export const RemotionRoot: React.FC = () => {
           id="hiphop-o04-title-card"
           component={HO.H04Title}
           durationInFrames={HO.LENHO.h04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch7">
+        <Composition
+          id="hiphop-c7-01-was-it-born"
+          component={H7.P01Question}
+          durationInFrames={H7.LEN7.p01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-02-a-moment-to-point-to"
+          component={H7.P02Points}
+          durationInFrames={H7.LEN7.p02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-03-like-a-switch"
+          component={H7.P03Switch}
+          durationInFrames={H7.LEN7.p03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-04-bigger"
+          component={H7.P04Bigger}
+          durationInFrames={H7.LEN7.p04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-05-djs"
+          component={H7.P05DJs}
+          durationInFrames={H7.LEN7.p05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-06-mcs"
+          component={H7.P06MCs}
+          durationInFrames={H7.LEN7.p06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-07-dancers-vocabulary"
+          component={H7.P07Dancers}
+          durationInFrames={H7.LEN7.p07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-08-crews-parties-neighborhood"
+          component={H7.P08Creating}
+          durationInFrames={H7.LEN7.p08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-09-like-a-language"
+          component={H7.P09Language}
+          durationInFrames={H7.LEN7.p09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-10-rhythm-to-move"
+          component={H7.P10Rapid}
+          durationInFrames={H7.LEN7.p10}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-11-it-was-built"
+          component={H7.P11Built}
+          durationInFrames={H7.LEN7.p11}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-12-the-story"
+          component={H7.P12Story}
+          durationInFrames={H7.LEN7.p12}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c7-13-subscribe-overlay"
+          component={H7.P13Subscribe}
+          durationInFrames={H7.LEN7.p13}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+        <Composition
+          id="hiphop-c7-14-end-card"
+          component={H7.P14EndCard}
+          durationInFrames={H7.LEN7.p14}
           fps={30}
           width={1920}
           height={1080}

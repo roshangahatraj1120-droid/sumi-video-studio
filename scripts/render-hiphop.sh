@@ -121,3 +121,14 @@ if [[ "$what" == ch6 ]]; then
   render hiphop-c6-12-network-environment "$O/12-network-same-environment.mp4"
   ls -la "$O"
 fi
+
+if [[ "$what" == ch7 ]]; then
+  O=out/hiphop/ch7 && mkdir -p "$O"
+  for c in 01-was-it-born 02-a-moment-to-point-to 03-like-a-switch 04-bigger 05-djs 06-mcs 07-dancers-vocabulary 08-crews-parties-neighborhood 09-like-a-language 10-rhythm-to-move 11-it-was-built 12-the-story 14-end-card; do
+    render hiphop-c7-$c "$O/$c.mp4"
+  done
+  npx remotion render hiphop-c7-13-subscribe-overlay "$O/13-subscribe-overlay_ALPHA.mov" --props='{"bg":"alpha"}' \
+    --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png --muted --log=error
+  npx remotion render hiphop-c7-13-subscribe-overlay "$O/13-subscribe-overlay_GREEN.mp4" --props='{"bg":"green"}' --crf=10 --muted --log=error
+  ls -la "$O"
+fi

@@ -1,3 +1,4 @@
+import * as H6 from "./hiphop/ch6";
 import * as H5 from "./hiphop/ch5";
 import * as H4 from "./hiphop/ch4";
 import * as H3A from "./hiphop/ch3a";
@@ -363,6 +364,114 @@ export const RemotionRoot: React.FC = () => {
           id="hiphop-o04-title-card"
           component={HO.H04Title}
           durationInFrames={HO.LENHO.h04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch6">
+        <Composition
+          id="hiphop-c6-01-who-invented"
+          component={H6.N01Question}
+          durationInFrames={H6.LEN6.n01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-02-herc-not-alone"
+          component={H6.N02Network}
+          durationInFrames={H6.LEN6.n02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-03-bambaataa"
+          component={H6.N03Bambaataa}
+          durationInFrames={H6.LEN6.n03}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ withNote: false }}
+        />
+        <Composition
+          id="hiphop-c6-03b-bambaataa-with-note"
+          component={H6.N03Bambaataa}
+          durationInFrames={H6.LEN6.n03}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ withNote: true }}
+        />
+        <Composition
+          id="hiphop-c6-04-flash"
+          component={H6.N04Flash}
+          durationInFrames={H6.LEN6.n04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-05-theodore"
+          component={H6.N05Theodore}
+          durationInFrames={H6.LEN6.n05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-06-mcs"
+          component={H6.N06MCs}
+          durationInFrames={H6.LEN6.n06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-07-circles-battles"
+          component={H6.N07Circles}
+          durationInFrames={H6.LEN6.n07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-08-not-in-isolation"
+          component={H6.N08Isolation}
+          durationInFrames={H6.LEN6.n08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-09-influences"
+          component={H6.N09Influences}
+          durationInFrames={H6.LEN6.n09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-10-harder-to-date"
+          component={H6.N10Date}
+          durationInFrames={H6.LEN6.n10}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-11-not-one-person"
+          component={H6.N11NotOnePerson}
+          durationInFrames={H6.LEN6.n11}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c6-12-network-environment"
+          component={H6.N12Environment}
+          durationInFrames={H6.LEN6.n12}
           fps={30}
           width={1920}
           height={1080}

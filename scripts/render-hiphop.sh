@@ -103,3 +103,21 @@ if [[ "$what" == ch5 ]]; then
   done
   ls -la "$O" "$O/overlays"
 fi
+
+if [[ "$what" == ch6 ]]; then
+  O=out/hiphop/ch6 && mkdir -p "$O"
+  render hiphop-c6-01-who-invented "$O/01-who-invented-hip-hop.mp4"
+  render hiphop-c6-02-herc-not-alone "$O/02-herc-not-alone.mp4"
+  render hiphop-c6-03-bambaataa "$O/03-bambaataa.mp4"
+  render hiphop-c6-03b-bambaataa-with-note "$O/03b-bambaataa-WITH-NOTE.mp4"
+  render hiphop-c6-04-flash "$O/04-grandmaster-flash.mp4"
+  render hiphop-c6-05-theodore "$O/05-grand-wizzard-theodore.mp4"
+  render hiphop-c6-06-mcs "$O/06-mcs.mp4"
+  render hiphop-c6-07-circles-battles "$O/07-circles-battles-shared.mp4"
+  render hiphop-c6-08-not-in-isolation "$O/08-not-in-isolation.mp4"
+  render hiphop-c6-09-influences "$O/09-influences.mp4"
+  render hiphop-c6-10-harder-to-date "$O/10-harder-to-date.mp4"
+  render hiphop-c6-11-not-one-person "$O/11-not-one-person.mp4"
+  render hiphop-c6-12-network-environment "$O/12-network-same-environment.mp4"
+  ls -la "$O"
+fi

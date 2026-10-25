@@ -1,3 +1,4 @@
+import * as H5 from "./hiphop/ch5";
 import * as H4 from "./hiphop/ch4";
 import * as H3A from "./hiphop/ch3a";
 import * as V2 from "./hiphop/ch1v2";
@@ -365,6 +366,116 @@ export const RemotionRoot: React.FC = () => {
           fps={30}
           width={1920}
           height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch5">
+        <Composition
+          id="hiphop-c5-01-the-spectacular-moves"
+          component={H5.L01Spectacle}
+          durationInFrames={H5.LEN5.l01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-02-the-foundation"
+          component={H5.L02Foundation}
+          durationInFrames={H5.LEN5.l02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-03-toprock"
+          component={H5.L03Toprock}
+          durationInFrames={H5.LEN5.l03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-04-go-down"
+          component={H5.L04GoDown}
+          durationInFrames={H5.LEN5.l04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-05-footwork"
+          component={H5.L05Footwork}
+          durationInFrames={H5.LEN5.l05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-06-freeze-stop"
+          component={H5.L06Freeze}
+          durationInFrames={H5.LEN5.l06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-07-difficulty"
+          component={H5.L07Difficulty}
+          durationInFrames={H5.LEN5.l07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-08-split-timing"
+          component={H5.L08Split}
+          durationInFrames={H5.LEN5.l08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-09-evidence"
+          component={H5.L09Evidence}
+          durationInFrames={H5.LEN5.l09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c5-ov1-toprock"
+          component={H5.Ov1Toprock}
+          durationInFrames={H5.LEN5.ov1}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+        <Composition
+          id="hiphop-c5-ov2-go-down"
+          component={H5.Ov2GoDown}
+          durationInFrames={H5.LEN5.ov2}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+        <Composition
+          id="hiphop-c5-ov3-footwork"
+          component={H5.Ov3Footwork}
+          durationInFrames={H5.LEN5.ov3}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+        <Composition
+          id="hiphop-c5-ov4-freeze"
+          component={H5.Ov4Freeze}
+          durationInFrames={H5.LEN5.ov4}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
         />
       </Folder>
       <Folder name="HipHop-Ch4">

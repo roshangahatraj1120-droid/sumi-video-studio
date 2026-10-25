@@ -84,3 +84,22 @@ if [[ "$what" == ch4 ]]; then
   render hiphop-c4-13-floor-language "$O/13-floor-language.mp4"
   ls -la "$O"
 fi
+
+if [[ "$what" == ch5 ]]; then
+  O=out/hiphop/ch5 && mkdir -p "$O/overlays"
+  render hiphop-c5-01-the-spectacular-moves "$O/01-the-spectacular-moves.mp4"
+  render hiphop-c5-02-the-foundation "$O/02-the-foundation.mp4"
+  render hiphop-c5-03-toprock "$O/03-toprock.mp4"
+  render hiphop-c5-04-go-down "$O/04-go-down.mp4"
+  render hiphop-c5-05-footwork "$O/05-footwork.mp4"
+  render hiphop-c5-06-freeze-stop "$O/06-freeze-stop.mp4"
+  render hiphop-c5-07-difficulty "$O/07-difficulty-not-foundation.mp4"
+  render hiphop-c5-08-split-timing "$O/08-split-groove-vs-power.mp4"
+  render hiphop-c5-09-evidence "$O/09-evidence.mp4"
+  for ov in ov1-toprock ov2-go-down ov3-footwork ov4-freeze; do
+    npx remotion render hiphop-c5-$ov "$O/overlays/$ov.ALPHA.mov" --props='{"bg":"alpha"}' \
+      --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png --muted --log=error
+    npx remotion render hiphop-c5-$ov "$O/overlays/$ov.GREEN.mp4" --props='{"bg":"green"}' --crf=10 --muted --log=error
+  done
+  ls -la "$O" "$O/overlays"
+fi

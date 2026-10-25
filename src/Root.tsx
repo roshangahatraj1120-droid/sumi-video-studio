@@ -1,3 +1,4 @@
+import * as V2 from "./hiphop/ch1v2";
 import * as H2 from "./hiphop/ch2";
 import * as HO from "./hiphop/open";
 import * as H1 from "./hiphop/ch1";
@@ -359,6 +360,64 @@ export const RemotionRoot: React.FC = () => {
           id="hiphop-o04-title-card"
           component={HO.H04Title}
           durationInFrames={HO.LENHO.h04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch1-v2">
+        <Composition
+          id="hiphop-c1v2-01-bronx"
+          component={V2.E01Bronx}
+          durationInFrames={V2.LENV2.e01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1v2-02-pressure"
+          component={V2.E02Pressure}
+          durationInFrames={V2.LENV2.e02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1v2-03-wrong"
+          component={V2.E03Wrong}
+          durationInFrames={V2.LENV2.e03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1v2-04-families"
+          component={V2.E04Families}
+          durationInFrames={V2.LENV2.e04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1v2-05-already-creating"
+          component={V2.E05Already}
+          durationInFrames={V2.LENV2.e05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1v2-06-crossing-paths"
+          component={V2.E06Crossing}
+          durationInFrames={V2.LENV2.e06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c1v2-07-already-loud"
+          component={V2.E07Loud}
+          durationInFrames={V2.LENV2.e07}
           fps={30}
           width={1920}
           height={1080}

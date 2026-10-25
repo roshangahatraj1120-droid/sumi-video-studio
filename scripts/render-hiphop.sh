@@ -40,3 +40,15 @@ if [[ "$what" == ch2 ]]; then
   render hiphop-c2-08-clive-campbell "$O/08-clive-campbell.mp4"
   ls -la "$O"
 fi
+
+if [[ "$what" == ch1v2 ]]; then
+  O=out/hiphop/ch1-v2 && mkdir -p "$O"
+  render hiphop-c1v2-01-bronx "$O/01-bronx-before-the-birthday.mp4"
+  render hiphop-c1v2-02-pressure "$O/02-economic-pressure.mp4"
+  render hiphop-c1v2-03-wrong "$O/03-the-story-wrong.mp4"
+  render hiphop-c1v2-04-families "$O/04-families-to-community.mp4"
+  render hiphop-c1v2-05-already-creating "$O/05-already-creating.mp4"
+  render hiphop-c1v2-06-crossing-paths "$O/06-crossing-paths.mp4"
+  render hiphop-c1v2-07-already-loud "$O/07-already-loud.mp4"
+  ls -la "$O"
+fi

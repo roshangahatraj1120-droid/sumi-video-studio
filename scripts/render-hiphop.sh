@@ -63,3 +63,24 @@ if [[ "$what" == ch3a ]]; then
   render hiphop-c3-06-the-break "$O/06-the-break-extended.mp4"
   ls -la "$O"
 fi
+
+if [[ "$what" == ch4 ]]; then
+  O=out/hiphop/ch4 && mkdir -p "$O"
+  render hiphop-c4-01-imagine-the-break "$O/01-imagine-the-break.mp4"
+  npx remotion render hiphop-c4-02-it-is-gone-overlay "$O/02-it-is-gone-overlay_ALPHA.mov" --props='{"bg":"alpha"}' \
+    --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png --muted --log=error
+  npx remotion render hiphop-c4-02-it-is-gone-overlay "$O/02-it-is-gone-overlay_GREEN.mp4" --props='{"bg":"green"}' \
+    --crf=10 --muted --log=error
+  render hiphop-c4-03-again "$O/03-again-and-again.mp4"
+  render hiphop-c4-04-time "$O/04-the-dancer-has-time.mp4"
+  render hiphop-c4-05-time-to "$O/05-time-to.mp4"
+  render hiphop-c4-06-dj-and-floor "$O/06-dj-and-floor.mp4"
+  render hiphop-c4-07-bboy-bgirl-breaking "$O/07-bboy-bgirl-breaking.mp4"
+  render hiphop-c4-08-breakdancing-media "$O/08-breakdancing-media.mp4"
+  render hiphop-c4-09-inside-the-culture "$O/09-inside-the-culture-the-break.mp4"
+  render hiphop-c4-10-developed "$O/10-developed-through.mp4"
+  render hiphop-c4-11-early-accounts "$O/11-early-accounts.mp4"
+  render hiphop-c4-12-bgirls "$O/12-bgirls-belong.mp4"
+  render hiphop-c4-13-floor-language "$O/13-floor-language.mp4"
+  ls -la "$O"
+fi

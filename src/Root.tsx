@@ -1,3 +1,4 @@
+import * as H4 from "./hiphop/ch4";
 import * as H3A from "./hiphop/ch3a";
 import * as V2 from "./hiphop/ch1v2";
 import * as H2 from "./hiphop/ch2";
@@ -361,6 +362,113 @@ export const RemotionRoot: React.FC = () => {
           id="hiphop-o04-title-card"
           component={HO.H04Title}
           durationInFrames={HO.LENHO.h04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch4">
+        <Composition
+          id="hiphop-c4-01-imagine-the-break"
+          component={H4.G01Imagine}
+          durationInFrames={H4.LEN4.g01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-02-it-is-gone-overlay"
+          component={H4.G02Gone}
+          durationInFrames={H4.LEN4.g02}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+        <Composition
+          id="hiphop-c4-03-again"
+          component={H4.G03Again}
+          durationInFrames={H4.LEN4.g03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-04-time"
+          component={H4.G04Time}
+          durationInFrames={H4.LEN4.g04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-05-time-to"
+          component={H4.G05TimeTo}
+          durationInFrames={H4.LEN4.g05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-06-dj-and-floor"
+          component={H4.G06Loop}
+          durationInFrames={H4.LEN4.g06}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-07-bboy-bgirl-breaking"
+          component={H4.G07Names}
+          durationInFrames={H4.LEN4.g07}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-08-breakdancing-media"
+          component={H4.G08Media}
+          durationInFrames={H4.LEN4.g08}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-09-inside-the-culture"
+          component={H4.G09Inside}
+          durationInFrames={H4.LEN4.g09}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-10-developed"
+          component={H4.G10Developed}
+          durationInFrames={H4.LEN4.g10}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-11-early-accounts"
+          component={H4.G11Accounts}
+          durationInFrames={H4.LEN4.g11}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-12-bgirls"
+          component={H4.G12BGirls}
+          durationInFrames={H4.LEN4.g12}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c4-13-floor-language"
+          component={H4.G13Language}
+          durationInFrames={H4.LEN4.g13}
           fps={30}
           width={1920}
           height={1080}

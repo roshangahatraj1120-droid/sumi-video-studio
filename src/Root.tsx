@@ -1,3 +1,4 @@
+import * as H3A from "./hiphop/ch3a";
 import * as V2 from "./hiphop/ch1v2";
 import * as H2 from "./hiphop/ch2";
 import * as HO from "./hiphop/open";
@@ -360,6 +361,56 @@ export const RemotionRoot: React.FC = () => {
           id="hiphop-o04-title-card"
           component={HO.H04Title}
           durationInFrames={HO.LENHO.h04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+      </Folder>
+      <Folder name="HipHop-Ch3a">
+        <Composition
+          id="hiphop-c3-01-1520-sedgwick"
+          component={H3A.F01Address}
+          durationInFrames={H3A.LEN3A.f01}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c3-02-in-the-frame"
+          component={H3A.F02Frame}
+          durationInFrames={H3A.LEN3A.f02}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c3-03-disco-ball"
+          component={H3A.F03DiscoBall}
+          durationInFrames={H3A.LEN3A.f03}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c3-04-aug-11-floor-plan"
+          component={H3A.F04Plan}
+          durationInFrames={H3A.LEN3A.f04}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c3-05-a-window"
+          component={H3A.F05Window}
+          durationInFrames={H3A.LEN3A.f05}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c3-06-the-break"
+          component={H3A.F06Break}
+          durationInFrames={H3A.LEN3A.f06}
           fps={30}
           width={1920}
           height={1080}

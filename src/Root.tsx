@@ -1,3 +1,4 @@
+import * as HS from "./hiphop/space";
 import * as HG from "./hiphop/gone";
 import * as H7 from "./hiphop/ch7";
 import * as H6 from "./hiphop/ch6";
@@ -702,6 +703,16 @@ export const RemotionRoot: React.FC = () => {
           width={1920}
           height={1080}
           defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+      </Folder>
+      <Folder name="HipHop-Space">
+        <Composition
+          id="hiphop-c2-05b-body-hears-space"
+          component={HS.SpaceB}
+          durationInFrames={HS.LEN_SPACE}
+          fps={30}
+          width={1920}
+          height={1080}
         />
       </Folder>
       <Folder name="HipHop-ItIsGone">

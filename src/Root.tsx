@@ -1,3 +1,4 @@
+import * as HG from "./hiphop/gone";
 import * as H7 from "./hiphop/ch7";
 import * as H6 from "./hiphop/ch6";
 import * as H5 from "./hiphop/ch5";
@@ -701,6 +702,16 @@ export const RemotionRoot: React.FC = () => {
           width={1920}
           height={1080}
           defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+      </Folder>
+      <Folder name="HipHop-ItIsGone">
+        <Composition
+          id="hiphop-c4-02b-it-is-gone"
+          component={HG.GoneMoment}
+          durationInFrames={HG.LEN_GONE}
+          fps={30}
+          width={1920}
+          height={1080}
         />
       </Folder>
       <Folder name="HipHop-Ch4">

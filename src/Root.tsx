@@ -1,3 +1,4 @@
+import * as HH from "./hiphop/herc";
 import * as HS from "./hiphop/space";
 import * as HG from "./hiphop/gone";
 import * as H7 from "./hiphop/ch7";
@@ -703,6 +704,32 @@ export const RemotionRoot: React.FC = () => {
           width={1920}
           height={1080}
           defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+      </Folder>
+      <Folder name="HipHop-Herc">
+        <Composition
+          id="hiphop-c2-08a-contact-sheet"
+          component={HH.H1Contact}
+          durationInFrames={HH.LENHERC.h1}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-08b-kingston-bronx"
+          component={HH.H2Route}
+          durationInFrames={HH.LENHERC.h2}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c2-08c-record-label-name"
+          component={HH.H3Label}
+          durationInFrames={HH.LENHERC.h3}
+          fps={30}
+          width={1920}
+          height={1080}
         />
       </Folder>
       <Folder name="HipHop-Space">

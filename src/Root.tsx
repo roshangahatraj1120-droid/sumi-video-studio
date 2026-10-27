@@ -1,3 +1,4 @@
+import * as SE from "./santhal/Edit";
 import * as HD from "./hiphop/disco";
 import * as HH from "./hiphop/herc";
 import * as HS from "./hiphop/space";
@@ -706,6 +707,28 @@ export const RemotionRoot: React.FC = () => {
           height={1080}
           defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
         />
+      </Folder>
+      <Folder name="Santhal-Edit">
+        <Composition
+          id="santhal-full"
+          component={SE.SanthalFull}
+          durationInFrames={SE.SANTHAL_TOTAL}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        {SE.SANTHAL_SECTIONS.map((s) => (
+          <Composition
+            key={s.key}
+            id={`santhal-${s.key}`}
+            component={SE.SanthalSection}
+            durationInFrames={s.dur}
+            fps={30}
+            width={1920}
+            height={1080}
+            defaultProps={{ section: s.key }}
+          />
+        ))}
       </Folder>
       <Folder name="HipHop-Disco">
         <Composition

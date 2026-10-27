@@ -1,3 +1,4 @@
+import * as HD from "./hiphop/disco";
 import * as HH from "./hiphop/herc";
 import * as HS from "./hiphop/space";
 import * as HG from "./hiphop/gone";
@@ -704,6 +705,24 @@ export const RemotionRoot: React.FC = () => {
           width={1920}
           height={1080}
           defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+      </Folder>
+      <Folder name="HipHop-Disco">
+        <Composition
+          id="hiphop-c3-03a-museum-disco-ball"
+          component={HD.K1Museum}
+          durationInFrames={HD.LENDISCO.k1}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="hiphop-c3-03b-rec-room-window"
+          component={HD.K2RecRoom}
+          durationInFrames={HD.LENDISCO.k2}
+          fps={30}
+          width={1920}
+          height={1080}
         />
       </Folder>
       <Folder name="HipHop-Herc">

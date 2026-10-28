@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Audio,
   Easing,
+  Freeze,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -18,6 +19,16 @@ import {
 import { fade } from "@remotion/transitions/fade";
 import { COLOR, TYPE } from "../brand/tokens";
 import TL from "./timeline.json";
+import {
+  ChapterV3,
+  FinalCard,
+  Iris,
+  KickerV3,
+  Leak,
+  MEMORY_FILTER,
+  MemoryOverlay,
+  Quote,
+} from "./fx";
 
 // Santhal dance episode: the assembled lineup (no narration). Shots, trims, transitions and text come
 // from scripts/santhal_edl.py -> timeline.json. One composition per section plus the full film.
@@ -50,6 +61,9 @@ type Item = {
   zoom?: number;
   zx?: number;
   zy?: number;
+  look?: string;
+  polaroid?: boolean;
+  punches?: [number, number][];
 };
 type Bed = { file: string; from_: number; dur: number };
 type Section = {
@@ -164,6 +178,8 @@ const PRESENT: Record<string, () => TransitionPresentation<P>> = {
   flash: () => mk(Flash),
   whip: () => mk(Whip),
   zoom: () => mk(Zoom),
+  leak: () => mk(Leak),
+  iris: () => mk(Iris),
 };
 
 // ---------------------------------------------------------------- text
@@ -614,13 +630,17 @@ const SplitLabels: React.FC<{ t: Txt }> = ({ t }) => {
 };
 
 const TEXT: Record<string, React.FC<{ t: Txt }>> = {
-  chapter: Chapter,
+  chapter: ChapterV3,
+  chapterOld: Chapter,
   title: TitleCard,
   lower: LowerThird,
   location: Location,
   callout: (p) => <Callout t={p.t} />,
   drum: (p) => <Callout t={p.t} big />,
-  kicker: Kicker,
+  kicker: KickerV3,
+  kickerOld: Kicker,
+  quote: Quote,
+  final: FinalCard,
   dedication: Dedication,
   endcard: EndCard,
   split: SplitLabels,
@@ -646,9 +666,28 @@ const Clip: React.FC<{
   zoom?: number;
   zx?: number;
   zy?: number;
-}> = ({ file, start, dur, vol, push = true, zoom = 1, zx = 960, zy = 540 }) => {
+  punches?: [number, number][];
+  look?: string;
+}> = ({
+  file,
+  start,
+  dur,
+  vol,
+  push = true,
+  zoom = 1,
+  zx = 960,
+  zy = 540,
+  punches,
+  look,
+}) => {
   const f = useCurrentFrame();
-  const s = zoom * (push ? 1 + 0.035 * (f / Math.max(1, dur)) : 1);
+  // interviews: hard "second camera" punch-ins at set frames, plus a very slow drift
+  const punch = punches?.length
+    ? punches.reduce((z, [at, v]) => (f >= at ? v : z), 1)
+    : 1;
+  const drift = punches?.length ? 1 + 0.012 * Math.sin(f / 90) : 1;
+  const s =
+    zoom * punch * drift * (push ? 1 + 0.035 * (f / Math.max(1, dur)) : 1);
   return (
     <AbsoluteFill
       style={{ scale: String(s), transformOrigin: `${zx}px ${zy}px` }}
@@ -664,9 +703,57 @@ const Clip: React.FC<{
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          filter: GRADE,
+          filter: look === "memory" ? `${GRADE} ${MEMORY_FILTER}` : GRADE,
         }}
       />
+    </AbsoluteFill>
+  );
+};
+
+// the last moments of a shot freeze and shrink into a white-bordered photograph
+const Polaroid: React.FC<{
+  on: boolean;
+  at: number;
+  p: number;
+  children: React.ReactNode;
+}> = ({ on, at, p, children }) => {
+  const f = useCurrentFrame();
+  if (!on || f < at) return <AbsoluteFill>{children}</AbsoluteFill>;
+  const shot = (
+    <Freeze frame={at}>
+      <AbsoluteFill>{children}</AbsoluteFill>
+    </Freeze>
+  );
+  const s = 1 - 0.36 * p;
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#0b0807" }}>
+      <AbsoluteFill
+        style={{
+          filter: `blur(${22 * p}px) brightness(${1 - 0.55 * p})`,
+          scale: "1.08",
+        }}
+      >
+        {shot}
+      </AbsoluteFill>
+      <AbsoluteFill
+        style={{
+          scale: String(s),
+          rotate: `${-4 * p}deg`,
+          boxShadow: `0 ${30 * p}px ${80 * p}px rgba(0,0,0,${0.7 * p})`,
+          border: `${Math.round(26 * p)}px solid #F4F1EA`,
+          borderBottomWidth: Math.round(90 * p),
+          overflow: "hidden",
+        }}
+      >
+        {shot}
+      </AbsoluteFill>
+      {f < at + 4 ? (
+        <AbsoluteFill
+          style={{
+            backgroundColor: `rgba(255,255,255,${0.8 * (1 - (f - at) / 4)})`,
+          }}
+        />
+      ) : null}
     </AbsoluteFill>
   );
 };
@@ -692,7 +779,11 @@ const Shot: React.FC<{ it: Item }> = ({ it }) => {
       </AbsoluteFill>
     );
   }
-  const interview = (it.cutaways?.length ?? 0) > 0;
+  const interview =
+    (it.cutaways?.length ?? 0) > 0 || (it.punches?.length ?? 0) > 0;
+  const POL = 66;
+  const polAt = it.dur - POL;
+  const pol = it.polaroid ? ease(f, polAt, polAt + 26) : 0;
   const wipe = ease(f, 0, 16);
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
@@ -755,16 +846,20 @@ const Shot: React.FC<{ it: Item }> = ({ it }) => {
           />
         </>
       ) : (
-        <Clip
-          file={it.file!}
-          start={it.start!}
-          dur={it.dur}
-          vol={it.vol ?? 0.8}
-          push={!interview}
-          zoom={it.zoom}
-          zx={it.zx}
-          zy={it.zy}
-        />
+        <Polaroid on={!!it.polaroid} at={polAt} p={pol}>
+          <Clip
+            file={it.file!}
+            start={it.start!}
+            dur={it.dur}
+            vol={it.vol ?? 0.8}
+            push={!interview}
+            zoom={it.zoom}
+            zx={it.zx}
+            zy={it.zy}
+            punches={it.punches}
+            look={it.look}
+          />
+        </Polaroid>
       )}
       {it.cutaways?.map((c, i) => (
         <Sequence key={i} from={c.at} durationInFrames={c.dur}>
@@ -772,6 +867,7 @@ const Shot: React.FC<{ it: Item }> = ({ it }) => {
         </Sequence>
       ))}
       <Vignette />
+      {it.look === "memory" ? <MemoryOverlay /> : null}
       {it.text.map((t, i) => {
         const C = TEXT[t.type];
         return (

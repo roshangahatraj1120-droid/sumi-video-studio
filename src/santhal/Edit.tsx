@@ -47,6 +47,9 @@ type Item = {
   split?: { file: string } | null;
   hit?: { file: string; vol: number } | null;
   from: number;
+  zoom?: number;
+  zx?: number;
+  zy?: number;
 };
 type Bed = { file: string; from_: number; dur: number };
 type Section = {
@@ -640,11 +643,16 @@ const Clip: React.FC<{
   dur: number;
   vol: number;
   push?: boolean;
-}> = ({ file, start, dur, vol, push = true }) => {
+  zoom?: number;
+  zx?: number;
+  zy?: number;
+}> = ({ file, start, dur, vol, push = true, zoom = 1, zx = 960, zy = 540 }) => {
   const f = useCurrentFrame();
-  const s = push ? 1 + 0.035 * (f / Math.max(1, dur)) : 1;
+  const s = zoom * (push ? 1 + 0.035 * (f / Math.max(1, dur)) : 1);
   return (
-    <AbsoluteFill style={{ scale: String(s) }}>
+    <AbsoluteFill
+      style={{ scale: String(s), transformOrigin: `${zx}px ${zy}px` }}
+    >
       <OffthreadVideo
         src={staticFile(file)}
         trimBefore={start}
@@ -753,6 +761,9 @@ const Shot: React.FC<{ it: Item }> = ({ it }) => {
           dur={it.dur}
           vol={it.vol ?? 0.8}
           push={!interview}
+          zoom={it.zoom}
+          zx={it.zx}
+          zy={it.zy}
         />
       )}
       {it.cutaways?.map((c, i) => (

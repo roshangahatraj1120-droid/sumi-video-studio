@@ -2,202 +2,387 @@
  "fps": 30,
  "sections": [
   {
-   "key": "00-cold-open",
-   "title": "Cold open",
+   "key": "00-mela",
+   "title": "Mela",
    "items": [
     {
-     "kind": "black",
-     "dur": 45,
+     "kind": "shot",
+     "file": "santhal/IMG_6554_3.50_6.60.mp4",
+     "start": 15,
+     "dur": 93,
      "tr": [
-      "cut",
-      0
+      "fade",
+      12
      ],
+     "vol": 0.7,
      "text": [],
-     "hit": {
-      "file": "santhal/hit.wav",
-      "vol": 1.0
-     },
+     "src": "IMG_6554",
+     "a": 3.5,
+     "b": 6.6,
+     "speed": 1,
+     "zoom": 1.4,
+     "zx": 1250,
+     "zy": 640,
+     "cutaways": [],
      "from": 0
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6565_1.00_3.90_slow.mp4",
+     "file": "santhal/IMG_6554_1.50_3.50.mp4",
+     "start": 15,
+     "dur": 60,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.7,
+     "text": [],
+     "src": "IMG_6554",
+     "a": 1.5,
+     "b": 3.5,
+     "speed": 1,
+     "zoom": 1.5,
+     "zx": 400,
+     "zy": 860,
+     "cutaways": [],
+     "from": 93
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6552_0.00_3.00_slow.mp4",
      "start": 0,
-     "dur": 174,
+     "dur": 180,
      "tr": [
       "fade",
-      10
-     ],
-     "vol": 0,
-     "text": [],
-     "src": "IMG_6565",
-     "a": 1.0,
-     "b": 3.9,
-     "speed": 0.5,
-     "cutaways": [],
-     "from": 35
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6573_2.00_4.50.mp4",
-     "start": 15,
-     "dur": 75,
-     "tr": [
-      "flash",
-      6
-     ],
-     "vol": 0,
-     "text": [],
-     "src": "IMG_6573",
-     "a": 2.0,
-     "b": 4.5,
-     "speed": 1,
-     "cutaways": [],
-     "from": 203
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_0273_4.00_6.00.mp4",
-     "start": 15,
-     "dur": 60,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0,
-     "text": [],
-     "src": "IMG_0273",
-     "a": 4.0,
-     "b": 6.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 278
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6614_1.50_3.00.mp4",
-     "start": 15,
-     "dur": 45,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0,
-     "text": [],
-     "src": "IMG_6614",
-     "a": 1.5,
-     "b": 3.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 338
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6598_2.00_4.00.mp4",
-     "start": 15,
-     "dur": 60,
-     "tr": [
-      "zoom",
       8
      ],
      "vol": 0,
      "text": [],
-     "src": "IMG_6598",
-     "a": 2.0,
-     "b": 4.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 375
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6600_1.50_3.00.mp4",
-     "start": 15,
-     "dur": 45,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0,
-     "text": [],
-     "src": "IMG_6600",
-     "a": 1.5,
+     "src": "IMG_6552",
+     "a": 0.0,
      "b": 3.0,
-     "speed": 1,
+     "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 435
+     "from": 145
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6558_3.00_5.00.mp4",
-     "start": 15,
-     "dur": 60,
+     "file": "santhal/IMG_6552_12.50_15.40_slow.mp4",
+     "start": 0,
+     "dur": 174,
      "tr": [
       "cut",
       0
      ],
      "vol": 0,
      "text": [],
-     "src": "IMG_6558",
-     "a": 3.0,
-     "b": 5.0,
-     "speed": 1,
+     "src": "IMG_6552",
+     "a": 12.5,
+     "b": 15.4,
+     "speed": 0.5,
+     "zoom": 1.15,
+     "zx": 1200,
+     "zy": 760,
      "cutaways": [],
-     "from": 480
+     "from": 325
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6608_10.00_12.00.mp4",
-     "start": 15,
-     "dur": 60,
+     "file": "santhal/IMG_6552_8.00_11.00_slow.mp4",
+     "start": 0,
+     "dur": 180,
+     "tr": [
+      "fade",
+      8
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6552",
+     "a": 8.0,
+     "b": 11.0,
+     "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 491
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6597_8.00_11.00_slow.mp4",
+     "start": 0,
+     "dur": 180,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6597",
+     "a": 8.0,
+     "b": 11.0,
+     "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 671
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6586_0.00_2.60.mp4",
+     "start": 0,
+     "dur": 78,
      "tr": [
       "whip",
       8
      ],
-     "vol": 0,
+     "vol": 0.6,
      "text": [],
-     "src": "IMG_6608",
-     "a": 10.0,
-     "b": 12.0,
+     "src": "IMG_6586",
+     "a": 0.0,
+     "b": 2.6,
      "speed": 1,
+     "zoom": 1.18,
+     "zx": 1150,
+     "zy": 520,
      "cutaways": [],
-     "from": 532
+     "from": 843
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6589_6.00_8.00.mp4",
-     "start": 15,
-     "dur": 60,
+     "file": "santhal/IMG_6585_0.00_2.80.mp4",
+     "start": 0,
+     "dur": 84,
      "tr": [
       "cut",
       0
      ],
-     "vol": 0,
+     "vol": 0.6,
      "text": [],
-     "src": "IMG_6589",
-     "a": 6.0,
-     "b": 8.0,
+     "src": "IMG_6585",
+     "a": 0.0,
+     "b": 2.8,
      "speed": 1,
+     "zoom": 1.15,
+     "zx": 1250,
+     "zy": 700,
      "cutaways": [],
-     "from": 592
+     "from": 921
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6566_0.00_2.00.mp4",
-     "start": 0,
-     "dur": 60,
+     "file": "santhal/IMG_6553_1.50_4.50.mp4",
+     "start": 15,
+     "dur": 90,
      "tr": [
-      "flash",
-      6
+      "cut",
+      0
      ],
-     "vol": 0,
+     "vol": 0.6,
      "text": [],
-     "src": "IMG_6566",
-     "a": 0.0,
-     "b": 2.0,
+     "src": "IMG_6553",
+     "a": 1.5,
+     "b": 4.5,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 646
+     "from": 1005
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6553_7.50_12.50.mp4",
+     "start": 15,
+     "dur": 150,
+     "tr": [
+      "dip",
+      20
+     ],
+     "vol": 0.4,
+     "text": [],
+     "src": "IMG_6553",
+     "a": 7.5,
+     "b": 12.5,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1075
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6555_8.00_14.00.mp4",
+     "start": 15,
+     "dur": 180,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.4,
+     "text": [],
+     "src": "IMG_6555",
+     "a": 8.0,
+     "b": 14.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1225
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6541_0.00_3.40.mp4",
+     "start": 0,
+     "dur": 102,
+     "tr": [
+      "fade",
+      10
+     ],
+     "vol": 0.9,
+     "text": [],
+     "src": "IMG_6541",
+     "a": 0.0,
+     "b": 3.4,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1395
+    }
+   ],
+   "beds": [
+    {
+     "file": "santhal/bed_IMG_6552_0.00_15.00.wav",
+     "from_": 145,
+     "dur": 450
+    }
+   ],
+   "dur": 1497
+  },
+  {
+   "key": "01-sharanamati",
+   "title": "Sharanamati",
+   "items": [
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6571_0.00_4.50.mp4",
+     "start": 0,
+     "dur": 135,
+     "tr": [
+      "dip",
+      16
+     ],
+     "vol": 0.6,
+     "text": [
+      {
+       "type": "location",
+       "at": 0.6,
+       "dur": 3.8,
+       "l1": "Sharanamati",
+       "l2": "Jhapa \u00b7 Koshi Province, Nepal"
+      }
+     ],
+     "src": "IMG_6571",
+     "a": 0.0,
+     "b": 4.5,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 0
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6563_0.20_3.80.mp4",
+     "start": 6,
+     "dur": 108,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.6,
+     "text": [],
+     "src": "IMG_6563",
+     "a": 0.2,
+     "b": 3.8,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 135
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6556_0.00_4.00.mp4",
+     "start": 0,
+     "dur": 120,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.6,
+     "text": [],
+     "src": "IMG_6556",
+     "a": 0.0,
+     "b": 4.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 243
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6597_24.00_28.00.mp4",
+     "start": 15,
+     "dur": 120,
+     "tr": [
+      "whip",
+      8
+     ],
+     "vol": 0.7,
+     "text": [],
+     "src": "IMG_6597",
+     "a": 24.0,
+     "b": 28.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 355
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6589_0.00_4.00.mp4",
+     "start": 0,
+     "dur": 120,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.9,
+     "text": [],
+     "src": "IMG_6589",
+     "a": 0.0,
+     "b": 4.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 475
     },
     {
      "kind": "black",
@@ -212,277 +397,22 @@
        "at": 0.3,
        "dur": 4.4,
        "title": "You Can Still Hear It",
-       "sub": "The Santhal dance \u00b7 Jhapa, Nepal"
+       "sub": "The Santhal dance \u00b7 Sharanamati, Jhapa"
       }
      ],
      "hit": {
       "file": "santhal/hit.wav",
       "vol": 1.0
      },
-     "from": 706
-    }
-   ],
-   "beds": [
-    {
-     "file": "santhal/bed_IMG_6589_0.00_28.00.wav",
-     "from_": 35,
-     "dur": 671
-    }
-   ],
-   "dur": 856
-  },
-  {
-   "key": "01-the-mela",
-   "title": "The Mela",
-   "items": [
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6597_3.00_7.00.mp4",
-     "start": 15,
-     "dur": 120,
-     "tr": [
-      "dip",
-      20
-     ],
-     "vol": 0.8,
-     "text": [
-      {
-       "type": "chapter",
-       "at": 0.4,
-       "dur": 3.5,
-       "num": "01",
-       "title": "The Mela"
-      },
-      {
-       "type": "location",
-       "at": 1.2,
-       "dur": 3.2,
-       "l1": "Jhapa",
-       "l2": "Koshi Province, Nepal"
-      }
-     ],
-     "src": "IMG_6597",
-     "a": 3.0,
-     "b": 7.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 0
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6553_6.00_9.00.mp4",
-     "start": 15,
-     "dur": 90,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6553",
-     "a": 6.0,
-     "b": 9.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 120
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6552_0.00_4.00.mp4",
-     "start": 0,
-     "dur": 120,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6552",
-     "a": 0.0,
-     "b": 4.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 210
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6554_0.00_3.50.mp4",
-     "start": 0,
-     "dur": 105,
-     "tr": [
-      "whip",
-      8
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6554",
-     "a": 0.0,
-     "b": 3.5,
-     "speed": 1,
-     "cutaways": [],
-     "from": 322
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6586_0.00_2.50.mp4",
-     "start": 0,
-     "dur": 75,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6586",
-     "a": 0.0,
-     "b": 2.5,
-     "speed": 1,
-     "cutaways": [],
-     "from": 427
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6585_0.00_2.80.mp4",
-     "start": 0,
-     "dur": 84,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6585",
-     "a": 0.0,
-     "b": 2.8,
-     "speed": 1,
-     "cutaways": [],
-     "from": 502
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6597_8.00_11.00_slow.mp4",
-     "start": 0,
-     "dur": 180,
-     "tr": [
-      "fade",
-      12
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6597",
-     "a": 8.0,
-     "b": 11.0,
-     "speed": 0.5,
-     "cutaways": [],
-     "from": 574
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_0271_0.00_4.00.mp4",
-     "start": 0,
-     "dur": 120,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_0271",
-     "a": 0.0,
-     "b": 4.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 754
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6563_0.20_3.80.mp4",
-     "start": 6,
-     "dur": 108,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6563",
-     "a": 0.2,
-     "b": 3.8,
-     "speed": 1,
-     "cutaways": [],
-     "from": 874
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6556_0.00_4.00.mp4",
-     "start": 0,
-     "dur": 120,
-     "tr": [
-      "whip",
-      8
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6556",
-     "a": 0.0,
-     "b": 4.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 974
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6555_1.00_6.00.mp4",
-     "start": 15,
-     "dur": 150,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [
-      {
-       "type": "callout",
-       "at": 0.6,
-       "dur": 4.0,
-       "l1": "Santhali Youth Club",
-       "l2": "Kachankawal-4 \u00b7 Jhapa",
-       "x": 1240,
-       "y": 330
-      }
-     ],
-     "src": "IMG_6555",
-     "a": 1.0,
-     "b": 6.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 1094
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6555_8.00_14.00.mp4",
-     "start": 15,
-     "dur": 180,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6555",
-     "a": 8.0,
-     "b": 14.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 1244
+     "from": 595
     }
    ],
    "beds": [],
-   "dur": 1424
+   "dur": 745
   },
   {
-   "key": "02-the-drums",
-   "title": "The Drums",
+   "key": "02-drums-and-dance",
+   "title": "Drums and dance",
    "items": [
     {
      "kind": "shot",
@@ -490,43 +420,20 @@
      "start": 0,
      "dur": 90,
      "tr": [
-      "dip",
-      16
+      "fade",
+      10
      ],
      "vol": 0.8,
-     "text": [
-      {
-       "type": "chapter",
-       "at": 0.3,
-       "dur": 3.5,
-       "num": "02",
-       "title": "The Drums"
-      }
-     ],
+     "text": [],
      "src": "IMG_6575",
      "a": 0.0,
      "b": 3.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 0
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6541_0.00_3.00.mp4",
-     "start": 0,
-     "dur": 90,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6541",
-     "a": 0.0,
-     "b": 3.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 90
     },
     {
      "kind": "shot",
@@ -543,8 +450,11 @@
      "a": 0.0,
      "b": 2.8,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 180
+     "from": 90
     },
     {
      "kind": "shot",
@@ -561,8 +471,11 @@
      "a": 0.0,
      "b": 3.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 264
+     "from": 174
     },
     {
      "kind": "shot",
@@ -579,8 +492,11 @@
      "a": 1.0,
      "b": 3.8,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 354
+     "from": 264
     },
     {
      "kind": "shot",
@@ -607,8 +523,11 @@
      "a": 2.0,
      "b": 9.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 430
+     "from": 340
     },
     {
      "kind": "shot",
@@ -635,177 +554,221 @@
      "a": 20.0,
      "b": 25.6,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 640
+     "from": 550
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6613_0.00_6.00.mp4",
+     "file": "santhal/IMG_6565_1.00_3.90_slow.mp4",
      "start": 0,
-     "dur": 180,
+     "dur": 174,
+     "tr": [
+      "fade",
+      8
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6565",
+     "a": 1.0,
+     "b": 3.9,
+     "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 710
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6573_2.00_4.50.mp4",
+     "start": 15,
+     "dur": 75,
+     "tr": [
+      "flash",
+      6
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6573",
+     "a": 2.0,
+     "b": 4.5,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 878
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_0273_4.00_6.00.mp4",
+     "start": 15,
+     "dur": 60,
      "tr": [
       "cut",
       0
      ],
-     "vol": 0.8,
+     "vol": 0,
      "text": [],
-     "src": "IMG_6613",
-     "a": 0.0,
+     "src": "IMG_0273",
+     "a": 4.0,
      "b": 6.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 808
+     "from": 953
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6577_0.00_5.60.mp4",
-     "start": 0,
-     "dur": 168,
+     "file": "santhal/IMG_6614_1.50_3.00.mp4",
+     "start": 15,
+     "dur": 45,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6614",
+     "a": 1.5,
+     "b": 3.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1013
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6598_2.00_4.00.mp4",
+     "start": 15,
+     "dur": 60,
      "tr": [
       "zoom",
       8
      ],
-     "vol": 0.8,
+     "vol": 0,
      "text": [],
-     "src": "IMG_6577",
-     "a": 0.0,
-     "b": 5.6,
-     "speed": 1,
-     "cutaways": [],
-     "from": 980
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6540_2.00_8.00.mp4",
-     "start": 15,
-     "dur": 180,
-     "tr": [
-      "dip",
-      12
-     ],
-     "vol": 0.8,
-     "text": [
-      {
-       "type": "kicker",
-       "at": 0.5,
-       "dur": 3.2,
-       "l1": "Getting ready"
-      }
-     ],
-     "src": "IMG_6540",
+     "src": "IMG_6598",
      "a": 2.0,
-     "b": 8.0,
+     "b": 4.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1136
+     "from": 1050
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6543_0.00_5.00.mp4",
-     "start": 0,
-     "dur": 150,
+     "file": "santhal/IMG_6600_1.50_3.00.mp4",
+     "start": 15,
+     "dur": 45,
      "tr": [
       "cut",
       0
      ],
-     "vol": 0.8,
+     "vol": 0,
      "text": [],
-     "src": "IMG_6543",
-     "a": 0.0,
+     "src": "IMG_6600",
+     "a": 1.5,
+     "b": 3.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1110
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6558_3.00_5.00.mp4",
+     "start": 15,
+     "dur": 60,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6558",
+     "a": 3.0,
      "b": 5.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1316
+     "from": 1155
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6551_0.00_6.00_slow.mp4",
-     "start": 0,
-     "dur": 360,
-     "tr": [
-      "fade",
-      10
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6551",
-     "a": 0.0,
-     "b": 6.0,
-     "speed": 0.5,
-     "cutaways": [],
-     "from": 1456
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6548_136.00_141.00.mp4",
+     "file": "santhal/IMG_6608_10.00_12.00.mp4",
      "start": 15,
-     "dur": 150,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6548",
-     "a": 136.0,
-     "b": 141.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 1816
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6571_0.00_4.50.mp4",
-     "start": 0,
-     "dur": 135,
+     "dur": 60,
      "tr": [
       "whip",
       8
      ],
-     "vol": 0.8,
+     "vol": 0,
      "text": [],
-     "src": "IMG_6571",
-     "a": 0.0,
-     "b": 4.5,
+     "src": "IMG_6608",
+     "a": 10.0,
+     "b": 12.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1958
+     "from": 1207
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_0270_0.00_6.00.mp4",
-     "start": 0,
-     "dur": 180,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_0270",
-     "a": 0.0,
-     "b": 6.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 2093
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6581_3.00_8.00.mp4",
+     "file": "santhal/IMG_6589_6.00_8.00.mp4",
      "start": 15,
-     "dur": 150,
+     "dur": 60,
      "tr": [
       "cut",
       0
      ],
-     "vol": 0.8,
+     "vol": 0,
      "text": [],
-     "src": "IMG_6581",
-     "a": 3.0,
+     "src": "IMG_6589",
+     "a": 6.0,
      "b": 8.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2273
+     "from": 1267
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6566_0.00_2.00.mp4",
+     "start": 0,
+     "dur": 60,
+     "tr": [
+      "flash",
+      6
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6566",
+     "a": 0.0,
+     "b": 2.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1321
     },
     {
      "kind": "shot",
@@ -813,8 +776,8 @@
      "start": 0,
      "dur": 198,
      "tr": [
-      "cut",
-      0
+      "dip",
+      14
      ],
      "vol": 1.0,
      "text": [
@@ -830,15 +793,305 @@
      "a": 0.0,
      "b": 6.6,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2423
+     "from": 1367
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6550_6.00_10.00.mp4",
+     "start": 15,
+     "dur": 120,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6550",
+     "a": 6.0,
+     "b": 10.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1565
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6551_0.00_6.00_slow.mp4",
+     "start": 0,
+     "dur": 360,
+     "tr": [
+      "fade",
+      10
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6551",
+     "a": 0.0,
+     "b": 6.0,
+     "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1675
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6543_0.00_5.00.mp4",
+     "start": 0,
+     "dur": 150,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6543",
+     "a": 0.0,
+     "b": 5.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 2035
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6548_136.00_141.00.mp4",
+     "start": 15,
+     "dur": 150,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6548",
+     "a": 136.0,
+     "b": 141.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 2185
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6557_0.00_4.00.mp4",
+     "start": 0,
+     "dur": 120,
+     "tr": [
+      "whip",
+      8
+     ],
+     "vol": 0.8,
+     "text": [],
+     "src": "IMG_6557",
+     "a": 0.0,
+     "b": 4.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 2327
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6597_12.00_16.00.mp4",
+     "start": 15,
+     "dur": 120,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.8,
+     "text": [],
+     "src": "IMG_6597",
+     "a": 12.0,
+     "b": 16.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 2447
+    }
+   ],
+   "beds": [
+    {
+     "file": "santhal/bed_IMG_6589_8.00_28.00.wav",
+     "from_": 710,
+     "dur": 600
+    }
+   ],
+   "dur": 2567
+  },
+  {
+   "key": "03-i-grew-up-watching",
+   "title": "I grew up watching",
+   "items": [
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6588_0.00_2.80.mp4",
+     "start": 0,
+     "dur": 84,
+     "tr": [
+      "dip",
+      16
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6588",
+     "a": 0.0,
+     "b": 2.8,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 0
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6578_10.00_14.60.mp4",
+     "start": 15,
+     "dur": 138,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6578",
+     "a": 10.0,
+     "b": 14.6,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 84
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6560_0.00_5.00.mp4",
+     "start": 0,
+     "dur": 150,
+     "tr": [
+      "fade",
+      10
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6560",
+     "a": 0.0,
+     "b": 5.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 212
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6562_0.00_3.50.mp4",
+     "start": 0,
+     "dur": 105,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6562",
+     "a": 0.0,
+     "b": 3.5,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 362
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6614_8.50_10.50_slow.mp4",
+     "start": 0,
+     "dur": 120,
+     "tr": [
+      "fade",
+      10
+     ],
+     "vol": 0,
+     "text": [],
+     "src": "IMG_6614",
+     "a": 8.5,
+     "b": 10.5,
+     "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 457
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6597_3.00_7.00.mp4",
+     "start": 15,
+     "dur": 120,
+     "tr": [
+      "fade",
+      10
+     ],
+     "vol": 0.6,
+     "text": [],
+     "src": "IMG_6597",
+     "a": 3.0,
+     "b": 7.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 567
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6558_6.00_10.00.mp4",
+     "start": 15,
+     "dur": 120,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.6,
+     "text": [],
+     "src": "IMG_6558",
+     "a": 6.0,
+     "b": 10.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 687
     }
    ],
    "beds": [],
-   "dur": 2621
+   "dur": 807
   },
   {
-   "key": "03-the-elders",
+   "key": "04-the-elders",
    "title": "The Elders",
    "items": [
     {
@@ -856,7 +1109,7 @@
        "type": "chapter",
        "at": 0.4,
        "dur": 3.5,
-       "num": "03",
+       "num": "01",
        "title": "The Elders"
       }
      ],
@@ -864,6 +1117,9 @@
      "a": 0.0,
      "b": 6.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 0
     },
@@ -890,6 +1146,9 @@
      "a": 8.0,
      "b": 56.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [
       {
        "file": "santhal/IMG_6548_168.00_174.00.mp4",
@@ -906,30 +1165,12 @@
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6614_8.50_10.50_slow.mp4",
+     "file": "santhal/IMG_6545_0.00_4.00.mp4",
      "start": 0,
      "dur": 120,
      "tr": [
       "fade",
       10
-     ],
-     "vol": 0,
-     "text": [],
-     "src": "IMG_6614",
-     "a": 8.5,
-     "b": 10.5,
-     "speed": 0.5,
-     "cutaways": [],
-     "from": 1610
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6545_0.00_4.00.mp4",
-     "start": 0,
-     "dur": 120,
-     "tr": [
-      "cut",
-      0
      ],
      "vol": 0.5,
      "text": [],
@@ -937,58 +1178,46 @@
      "a": 0.0,
      "b": 4.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1730
+     "from": 1610
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6588_0.00_2.80.mp4",
-     "start": 0,
-     "dur": 84,
+     "file": "santhal/IMG_6566_2.00_6.00.mp4",
+     "start": 15,
+     "dur": 120,
      "tr": [
       "cut",
       0
      ],
-     "vol": 0.8,
+     "vol": 0.6,
      "text": [],
-     "src": "IMG_6588",
-     "a": 0.0,
-     "b": 2.8,
+     "src": "IMG_6566",
+     "a": 2.0,
+     "b": 6.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1850
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6578_10.00_14.60.mp4",
-     "start": 15,
-     "dur": 138,
-     "tr": [
-      "fade",
-      10
-     ],
-     "vol": 0.8,
-     "text": [],
-     "src": "IMG_6578",
-     "a": 10.0,
-     "b": 14.6,
-     "speed": 1,
-     "cutaways": [],
-     "from": 1924
+     "from": 1730
     }
    ],
    "beds": [],
-   "dur": 2062
+   "dur": 1850
   },
   {
-   "key": "04-the-competition",
+   "key": "05-the-competition",
    "title": "The Competition",
    "items": [
     {
      "kind": "shot",
-     "file": "santhal/IMG_0270_9.00_14.00.mp4",
+     "file": "santhal/IMG_0270_12.00_15.00.mp4",
      "start": 15,
-     "dur": 150,
+     "dur": 90,
      "tr": [
       "dip",
       16
@@ -997,16 +1226,19 @@
      "text": [
       {
        "type": "chapter",
-       "at": 0.4,
+       "at": 0.3,
        "dur": 3.5,
-       "num": "04",
+       "num": "02",
        "title": "The Competition"
       }
      ],
      "src": "IMG_0270",
-     "a": 9.0,
-     "b": 14.0,
+     "a": 12.0,
+     "b": 15.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 0
     },
@@ -1025,32 +1257,17 @@
      "a": 10.0,
      "b": 14.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 150
+     "from": 90
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6553_10.00_13.00.mp4",
-     "start": 15,
-     "dur": 90,
-     "tr": [
-      "cut",
-      0
-     ],
-     "vol": 0.5,
-     "text": [],
-     "src": "IMG_6553",
-     "a": 10.0,
-     "b": 13.0,
-     "speed": 1,
-     "cutaways": [],
-     "from": 270
-    },
-    {
-     "kind": "shot",
-     "file": "santhal/IMG_6554_3.50_6.50.mp4",
-     "start": 15,
-     "dur": 90,
+     "file": "santhal/IMG_6554_0.00_1.40.mp4",
+     "start": 0,
+     "dur": 42,
      "tr": [
       "cut",
       0
@@ -1058,16 +1275,40 @@
      "vol": 0.5,
      "text": [],
      "src": "IMG_6554",
-     "a": 3.5,
-     "b": 6.5,
+     "a": 0.0,
+     "b": 1.4,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 360
+     "from": 210
     },
     {
      "kind": "shot",
-     "file": "santhal/IMG_6589_0.00_4.00.mp4",
-     "start": 0,
+     "file": "santhal/IMG_6552_4.00_6.50.mp4",
+     "start": 15,
+     "dur": 75,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.5,
+     "text": [],
+     "src": "IMG_6552",
+     "a": 4.0,
+     "b": 6.5,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 252
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6597_36.00_40.00.mp4",
+     "start": 15,
      "dur": 120,
      "tr": [
       "whip",
@@ -1075,12 +1316,15 @@
      ],
      "vol": 1.0,
      "text": [],
-     "src": "IMG_6589",
-     "a": 0.0,
-     "b": 4.0,
+     "src": "IMG_6597",
+     "a": 36.0,
+     "b": 40.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 442
+     "from": 319
     },
     {
      "kind": "shot",
@@ -1105,6 +1349,9 @@
      "a": 8.0,
      "b": 48.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [
       {
        "file": "santhal/IMG_6595_0.00_4.70.mp4",
@@ -1122,7 +1369,7 @@
        "dur": 150
       }
      ],
-     "from": 562
+     "from": 439
     },
     {
      "kind": "shot",
@@ -1139,8 +1386,11 @@
      "a": 8.0,
      "b": 12.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1756
+     "from": 1633
     },
     {
      "kind": "shot",
@@ -1157,8 +1407,11 @@
      "a": 0.0,
      "b": 3.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1876
+     "from": 1753
     },
     {
      "kind": "shot",
@@ -1175,8 +1428,11 @@
      "a": 2.0,
      "b": 6.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 1966
+     "from": 1843
     },
     {
      "kind": "shot",
@@ -1193,8 +1449,11 @@
      "a": 3.0,
      "b": 6.0,
      "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2078
+     "from": 1955
     },
     {
      "kind": "shot",
@@ -1211,8 +1470,11 @@
      "a": 2.0,
      "b": 5.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2258
+     "from": 2135
     },
     {
      "kind": "shot",
@@ -1229,8 +1491,11 @@
      "a": 0.0,
      "b": 3.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2340
+     "from": 2217
     },
     {
      "kind": "shot",
@@ -1247,8 +1512,11 @@
      "a": 14.0,
      "b": 18.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2430
+     "from": 2307
     },
     {
      "kind": "shot",
@@ -1265,8 +1533,11 @@
      "a": 0.0,
      "b": 3.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2550
+     "from": 2427
     },
     {
      "kind": "shot",
@@ -1283,8 +1554,11 @@
      "a": 4.0,
      "b": 8.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2640
+     "from": 2517
     },
     {
      "kind": "shot",
@@ -1301,8 +1575,11 @@
      "a": 1.0,
      "b": 4.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2760
+     "from": 2637
     },
     {
      "kind": "shot",
@@ -1319,26 +1596,29 @@
      "a": 0.0,
      "b": 3.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 2844
+     "from": 2721
     }
    ],
    "beds": [
     {
      "file": "santhal/bed_IMG_6589_4.00_28.00.wav",
-     "from_": 1756,
+     "from_": 1633,
      "dur": 720
     },
     {
-     "file": "santhal/bed_IMG_0271_4.00_24.00.wav",
-     "from_": 2430,
+     "file": "santhal/bed_IMG_6613_0.00_20.00.wav",
+     "from_": 2307,
      "dur": 504
     }
    ],
-   "dur": 2934
+   "dur": 2811
   },
   {
-   "key": "05-i-joined-in",
+   "key": "06-i-joined-in",
    "title": "I Joined In",
    "items": [
     {
@@ -1356,6 +1636,9 @@
      "a": 0.5,
      "b": 3.5,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 0
     },
@@ -1374,7 +1657,7 @@
        "type": "chapter",
        "at": 0.3,
        "dur": 3.5,
-       "num": "05",
+       "num": "03",
        "title": "I Joined In"
       }
      ],
@@ -1382,6 +1665,9 @@
      "a": 6.0,
      "b": 12.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 90
     },
@@ -1400,6 +1686,9 @@
      "a": 3.0,
      "b": 9.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 270
     },
@@ -1418,6 +1707,9 @@
      "a": 0.0,
      "b": 6.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 450
     },
@@ -1436,6 +1728,9 @@
      "a": 0.0,
      "b": 10.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 622
     },
@@ -1454,6 +1749,9 @@
      "a": 8.0,
      "b": 16.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 922
     },
@@ -1472,6 +1770,9 @@
      "a": 12.0,
      "b": 20.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1162
     },
@@ -1490,6 +1791,9 @@
      "a": 15.0,
      "b": 21.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1402
     },
@@ -1508,6 +1812,9 @@
      "a": 10.0,
      "b": 15.6,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1582
     },
@@ -1526,6 +1833,9 @@
      "a": 15.0,
      "b": 19.0,
      "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1740
     },
@@ -1544,6 +1854,9 @@
      "a": 24.0,
      "b": 27.0,
      "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1980
     },
@@ -1562,6 +1875,9 @@
      "a": 2.0,
      "b": 4.8,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 2140
     },
@@ -1580,6 +1896,9 @@
      "a": 0.0,
      "b": 6.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 2209
     },
@@ -1598,6 +1917,9 @@
      "a": 6.0,
      "b": 12.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 2389
     }
@@ -1606,7 +1928,7 @@
    "dur": 2569
   },
   {
-   "key": "06-who-carries-it-forward",
+   "key": "07-who-carries-it-forward",
    "title": "Who Carries It Forward",
    "items": [
     {
@@ -1624,7 +1946,7 @@
        "type": "chapter",
        "at": 0.4,
        "dur": 3.5,
-       "num": "06",
+       "num": "04",
        "title": "Who Carries It Forward"
       }
      ],
@@ -1632,6 +1954,9 @@
      "a": 0.0,
      "b": 5.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 0
     },
@@ -1650,6 +1975,9 @@
      "a": 0.0,
      "b": 3.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 150
     },
@@ -1668,6 +1996,9 @@
      "a": 0.0,
      "b": 3.8,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 240
     },
@@ -1686,6 +2017,9 @@
      "a": 0.0,
      "b": 10.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 342
     },
@@ -1704,6 +2038,9 @@
      "a": 9.0,
      "b": 16.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 642
     },
@@ -1722,6 +2059,9 @@
      "a": 0.0,
      "b": 8.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 852
     },
@@ -1740,6 +2080,9 @@
      "a": 0.0,
      "b": 6.8,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1084
     },
@@ -1766,6 +2109,9 @@
      "a": 2.0,
      "b": 5.0,
      "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "split": {
       "file": "santhal/IMG_6614_4.50_7.50_slow.mp4"
@@ -1787,6 +2133,9 @@
      "a": 0.0,
      "b": 5.0,
      "speed": 0.5,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1458
     },
@@ -1805,15 +2154,81 @@
      "a": 0.0,
      "b": 6.8,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 1758
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6590_0.00_4.00.mp4",
+     "start": 0,
+     "dur": 120,
+     "tr": [
+      "fade",
+      10
+     ],
+     "vol": 0.8,
+     "text": [],
+     "src": "IMG_6590",
+     "a": 0.0,
+     "b": 4.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 1952
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6590_20.00_26.00.mp4",
+     "start": 15,
+     "dur": 180,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.8,
+     "text": [],
+     "src": "IMG_6590",
+     "a": 20.0,
+     "b": 26.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 2072
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_6613_6.00_12.00.mp4",
+     "start": 15,
+     "dur": 180,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.9,
+     "text": [],
+     "src": "IMG_6613",
+     "a": 6.0,
+     "b": 12.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 2252
     }
    ],
    "beds": [],
-   "dur": 1962
+   "dur": 2432
   },
   {
-   "key": "07-ending",
+   "key": "08-ending",
    "title": "Ending",
    "items": [
     {
@@ -1831,6 +2246,9 @@
      "a": 40.0,
      "b": 45.6,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 0
     },
@@ -1849,8 +2267,32 @@
      "a": 0.0,
      "b": 6.8,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
      "from": 168
+    },
+    {
+     "kind": "shot",
+     "file": "santhal/IMG_0283_32.00_38.00.mp4",
+     "start": 15,
+     "dur": 180,
+     "tr": [
+      "cut",
+      0
+     ],
+     "vol": 0.6,
+     "text": [],
+     "src": "IMG_0283",
+     "a": 32.0,
+     "b": 38.0,
+     "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
+     "cutaways": [],
+     "from": 372
     },
     {
      "kind": "black",
@@ -1864,7 +2306,7 @@
        "type": "dedication",
        "at": 0.6,
        "dur": 5.0,
-       "l1": "For the Santhal dancers of Jhapa,",
+       "l1": "For the Santhal dancers of Sharanamati,",
        "l2": "and everyone keeping the drum going."
       }
      ],
@@ -1872,7 +2314,7 @@
       "file": "santhal/hit.wav",
       "vol": 1.0
      },
-     "from": 352
+     "from": 532
     },
     {
      "kind": "shot",
@@ -1896,12 +2338,15 @@
      "a": 5.0,
      "b": 15.0,
      "speed": 1,
+     "zoom": 1.0,
+     "zx": 960,
+     "zy": 540,
      "cutaways": [],
-     "from": 516
+     "from": 696
     }
    ],
    "beds": [],
-   "dur": 816
+   "dur": 996
   }
  ]
 }

@@ -1,7 +1,28 @@
 # THE RHYTHM THAT STAYED: final script, matched to the 11 video files
 
-Your own opening comes first, before File 1: sunrise, tika, jamara and blessings.
 Times are measured from the start of each file. Start each block of voiceover at the time shown.
+
+---
+
+## OPENING · CHAPTER 01 · DASHAIN (your CapCut footage: sunrise, village, jamara, tika, blessings)
+Drafted from your earlier voiceover lines. Check it reads the way you want before recording.
+
+*(Sunrise)*
+Every place in the world has a festival that feels like home.
+For us, in Nepal, it's Dashain.
+
+*(Village)*
+Every Dashain as a child, I went to my mama ghar, my mother's village.
+Sharanamati, in Jhapa, in the plains of eastern Nepal.
+
+*(Jamara)*
+Do you remember what it used to feel like?
+Jamara, growing pale and yellow in a dark corner of the house.
+
+*(Tika and blessings)*
+Cold tika pressed onto your forehead, rice falling into your collar.
+An elder's hand on your head, giving a blessing you were too young to understand.
+And the dakshina, held tight in a small fist.
 
 ---
 

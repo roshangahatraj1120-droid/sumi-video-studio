@@ -1,3 +1,4 @@
+import * as RL from "./reels/Reel";
 import * as SE from "./santhal/Edit";
 import * as HD from "./hiphop/disco";
 import * as HH from "./hiphop/herc";
@@ -707,6 +708,20 @@ export const RemotionRoot: React.FC = () => {
           height={1080}
           defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
         />
+      </Folder>
+      <Folder name="Reels">
+        {Object.entries(RL.REELS).map(([id, d]) => (
+          <Composition
+            key={id}
+            id={`reel-${id}`}
+            component={RL.Reel}
+            durationInFrames={d.frames}
+            fps={30}
+            width={1080}
+            height={1920}
+            defaultProps={{ id }}
+          />
+        ))}
       </Folder>
       <Folder name="Santhal-Edit">
         <Composition

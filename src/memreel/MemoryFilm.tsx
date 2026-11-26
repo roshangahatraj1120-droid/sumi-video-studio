@@ -235,8 +235,6 @@ const Strip: React.FC<{ f: number; pos: number; vel: number }> = ({
     { length: Math.ceil(W / HOLE) + 2 },
     (_, i) => holeOff + i * HOLE,
   );
-  const label = (k: number) =>
-    `◂ ${String(k + 1).padStart(2, "0")}   SAFETY FILM  5063   ${String(k + 2).padStart(2, "0")} ▸`;
   return (
     <AbsoluteFill>
       <svg width={0} height={0} style={{ position: "absolute" }}>
@@ -277,41 +275,6 @@ const Strip: React.FC<{ f: number; pos: number; vel: number }> = ({
             />
           )),
         )}
-        {/* edge code */}
-        {[-1, 0, 1, 2].map((d) => {
-          const k = near + d;
-          const x = W / 2 + k * PITCH - shift - GW / 2;
-          return (
-            <React.Fragment key={d}>
-              <div
-                style={{
-                  position: "absolute",
-                  left: x + 30,
-                  top: 88,
-                  fontFamily: "JetBrains Mono, monospace",
-                  fontSize: 15,
-                  letterSpacing: "0.2em",
-                  color: "rgba(236,150,80,0.7)",
-                }}
-              >
-                {label(k)}
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  left: x + 30,
-                  top: 975,
-                  fontFamily: "JetBrains Mono, monospace",
-                  fontSize: 15,
-                  letterSpacing: "0.2em",
-                  color: "rgba(236,150,80,0.55)",
-                }}
-              >
-                {label(k)}
-              </div>
-            </React.Fragment>
-          );
-        })}
         {/* gates */}
         {[-2, -1, 0, 1, 2].map((d) => {
           const k = near + d;

@@ -1,3 +1,4 @@
+import fs from "fs";
 /**
  * Note: When using the Node.JS APIs, the config file
  * doesn't apply. Instead, pass options directly to the APIs.
@@ -13,6 +14,11 @@ Config.setOverwriteOutput(true);
 Config.setDefaultPremountInSeconds(2);
 
 // Use the pre-installed headless Chromium instead of downloading one
-Config.setBrowserExecutable(
+const BROWSERS = [
+  "/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
   "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
-);
+];
+const browser = BROWSERS.find((b) => fs.existsSync(b));
+if (browser) {
+  Config.setBrowserExecutable(browser);
+}

@@ -1,3 +1,4 @@
+import * as MF from "./memreel/MemoryFilm";
 import * as RL from "./reels/Reel";
 import * as SE from "./santhal/Edit";
 import * as HD from "./hiphop/disco";
@@ -707,6 +708,16 @@ export const RemotionRoot: React.FC = () => {
           width={1920}
           height={1080}
           defaultProps={{ bg: "preview" as "green" | "alpha" | "preview" }}
+        />
+      </Folder>
+      <Folder name="Memory-Film">
+        <Composition
+          id="memory-film"
+          component={MF.MemoryFilm}
+          durationInFrames={MF.MEMORY_TOTAL}
+          fps={30}
+          width={1920}
+          height={1080}
         />
       </Folder>
       <Folder name="Reels">

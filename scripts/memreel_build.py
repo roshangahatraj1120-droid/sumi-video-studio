@@ -13,11 +13,12 @@ PUB = os.path.join(ROOT, "public/memreel")
 FRIENDS = ["m01", "m02", "m03", "m04", "m05", "p01", "p02", "p03", "p04", "p05", "p06", "p07", "p08", "p09", "p10", "p11"]
 FAMILY = ["f05", "f06", "f12", "f01", "f02", "f03", "f04", "f07", "f08", "f09", "f10", "f11", "f13", "f14", "f15", "f16"]
 
-HOLD = 120  # 4 s on every photo
-ADV = 20  # strip advance between photos
-TITLE_HOLD = 75
-FF_START, FF_END = 60, 156  # fast-forward through the reel after the projector flash
-N_FF = 26
+HOLD = 72  # 2.4 s on every photo (about 3 s per photo with the strip move, like the reference)
+ADV = 16  # strip zips 3 frames along (each photo is printed 3 times, as in the reference)
+COPIES = 3
+FF_START, FF_END = 56, 128  # fast-forward through the reel after the projector flash
+N_FF = 30
+REF_CUT = 60  # the reference projector clip plays until this frame, hidden under the white flash
 
 
 def size(pid):
@@ -28,65 +29,57 @@ def size(pid):
 def build():
     rnd = random.Random(7)
     ff = [rnd.choice(FRIENDS + FAMILY) for _ in range(N_FF)]
-    items = [dict(kind="photo", id=p) for p in ff]
-    title_friends = len(items)
-    items.append(dict(kind="title", text="Friends", sub="PART ONE"))
-    for p in FRIENDS:
-        items.append(dict(kind="photo", id=p))
-    title_family = len(items)
-    items.append(dict(kind="title", text="Family", sub="PART TWO"))
-    for p in FAMILY:
-        items.append(dict(kind="photo", id=p))
+    items = [dict(kind="photo", id=p, g=-1) for p in ff]
+    groups = []
+    for gi, p in enumerate(FRIENDS + FAMILY):
+        start = len(items)
+        items += [dict(kind="photo", id=p, g=gi) for _ in range(COPIES)]
+        groups.append(start + COPIES // 2)  # the middle copy sits in the gate
     leader = len(items)
-    items += [dict(kind="leader")] * 3
+    items += [dict(kind="leader", g=-2)] * 4
+    sizes = {}
     for it in items:
         if it["kind"] == "photo":
-            it["w"], it["h"] = size(it["id"])
+            sizes.setdefault(it["id"], size(it["id"]))
+            it["w"], it["h"] = sizes[it["id"]]
 
-    keys = [[0, 0.0, "hold"], [FF_START, 0.0, "hold"], [FF_END, float(title_friends), "ff"]]
-    advances, stutters, flares, leaks = [], [], [[38, 84, 1.0]], []
-    t = FF_END + TITLE_HOLD
-    idx = title_friends
-    holds = [[FF_END, t, idx]]
+    keys = [[0, 0.0, "hold"], [FF_START, 0.0, "hold"], [FF_END, float(groups[0]), "ff"]]
+    advances, stutters, flares = [], [], [[50, 74, 1.0]]
+    holds = []
+    t = FF_END
+    pos = groups[0]
 
-    def advance(n_frames, kind="adv"):
-        nonlocal t, idx
-        keys.append([t, float(idx), "hold"])
-        keys.append([t + n_frames, float(idx + 1), kind])
-        advances.append([t, t + n_frames, idx + 1])
+    def move_to(target, n_frames):
+        nonlocal t, pos
+        keys.append([t, float(pos), "hold"])
+        keys.append([t + n_frames, float(target), "adv"])
+        advances.append([t, t + n_frames, target])
         t += n_frames
-        idx += 1
+        pos = target
 
-    for k in range(len(FRIENDS)):
-        advance(ADV)
-        if k == 8:
-            stutters.append(advances[-1][0])
-        holds.append([t, t + HOLD, idx])
-        t += HOLD
-    # into the family part through a big flare (like the reference's midpoint)
-    advance(28)
-    flares.append([t - 22, t + 14, 0.9])
-    holds.append([t, t + TITLE_HOLD, idx])
-    t += TITLE_HOLD
-    for k in range(len(FAMILY)):
-        advance(ADV)
-        if k == 8:
-            stutters.append(advances[-1][0])
-        holds.append([t, t + HOLD, idx])
+    nf = len(FRIENDS)
+    for gi, mid in enumerate(groups):
+        if gi > 0:
+            if gi == nf:  # friends → family through a big light flare
+                move_to(mid, 26)
+                flares.append([t - 22, t + 12, 0.9])
+            else:
+                move_to(mid, ADV)
+            if gi in (7, nf + 8):
+                stutters.append(advances[-1][0])
+        holds.append([t, t + HOLD, gi])
         t += HOLD
     # run out onto the white leader, light floods, projector stops
-    advance(24)
-    keys.append([t + 70, idx + 0.25, "drift"])
-    end_white = [t + 10, t + 60]
-    total = t + 100
-    for i, (a, b, j) in enumerate(advances):
-        leaks.append([a, b, ["red", "pink", "magenta", "amber"][i % 4]])
+    move_to(leader + 1, 22)
+    keys.append([t + 60, leader + 1.3, "drift"])
+    end_white = [t + 6, t + 50]
+    total = t + 84
+    leaks = [[a, b, ["pink", "red", "magenta", "pink", "amber"][i % 5]] for i, (a, b, _) in enumerate(advances)]
     data = dict(fps=FPS, total=total, items=items, keys=keys, advances=advances, holds=holds, stutters=stutters,
-                flares=flares, leaks=leaks, ff=[FF_START, FF_END], endWhite=end_white,
-                titles=[title_friends, title_family], leader=leader)
+                flares=flares, leaks=leaks, ff=[FF_START, FF_END], endWhite=end_white, refCut=REF_CUT, leader=leader)
     os.makedirs(os.path.join(ROOT, "src/memreel"), exist_ok=True)
     json.dump(data, open(os.path.join(ROOT, "src/memreel/timeline.json"), "w"), indent=1)
-    print(f"total {total} frames = {total / FPS:.1f}s, {len(items)} strip items")
+    print(f"total {total} frames = {total / FPS:.1f}s, {len(items)} strip items, {len(holds)} photos")
     return data
 
 
@@ -114,11 +107,10 @@ def synth(d):
     T = np.arange(d["total"] + 15)
     rate = np.full(len(T), 24.0)
     level = np.full(len(T), 0.035)  # quiet under the photos
-    rate[:6] = 0
-    level[:6] = 0
-    spin = (T >= 6) & (T < 30)
-    rate[spin] = 4 + (T[spin] - 6) / 24 * 20
-    level[(T >= 6) & (T < d["ff"][0])] = 0.32
+    rc = d["refCut"]
+    rate[:rc - 8] = 0
+    level[:rc - 8] = 0
+    level[(T >= rc - 8) & (T < d["ff"][0])] = 0.3
     a, b = d["ff"]
     m = (T >= a) & (T < b)
     rate[m] = 24 + 22 * (1 - (T[m] - a) / (b - a)) ** 2
@@ -164,7 +156,6 @@ def synth(d):
         out[i:j] += sig[: j - i] * gain
 
     clunk = bandnoise(int(0.25 * SR), 40, 600, rng) * np.exp(-np.linspace(0, 9, int(0.25 * SR)))
-    place(clunk, 5, 0.8)
     for fa, fb, s in d["flares"]:
         ln = int(fr(fb - fa) * SR)
         sw = bandnoise(ln, 400, 9000, rng) * np.sin(np.linspace(0, np.pi, ln)) ** 2
@@ -174,6 +165,16 @@ def synth(d):
     for s in d["stutters"]:
         for o in (0, 3, 7):
             place(thock, s + o, 0.5)
+    # the reference's own projector sound under its clip, fading out into ours
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", os.path.join(PUB, "projector_ref.wav"), "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    ref = np.frombuffer(raw, np.float32).astype(float)
+    ref = ref[: int(fr(rc + 6) * SR)]
+    fade = np.ones(len(ref))
+    k0 = int(fr(rc - 8) * SR)
+    fade[k0:] = np.linspace(1, 0, len(ref) - k0)
+    ref = ref * fade / (np.abs(ref).max() + 1e-9) * 0.75
+    out[: len(ref)] += ref
     out = np.tanh(out * 1.4) / 1.4
     out *= 0.89 / (np.abs(out).max() + 1e-9)
     st = np.stack([out, np.roll(out, 24)], 1)

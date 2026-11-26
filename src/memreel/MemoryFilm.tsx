@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Audio,
   Img,
+  OffthreadVideo,
   interpolate,
   random,
   staticFile,
@@ -34,6 +35,7 @@ type Item = {
   h?: number;
   text?: string;
   sub?: string;
+  g?: number;
 };
 type Data = {
   total: number;
@@ -46,6 +48,7 @@ type Data = {
   leaks: [number, number, string][];
   ff: [number, number];
   endWhite: [number, number];
+  refCut: number;
 };
 const D = TL as unknown as Data;
 export const MEMORY_TOTAL = D.total;
@@ -86,11 +89,10 @@ const GRADE =
 // ---------------------------------------------------------------- strip content
 const Gate: React.FC<{
   it: Item;
-  idx: number;
   f: number;
   current: boolean;
-}> = ({ it, idx, f, current }) => {
-  const hold = D.holds.find((h) => h[2] === idx);
+}> = ({ it, f, current }) => {
+  const hold = D.holds.find((h) => h[2] === it.g);
   let p = 0;
   if (hold) p = interpolate(f, [hold[0], hold[1]], [0, 1], clamp);
   const inner: React.ReactNode =
@@ -192,7 +194,7 @@ const Gate: React.FC<{
         borderRadius: 16,
         overflow: "hidden",
         background: "#120b08",
-        filter: current ? undefined : "brightness(0.8)",
+        filter: current ? undefined : "brightness(0.9)",
       }}
     >
       {inner}
@@ -268,8 +270,8 @@ const Strip: React.FC<{ f: number; pos: number; vel: number }> = ({
                 height: 32,
                 borderRadius: 6,
                 background:
-                  "radial-gradient(ellipse at 50% 45%, #ffd2a1 0%, #f09a52 55%, #b4582a 100%)",
-                boxShadow: "0 0 10px rgba(240,140,70,0.55)",
+                  "radial-gradient(ellipse at 50% 45%, #f2b98a 0%, #c9773f 60%, #8a4524 100%)",
+                boxShadow: "0 0 6px rgba(220,120,60,0.35)",
                 opacity: 0.9,
               }}
             />
@@ -321,7 +323,6 @@ const Strip: React.FC<{ f: number; pos: number; vel: number }> = ({
             <div key={k} style={{ position: "absolute", left: x, top: GY }}>
               <Gate
                 it={it}
-                idx={k}
                 f={f}
                 current={d === 0 && Math.abs(pos - k) < 0.5}
               />
@@ -329,197 +330,6 @@ const Strip: React.FC<{ f: number; pos: number; vel: number }> = ({
           );
         })}
       </AbsoluteFill>
-    </AbsoluteFill>
-  );
-};
-
-// ---------------------------------------------------------------- projector intro (0–84)
-const SHAFTS: [number, number, number][] = [
-  [8, 15, 0.08],
-  [19, 30, 0.12],
-  [36, 41, 0.06],
-  [47, 60, 0.1],
-  [66, 72, 0.07],
-  [78, 92, 0.11],
-  [99, 104, 0.05],
-  [110, 124, 0.09],
-  [131, 140, 0.07],
-];
-const Projector: React.FC<{ f: number }> = ({ f }) => {
-  const on = f >= 5;
-  const warm = interpolate(f, [5, 16], [0.25, 1], clamp);
-  const shutter = 1 + 0.07 * Math.sin(f * Math.PI); // 24-ish fps flicker
-  const lamp = on ? warm * shutter * (0.92 + 0.08 * random(`l${f}`)) : 0.04;
-  const L = { x: 1290, y: 540 };
-  const rays = (f * 0.6) % 360;
-  return (
-    <AbsoluteFill style={{ background: "#070504" }}>
-      <AbsoluteFill
-        style={{
-          background: `radial-gradient(ellipse 900px 700px at ${L.x}px ${L.y}px, rgba(90,60,40,${0.25 * lamp}) 0%, rgba(0,0,0,0) 70%)`,
-        }}
-      />
-      {/* projector body */}
-      <div
-        style={{
-          position: "absolute",
-          left: 1180,
-          top: 330,
-          width: 560,
-          height: 430,
-          borderRadius: 60,
-          background: "linear-gradient(160deg,#1c1510,#0c0907)",
-          boxShadow: "inset 0 0 40px rgba(0,0,0,0.8)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          left: 1460,
-          top: 250,
-          width: 210,
-          height: 210,
-          borderRadius: 105,
-          border: "10px solid #120d0a",
-          background: "#0c0907",
-        }}
-      />
-      {[0, 1, 2].map((i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            left: 1600 + i * 26,
-            top: 700,
-            width: 8,
-            height: 8,
-            borderRadius: 4,
-            background: "#ff9a3c",
-            opacity: on ? 0.5 + 0.5 * random(`d${i}${Math.floor(f / 6)}`) : 0.1,
-            boxShadow: "0 0 10px #ff8a2a",
-          }}
-        />
-      ))}
-      {/* the beam toward the camera: soft cone (blurred after clipping, so its edges stay soft) */}
-      <div style={{ position: "absolute", inset: 0, filter: "blur(38px)" }}>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `radial-gradient(ellipse 1500px 900px at ${L.x}px ${L.y}px, rgba(255,240,214,${0.6 * lamp}) 0%, rgba(255,226,190,${0.24 * lamp}) 38%, rgba(0,0,0,0) 72%)`,
-            clipPath: `polygon(${L.x + 40}px ${L.y - 80}px, ${L.x + 40}px ${L.y + 80}px, -200px 1300px, -200px -220px)`,
-          }}
-        />
-      </div>
-      {/* uneven light shafts */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          filter: "blur(22px)",
-          mixBlendMode: "screen",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `conic-gradient(from ${200 + rays * 0.15}deg at ${L.x}px ${L.y}px, ${SHAFTS.map(([a, b, o]) => `rgba(0,0,0,0) ${a}deg, rgba(255,236,206,${o * lamp}) ${(a + b) / 2}deg, rgba(0,0,0,0) ${b}deg`).join(", ")})`,
-            clipPath: `polygon(${L.x}px ${L.y}px, -200px 1300px, -200px -220px)`,
-          }}
-        />
-      </div>
-      {/* drifting smoke in the beam */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          filter: "blur(16px)",
-          mixBlendMode: "screen",
-          opacity: 0.55 * lamp,
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            clipPath: `polygon(${L.x}px ${L.y}px, -200px 1300px, -200px -220px)`,
-            overflow: "hidden",
-          }}
-        >
-          <Img
-            src={staticFile("memreel/grain3.jpg")}
-            style={{
-              position: "absolute",
-              left: -300 + f * 2.2,
-              top: -100,
-              width: 2600,
-              height: 1400,
-              opacity: 0.5,
-              filter: "contrast(1.8) brightness(0.9)",
-            }}
-          />
-        </div>
-      </div>
-      {/* dust floating in the beam */}
-      {Array.from({ length: 90 }).map((_, i) => {
-        const x = (random(`x${i}`) * 1400 + f * (0.6 + random(`v${i}`))) % 1400;
-        const y = 140 + random(`y${i}`) * 800 + Math.sin(f / 20 + i) * 8;
-        const inBeam = Math.abs(y - L.y) < (L.x - x) * 0.42;
-        const s = 2 + random(`s${i}`) * 4;
-        return (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              left: x,
-              top: y,
-              width: s,
-              height: s,
-              borderRadius: s,
-              background: "#fff4e2",
-              opacity: inBeam ? 0.35 * lamp : 0.04,
-              filter: "blur(0.6px)",
-            }}
-          />
-        );
-      })}
-      {/* lens */}
-      <div
-        style={{
-          position: "absolute",
-          left: L.x - 95,
-          top: L.y - 95,
-          width: 190,
-          height: 190,
-          borderRadius: 95,
-          background: `radial-gradient(circle, rgba(255,255,250,${lamp}) 0%, rgba(255,236,200,${0.9 * lamp}) 28%, rgba(240,170,110,${0.35 * lamp}) 55%, rgba(30,20,14,1) 72%)`,
-          boxShadow: `0 0 ${120 * lamp}px rgba(255,220,170,${0.8 * lamp})`,
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          left: L.x - 120,
-          top: L.y - 120,
-          width: 240,
-          height: 240,
-          borderRadius: 120,
-          border: "3px solid rgba(255,230,200,0.12)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          left: L.x - 260,
-          top: L.y - 4,
-          width: 520,
-          height: 8,
-          borderRadius: 4,
-          background: `rgba(255,220,180,${0.35 * lamp})`,
-          filter: "blur(4px)",
-        }}
-      />
     </AbsoluteFill>
   );
 };
@@ -697,11 +507,13 @@ export const MemoryFilm: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: "#000" }}>
       {f >= D.ff[0] ? <Strip f={f} pos={pos} vel={vel} /> : null}
-      {f < 70 ? (
-        <AbsoluteFill
-          style={{ opacity: interpolate(f, [60, 70], [1, 0], clamp) }}
-        >
-          <Projector f={f} />
+      {f < D.refCut ? (
+        <AbsoluteFill>
+          <OffthreadVideo
+            src={staticFile("memreel/projector_ref.mp4")}
+            muted
+            style={{ width: W, height: H }}
+          />
         </AbsoluteFill>
       ) : null}
       <Overlays f={f} />
